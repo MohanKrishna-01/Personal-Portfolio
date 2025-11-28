@@ -9,16 +9,18 @@ const Experience = () => {
       type: "Virtual Internship",
       date: "May-June 2024",
       description:
-        "Gained hands-on experience in data science methodologies, Python programming, Exploratory Data Analysis (EDA), statistics, machine learning, Natural Language Processing (NLP), and model deployment.",
-      skills: ["Python", "Machine Learning", "NLP", "Statistics", "EDA"]
+        "Gained hands-on experience in data science, covered Python, data wrangling, EDA, statistics, machine learning, deep learning, NLP, big data, and model deployment. Includes hands-on projects, real-world applications, and cloud computing concepts.",
+      skills: ["Python", "Machine Learning", "Deep Learning", "NLP", "Big Data", "Cloud Computing"],
+      link: "#" // Add actual link here
     },
     {
       title: "Data Analysis Using Python",
       type: "APSSDC Program",
-      date: "April-July 2025",
+      date: "April-July 2024",
       description:
-        "Developed practical skills in comprehensive data analysis, including data cleaning, transformation, manipulation, and visualization techniques using Python.",
-      skills: ["Python", "Data Cleaning", "Data Visualization", "Pandas", "NumPy"]
+        "The internship aimed to equip me with practical skills in data analysis using Python, focusing on data cleaning, transformation, and visualization techniques.",
+      skills: ["Python", "Data Cleaning", "Data Visualization", "Data Transformation"],
+      link: "#" // Add actual link here
     }
   ];
 
@@ -26,18 +28,18 @@ const Experience = () => {
     {
       title: "Food Calorie Prediction",
       description:
-        "Developed an ML-based system for precise food calorie prediction. Leveraged deep learning techniques for image recognition, integrated volume estimation methods, and utilized comprehensive nutritional databases to provide accurate calorie counts.",
-      technologies: ["Deep Learning", "Machine Learning", "Python", "Computer Vision"],
-      link: "#",
-      highlights: ["Image Recognition", "Nutritional Analysis", "Real-time Prediction"]
+        "Developed and evaluated a machine-learning based food calorie prediction system, utilizing user inputs deep learning for recognition and segmentation, volume estimation, and nutritional databases, aiming to improve prediction reliability and user accessibility in dietary tracking.",
+      technologies: ["Deep Learning", "Machine Learning", "Python", "Computer Vision", "Image Segmentation"],
+      link: "#", // Add actual project link
+      highlights: ["Deep Learning Recognition", "Volume Estimation", "Nutritional Databases", "User Accessibility"]
     },
     {
       title: "Portfolio Dashboard [EXCEL]",
       description:
-        "Created an interactive dashboard using Microsoft Excel to analyze call center data. Utilized advanced pivot tables and charts to visualize key performance metrics, allowing for quick insights and decision-making.",
-      technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization", "KPI Analysis"],
-      link: "#",
-      highlights: ["Interactive Charts", "Performance Metrics", "Business Intelligence"]
+        "Designed and developed an interactive Excel dashboard to analyze call center data and visualize performance metrics like call trends, number of callers, reviews, average ratings, call duration and customer satisfaction by using pivot tables.",
+      technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization", "Data Analysis"],
+      link: "#", // Add actual project link
+      highlights: ["Call Trends Analysis", "Customer Satisfaction", "Performance Metrics", "Interactive Dashboard"]
     }
   ];
 
@@ -82,7 +84,7 @@ const Experience = () => {
                     {exp.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-3">
                     {exp.skills.map((skill) => (
                       <span
                         key={skill}
@@ -92,6 +94,17 @@ const Experience = () => {
                       </span>
                     ))}
                   </div>
+                  
+                  {exp.link && (
+                    <a 
+                      href={exp.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-xs text-accent hover:underline flex items-center gap-1"
+                    >
+                      Try It Here <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
                 </Card>
               ))}
             </div>
