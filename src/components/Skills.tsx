@@ -6,26 +6,26 @@ const Skills = () => {
     {
       icon: Code2,
       title: "Programming Languages",
-      skills: ["Python", "Java", "SQL", "HTML", "CSS"],
+      skills: ["Python", "Java"],
       color: "text-blue-500"
     },
     {
       icon: Database,
-      title: "Data Analysis & Tools",
-      skills: ["Microsoft Excel", "Power BI Desktop", "Data Analysis"],
+      title: "Technologies & Database",
+      skills: ["Data Analysis Using Python", "SQL"],
       color: "text-green-500"
     },
     {
       icon: BarChart3,
-      title: "Visualization",
-      skills: ["Data Visualization", "Dashboard Creation", "Statistical Charts"],
+      title: "Tools & IDEs",
+      skills: ["Power BI Desktop", "Microsoft Excel"],
       color: "text-purple-500"
     },
     {
-      icon: Brain,
-      title: "Machine Learning",
-      skills: ["Deep Learning", "NLP", "Model Deployment", "EDA"],
-      color: "text-accent"
+      icon: Code2,
+      title: "Scripting Languages",
+      skills: ["HTML", "CSS"],
+      color: "text-orange-500"
     }
   ];
 
@@ -81,12 +81,12 @@ const Skills = () => {
             </h3>
             <div className="space-y-4 max-w-3xl mx-auto">
               {[
-                { name: "Python", level: 85 },
-                { name: "Data Analysis", level: 80 },
-                { name: "SQL", level: 75 },
-                { name: "Machine Learning", level: 70 },
-                { name: "Power BI", level: 75 },
-                { name: "Excel", level: 85 }
+                { name: "Python", level: 90 },
+                { name: "Data Analysis", level: 85 },
+                { name: "SQL", level: 80 },
+                { name: "Power BI", level: 85 },
+                { name: "Excel", level: 90 },
+                { name: "Java", level: 75 }
               ].map((skill, index) => (
                 <div key={skill.name} className="animate-slide-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="flex justify-between mb-2">

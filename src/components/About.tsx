@@ -7,18 +7,19 @@ const About = () => {
       degree: "B.Tech. in Computer Science Engineering (DS)",
       institution: "Dadi Institute of Engineering & Technology",
       grade: "CGPA: 7.62/10",
-      year: "Present"
+      year: "Currently in 6th Semester (7th Sem Completed)",
+      detail: "Third-year student"
     },
     {
-      degree: "12th Grade (MPC)",
+      degree: "12th Grade (APBIE) - MPC",
       institution: "Sri Aditya Junior College, Srikakulam",
-      grade: "62%",
+      grade: "Percentage: 62%",
       year: "2020-2022"
     },
     {
       degree: "10th Grade (SSC)",
-      institution: "Z.P. High School, Gara Mandal",
-      grade: "93%",
+      institution: "Z.P. High School, Gara Mandal, Srikakulam",
+      grade: "Percentage: 93%",
       year: "2019-2020"
     }
   ];
@@ -50,11 +51,14 @@ const About = () => {
                   <h3 className="text-2xl font-heading font-semibold mb-4 text-primary">
                     My Journey
                   </h3>
-                  <p className="text-foreground/80 leading-relaxed">
+                  <p className="text-foreground/80 leading-relaxed mb-4">
                     Aspiring Data Science undergraduate seeking an entry-level role to apply my skills in 
                     data analysis, machine learning, and statistics. Skilled in Python, SQL, and data visualization 
-                    tools, with experience working on real-world academic projects. Eager to learn and contribute 
-                    to data-driven decisions.
+                    tools, with experience working on real-world academic projects.
+                  </p>
+                  <p className="text-foreground/80 leading-relaxed">
+                    Eager to learn and contribute to data-driven decisions through innovative analytical solutions 
+                    and cutting-edge machine learning techniques.
                   </p>
                 </Card>
               </div>
@@ -95,9 +99,14 @@ const About = () => {
                       <h4 className="font-heading font-semibold text-lg text-primary group-hover:text-accent transition-smooth">
                         {edu.degree}
                       </h4>
-                      <span className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">
-                        {edu.year}
-                      </span>
+                      <div className="text-right">
+                        <span className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full block mb-1">
+                          {edu.year}
+                        </span>
+                        {edu.detail && (
+                          <span className="text-xs text-muted-foreground">{edu.detail}</span>
+                        )}
+                      </div>
                     </div>
                     <p className="text-foreground/70 text-sm mb-1">{edu.institution}</p>
                     <p className="text-accent font-semibold text-sm">{edu.grade}</p>
