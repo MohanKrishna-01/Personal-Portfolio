@@ -73,7 +73,7 @@ const Hero = () => {
             </Button>
             
             <Button size="lg" variant="outline" className="gap-2 border-accent text-accent hover:bg-accent hover:text-white" asChild>
-              <a href="#" download>
+              <a href="/MK_Resume.pdf" download="Mohan_Krishna_Ambati_Resume.pdf">
                 <Download className="h-5 w-5" />
                 View My Résumé
               </a>
@@ -85,13 +85,13 @@ const Hero = () => {
             variants={itemVariants}
           >
             <Button size="icon" variant="outline" className="rounded-full border-accent hover:bg-accent hover:text-white hover:scale-110 transition-transform" asChild>
-              <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+              <a href="https://www.linkedin.com/in/mohan-krishna-ambati-a41a582b6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
                 <Linkedin className="h-5 w-5" />
               </a>
             </Button>
             
             <Button size="icon" variant="outline" className="rounded-full border-accent hover:bg-accent hover:text-white hover:scale-110 transition-transform" asChild>
-              <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+              <a href="https://github.com/MohanKrishna-01" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                 <Github className="h-5 w-5" />
               </a>
             </Button>
