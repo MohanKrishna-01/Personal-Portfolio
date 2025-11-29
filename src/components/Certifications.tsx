@@ -9,43 +9,50 @@ const Certifications = () => {
       title: "Python for Data Science",
       issuer: "NPTEL",
       date: "Jan - Feb 2025",
-      category: "Programming"
+      category: "Programming",
+      link: "https://archive.nptel.ac.in/noc/Ecertificate/?q=YOUR_CERTIFICATE_ID" // Replace with your certificate link
     },
     {
       title: "Power BI Essential Training",
       issuer: "LinkedIn Learning",
       date: "March 2025",
-      category: "Visualization"
+      category: "Visualization",
+      link: "https://www.linkedin.com/learning/certificates/YOUR_CERT_ID" // Replace with your certificate link
     },
     {
       title: "Responsive Web Design",
       issuer: "freeCodeCamp",
       date: "June 2025",
-      category: "Web Development"
+      category: "Web Development",
+      link: "https://www.freecodecamp.org/certification/YOUR_USERNAME/responsive-web-design" // Replace with your certificate link
     },
     {
       title: "Data Analytics Job Simulation",
       issuer: "Deloitte",
       date: "July 2025",
-      category: "Analytics"
+      category: "Analytics",
+      link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/YOUR_CERT_ID.pdf" // Replace with your certificate link
     },
     {
       title: "Power BI Master Class",
       issuer: "Udemy",
       date: "August 2025",
-      category: "Visualization"
+      category: "Visualization",
+      link: "https://www.udemy.com/certificate/YOUR_CERT_ID/" // Replace with your certificate link
     },
     {
       title: "Data Visualisation in Tata",
       issuer: "Forage",
       date: "July 2025",
-      category: "Visualization"
+      category: "Visualization",
+      link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/YOUR_CERT_ID.pdf" // Replace with your certificate link
     },
     {
       title: "Gen AI Powered Data Analytics",
       issuer: "Tata",
       date: "July 2025",
-      category: "AI/ML"
+      category: "AI/ML",
+      link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/YOUR_CERT_ID.pdf" // Replace with your certificate link
     }
   ];
 
@@ -86,7 +93,10 @@ const Certifications = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="p-6 shadow-lg hover:shadow-accent transition-all group h-full relative overflow-hidden">
+                <Card 
+                  className="p-6 shadow-lg hover:shadow-accent transition-all group h-full relative overflow-hidden cursor-pointer"
+                  onClick={() => window.open(cert.link, '_blank')}
+                >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform" />
                   
                   <div className="relative z-10">
@@ -102,8 +112,9 @@ const Certifications = () => {
                       </Badge>
                     </div>
 
-                    <h3 className="text-lg font-heading font-semibold text-primary mb-2 group-hover:text-accent transition-colors">
+                    <h3 className="text-lg font-heading font-semibold text-primary mb-2 group-hover:text-accent transition-colors flex items-center gap-2">
                       {cert.title}
+                      <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </h3>
                     
                     <p className="text-sm font-medium text-accent mb-1">

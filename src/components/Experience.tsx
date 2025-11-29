@@ -11,7 +11,7 @@ const Experience = () => {
       description:
         "Gained hands-on experience in data science, covered Python, data wrangling, EDA, statistics, machine learning, deep learning, NLP, big data, and model deployment. Includes hands-on projects, real-world applications, and cloud computing concepts.",
       skills: ["Python", "Machine Learning", "Deep Learning", "NLP", "Big Data", "Cloud Computing"],
-      link: "#" // Add actual link here
+      link: "https://drive.google.com/file/d/YOUR_CERTIFICATE_ID/view" // Replace with your certificate link
     },
     {
       title: "Data Analysis Using Python",
@@ -20,7 +20,7 @@ const Experience = () => {
       description:
         "The internship aimed to equip me with practical skills in data analysis using Python, focusing on data cleaning, transformation, and visualization techniques.",
       skills: ["Python", "Data Cleaning", "Data Visualization", "Data Transformation"],
-      link: "#" // Add actual link here
+      link: "https://drive.google.com/file/d/YOUR_CERTIFICATE_ID/view" // Replace with your certificate link
     }
   ];
 
@@ -30,7 +30,7 @@ const Experience = () => {
       description:
         "Developed and evaluated a machine-learning based food calorie prediction system, utilizing user inputs deep learning for recognition and segmentation, volume estimation, and nutritional databases, aiming to improve prediction reliability and user accessibility in dietary tracking.",
       technologies: ["Deep Learning", "Machine Learning", "Python", "Computer Vision", "Image Segmentation"],
-      link: "#", // Add actual project link
+      link: "https://github.com/MohanKrishna-01/food-calorie-prediction", // Replace with your GitHub project link
       highlights: ["Deep Learning Recognition", "Volume Estimation", "Nutritional Databases", "User Accessibility"]
     },
     {
@@ -38,7 +38,7 @@ const Experience = () => {
       description:
         "Designed and developed an interactive Excel dashboard to analyze call center data and visualize performance metrics like call trends, number of callers, reviews, average ratings, call duration and customer satisfaction by using pivot tables.",
       technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization", "Data Analysis"],
-      link: "#", // Add actual project link
+      link: "https://github.com/MohanKrishna-01/excel-portfolio-dashboard", // Replace with your Google Drive or GitHub link
       highlights: ["Call Trends Analysis", "Customer Satisfaction", "Performance Metrics", "Interactive Dashboard"]
     }
   ];
