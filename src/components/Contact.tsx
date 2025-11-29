@@ -30,13 +30,13 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      link: "https://linkedin.com",
+      link: "https://www.linkedin.com/in/mohan-krishna-ambati-a41a582b6",
       color: "hover:text-blue-600"
     },
     {
       icon: Github,
       label: "GitHub",
-      link: "https://github.com",
+      link: "https://github.com/MohanKrishna-01",
       color: "hover:text-gray-900"
     }
   ];
