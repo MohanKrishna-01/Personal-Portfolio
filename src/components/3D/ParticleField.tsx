@@ -27,11 +27,12 @@ const ParticleField = () => {
     <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
       <PointMaterial
         transparent
-        color="#00d4ff"
-        size={0.05}
+        color="#00e5ff"
+        size={0.08}
         sizeAttenuation={true}
         depthWrite={false}
-        opacity={0.6}
+        opacity={0.8}
+        blending={THREE.AdditiveBlending}
       />
     </Points>
   );

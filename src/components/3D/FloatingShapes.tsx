@@ -41,45 +41,53 @@ export const FloatingShapes = () => {
     <group>
       <Sphere ref={sphere1} args={[1, 32, 32]} position={[-6, 2, -5]}>
         <MeshDistortMaterial
-          color="#00d4ff"
+          color="#00e5ff"
           attach="material"
           distort={0.3}
           speed={2}
           transparent
-          opacity={0.6}
+          opacity={0.75}
+          emissive="#00e5ff"
+          emissiveIntensity={0.5}
         />
       </Sphere>
       
       <Sphere ref={sphere2} args={[0.8, 32, 32]} position={[6, -1, -8]}>
         <MeshDistortMaterial
-          color="#0099ff"
+          color="#00b4ff"
           attach="material"
           distort={0.4}
           speed={1.5}
           transparent
-          opacity={0.5}
+          opacity={0.7}
+          emissive="#00b4ff"
+          emissiveIntensity={0.4}
         />
       </Sphere>
       
       <Torus ref={torus} args={[1.5, 0.4, 16, 100]} position={[4, 3, -10]}>
         <MeshDistortMaterial
-          color="#00ffcc"
+          color="#00ffee"
           attach="material"
           distort={0.2}
           speed={3}
           transparent
-          opacity={0.4}
+          opacity={0.6}
+          emissive="#00ffee"
+          emissiveIntensity={0.6}
         />
       </Torus>
       
       <Box ref={box} args={[1.5, 1.5, 1.5]} position={[-5, -2, -12]}>
         <MeshDistortMaterial
-          color="#0066ff"
+          color="#0088ff"
           attach="material"
           distort={0.25}
           speed={2.5}
           transparent
-          opacity={0.5}
+          opacity={0.65}
+          emissive="#0088ff"
+          emissiveIntensity={0.45}
         />
       </Box>
     </group>
