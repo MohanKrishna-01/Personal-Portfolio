@@ -13,27 +13,32 @@ export const FloatingShapes = () => {
     const t = state.clock.getElapsedTime();
     
     if (sphere1.current) {
-      sphere1.current.position.y = Math.sin(t * 0.5) * 2;
-      sphere1.current.rotation.x = t * 0.3;
-      sphere1.current.rotation.z = t * 0.2;
+      sphere1.current.position.y = Math.sin(t * 0.8) * 3;
+      sphere1.current.position.x = -6 + Math.cos(t * 0.3) * 2;
+      sphere1.current.rotation.x = t * 0.5;
+      sphere1.current.rotation.z = t * 0.4;
     }
     
     if (sphere2.current) {
-      sphere2.current.position.y = Math.cos(t * 0.7) * 2;
-      sphere2.current.rotation.y = t * 0.4;
+      sphere2.current.position.y = Math.cos(t * 1.2) * 2.5;
+      sphere2.current.position.x = 6 + Math.sin(t * 0.4) * 1.5;
+      sphere2.current.rotation.y = t * 0.6;
+      sphere2.current.rotation.x = t * 0.3;
     }
     
     if (torus.current) {
-      torus.current.position.y = Math.sin(t * 0.6 + 1) * 1.5;
-      torus.current.rotation.x = t * 0.5;
-      torus.current.rotation.y = t * 0.3;
+      torus.current.position.y = Math.sin(t * 1 + 1) * 2;
+      torus.current.position.z = -10 + Math.cos(t * 0.2) * 2;
+      torus.current.rotation.x = t * 0.8;
+      torus.current.rotation.y = t * 0.5;
     }
     
     if (box.current) {
-      box.current.position.y = Math.cos(t * 0.4 + 2) * 2;
-      box.current.rotation.x = t * 0.2;
-      box.current.rotation.y = t * 0.4;
-      box.current.rotation.z = t * 0.1;
+      box.current.position.y = Math.cos(t * 0.7 + 2) * 2.5;
+      box.current.position.z = -12 + Math.sin(t * 0.25) * 2;
+      box.current.rotation.x = t * 0.4;
+      box.current.rotation.y = t * 0.6;
+      box.current.rotation.z = t * 0.2;
     }
   });
 

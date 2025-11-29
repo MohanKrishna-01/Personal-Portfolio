@@ -18,8 +18,14 @@ const ParticleField = () => {
 
   useFrame((state) => {
     if (ref.current) {
-      ref.current.rotation.x = state.clock.getElapsedTime() * 0.05;
-      ref.current.rotation.y = state.clock.getElapsedTime() * 0.08;
+      const time = state.clock.getElapsedTime();
+      ref.current.rotation.x = time * 0.1;
+      ref.current.rotation.y = time * 0.15;
+      ref.current.rotation.z = Math.sin(time * 0.05) * 0.2;
+      
+      // Pulsing effect
+      const scale = 1 + Math.sin(time * 0.5) * 0.1;
+      ref.current.scale.set(scale, scale, scale);
     }
   });
 

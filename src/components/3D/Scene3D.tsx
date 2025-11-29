@@ -13,10 +13,11 @@ const Scene3D = ({ className = "" }: Scene3DProps) => {
     <div className={`fixed inset-0 -z-10 ${className}`}>
       <Canvas style={{ background: '#000000' }}>
         <PerspectiveCamera makeDefault position={[0, 0, 10]} />
-        <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} intensity={1.5} color="#00e5ff" />
-        <pointLight position={[-10, -10, -10]} intensity={1} color="#00d4ff" />
-        <pointLight position={[0, 10, 5]} intensity={0.8} color="#0099ff" />
+        <ambientLight intensity={0.4} />
+        <pointLight position={[10, 10, 10]} intensity={2} color="#00e5ff" />
+        <pointLight position={[-10, -10, -10]} intensity={1.5} color="#00d4ff" />
+        <pointLight position={[0, 10, 5]} intensity={1.2} color="#0099ff" />
+        <spotLight position={[0, 5, 10]} angle={0.5} intensity={1.5} color="#00ffff" />
         
         <Suspense fallback={null}>
           <ParticleField />
@@ -27,7 +28,7 @@ const Scene3D = ({ className = "" }: Scene3DProps) => {
           enableZoom={false}
           enablePan={false}
           autoRotate
-          autoRotateSpeed={0.5}
+          autoRotateSpeed={1.2}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
