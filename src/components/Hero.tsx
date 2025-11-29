@@ -30,7 +30,7 @@ const Hero = () => {
       <Scene3D />
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/70 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/75 z-0" />
 
       {/* Content */}
       <motion.div 
