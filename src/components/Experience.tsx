@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Briefcase, Code, ExternalLink, Calendar } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Experience = () => {
   const experiences = [
@@ -44,41 +45,63 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section id="experience" className="py-20 bg-gradient-to-b from-muted/10 to-background relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-40 right-10 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 animate-fade-in">
-              Experience & Projects
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+              <span className="gradient-text">Experience & Projects</span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-accent mx-auto rounded-full mb-6" />
-          </div>
+            <p className="text-muted-foreground">Building practical solutions through real-world experience</p>
+          </motion.div>
 
           {/* Work Experience */}
           <div className="mb-16">
-            <h3 className="text-3xl font-heading font-semibold mb-8 text-primary flex items-center gap-3">
+            <motion.h3 
+              className="text-3xl font-heading font-semibold mb-8 flex items-center gap-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               <Briefcase className="h-7 w-7 text-accent" />
               Work Experience
-            </h3>
+            </motion.h3>
             <div className="grid md:grid-cols-2 gap-6">
               {experiences.map((exp, index) => (
-                <Card
+                <motion.div
                   key={index}
-                  className="p-6 shadow-lg hover:shadow-accent transition-smooth group animate-scale-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h4 className="text-xl font-heading font-semibold text-primary group-hover:text-accent transition-smooth">
-                        {exp.title}
-                      </h4>
-                      <p className="text-sm text-accent font-medium">{exp.type}</p>
+                  <Card className="p-6 h-full bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border-accent/20 hover:border-accent/50 transition-all group">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h4 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
+                          {exp.title}
+                        </h4>
+                        <p className="text-sm text-accent font-medium">{exp.type}</p>
+                      </div>
+                      <span className="flex items-center gap-1 text-xs text-muted-foreground bg-accent/10 px-3 py-1 rounded-full">
+                        <Calendar className="h-3 w-3" />
+                        {exp.date}
+                      </span>
                     </div>
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground bg-secondary px-3 py-1 rounded-full">
-                      <Calendar className="h-3 w-3" />
-                      {exp.date}
-                    </span>
-                  </div>
                   
                   <p className="text-foreground/70 mb-4 leading-relaxed">
                     {exp.description}
@@ -105,78 +128,90 @@ const Experience = () => {
                       Try It Here <ExternalLink className="h-3 w-3" />
                     </a>
                   )}
-                </Card>
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </div>
 
           {/* Notable Projects */}
           <div>
-            <h3 className="text-3xl font-heading font-semibold mb-8 text-primary flex items-center gap-3">
+            <motion.h3 
+              className="text-3xl font-heading font-semibold mb-8 flex items-center gap-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               <Code className="h-7 w-7 text-accent" />
               Notable Projects
-            </h3>
+            </motion.h3>
             <div className="space-y-6">
               {projects.map((project, index) => (
-                <Card
+                <motion.div
                   key={index}
-                  className="p-8 shadow-lg hover:shadow-accent transition-smooth group animate-fade-in overflow-hidden relative"
-                  style={{ animationDelay: `${index * 0.15}s` }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  whileHover={{ y: -5 }}
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform" />
-                  
-                  <div className="relative z-10">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                      <div className="flex-1">
-                        <h4 className="text-2xl font-heading font-bold text-primary group-hover:text-accent transition-smooth mb-2">
-                          {project.title}
-                        </h4>
-                        <p className="text-foreground/70 leading-relaxed mb-4">
-                          {project.description}
-                        </p>
+                  <Card className="p-8 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border-accent/20 hover:border-accent/50 transition-all group overflow-hidden relative">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform" />
+                    
+                    <div className="relative z-10">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                        <div className="flex-1">
+                          <h4 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors mb-2">
+                            {project.title}
+                          </h4>
+                          <p className="text-foreground/70 leading-relaxed mb-4">
+                            {project.description}
+                          </p>
+                        </div>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-accent/50 text-accent hover:bg-accent hover:text-accent-foreground shrink-0"
+                          asChild
+                        >
+                          <a href={project.link} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-4 w-4 mr-2" />
+                            View Project
+                          </a>
+                        </Button>
                       </div>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="border-accent text-accent hover:bg-accent hover:text-white shrink-0"
-                        asChild
-                      >
-                        <a href={project.link} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          View Project
-                        </a>
-                      </Button>
-                    </div>
 
-                    <div className="mb-4">
-                      <p className="text-sm font-semibold text-primary mb-2">Key Highlights:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.highlights.map((highlight) => (
-                          <span
-                            key={highlight}
-                            className="px-3 py-1 bg-primary/10 text-primary rounded-md text-xs font-medium"
-                          >
-                            {highlight}
-                          </span>
-                        ))}
+                      <div className="mb-4">
+                        <p className="text-sm font-semibold mb-2">Key Highlights:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.highlights.map((highlight) => (
+                            <span
+                              key={highlight}
+                              className="px-3 py-1 bg-primary/10 text-primary rounded-md text-xs font-medium"
+                            >
+                              {highlight}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
 
-                    <div>
-                      <p className="text-sm font-semibold text-primary mb-2">Technologies:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 bg-accent/10 text-accent rounded-md text-xs font-medium"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                      <div>
+                        <p className="text-sm font-semibold mb-2">Technologies:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1 bg-accent/10 text-accent rounded-md text-xs font-medium"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Card>
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </div>
