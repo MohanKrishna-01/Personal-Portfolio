@@ -1,8 +1,9 @@
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, Send, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const contactInfo = [
@@ -42,134 +43,194 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-20 bg-background relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 animate-fade-in">
-              Get In Touch
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+              <span className="highlight-letter">G</span>et <span className="highlight-letter">I</span>n <span className="highlight-letter">T</span>ouch
             </h2>
             <div className="w-20 h-1 bg-gradient-accent mx-auto rounded-full mb-6" />
             <p className="text-foreground/70 max-w-2xl mx-auto">
-              I'm always open to discussing new opportunities, collaborations, or just connecting. Feel free to reach out!
+              I'm always open to discussing new opportunities, collaborations, or just connecting. Let's create something amazing together!
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-5 gap-8">
-            {/* Contact Information */}
-            <div className="md:col-span-2 space-y-6">
-              <Card className="p-8 shadow-lg animate-slide-in">
-                <h3 className="text-2xl font-heading font-semibold mb-6 text-primary">
-                  Contact Information
-                </h3>
-                <div className="space-y-6">
-                  {contactInfo.map((item, index) => (
-                    <div key={item.label} className="flex items-start gap-4 group">
-                      <div className="p-3 rounded-lg bg-accent/10 group-hover:bg-accent transition-smooth">
-                        <item.icon className="h-5 w-5 text-accent group-hover:text-white transition-smooth" />
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Contact Information & Social */}
+            <div className="space-y-6">
+              {/* Contact Cards */}
+              <motion.div 
+                className="space-y-4"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                {contactInfo.map((item, index) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card className="p-6 shadow-lg hover:shadow-accent transition-all group border-border/50 hover:border-accent/50 bg-card/50 backdrop-blur-sm">
+                      <div className="flex items-center gap-4">
+                        <div className="p-3 rounded-xl bg-accent/10 group-hover:bg-accent transition-colors">
+                          <item.icon className="h-6 w-6 text-accent group-hover:text-background transition-colors" />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-sm font-medium text-muted-foreground mb-1">{item.label}</p>
+                          {item.link ? (
+                            <a
+                              href={item.link}
+                              className="text-foreground hover:text-accent transition-colors font-medium flex items-center gap-2 group"
+                            >
+                              <span className="text-sm">{item.value}</span>
+                              <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </a>
+                          ) : (
+                            <p className="text-foreground text-sm font-medium">{item.value}</p>
+                          )}
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <p className="text-sm font-semibold text-primary mb-1">{item.label}</p>
-                        {item.link ? (
-                          <a
-                            href={item.link}
-                            className="text-foreground/70 hover:text-accent transition-smooth text-sm"
-                          >
-                            {item.value}
-                          </a>
-                        ) : (
-                          <p className="text-foreground/70 text-sm">{item.value}</p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Card>
+                    </Card>
+                  </motion.div>
+                ))}
+              </motion.div>
 
               {/* Social Links */}
-              <Card className="p-8 shadow-lg animate-slide-in" style={{ animationDelay: "0.1s" }}>
-                <h3 className="text-2xl font-heading font-semibold mb-6 text-primary">
-                  Connect With Me
-                </h3>
-                <div className="flex gap-4">
-                  {socialLinks.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`p-4 rounded-lg bg-secondary hover:bg-accent transition-smooth group ${social.color}`}
-                      aria-label={social.label}
-                    >
-                      <social.icon className="h-6 w-6 text-foreground group-hover:text-white transition-smooth" />
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <Card className="p-6 shadow-lg border-border/50 bg-card/50 backdrop-blur-sm">
+                  <h3 className="text-xl font-heading font-semibold mb-4">
+                    <span className="highlight-letter">C</span>onnect <span className="highlight-letter">W</span>ith <span className="highlight-letter">M</span>e
+                  </h3>
+                  <div className="flex gap-4">
+                    {socialLinks.map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 p-4 rounded-xl bg-accent/10 hover:bg-accent transition-all group border border-accent/20 hover:border-accent/50"
+                        aria-label={social.label}
+                      >
+                        <div className="flex flex-col items-center gap-2">
+                          <social.icon className="h-6 w-6 text-accent group-hover:text-background transition-colors" />
+                          <span className="text-xs font-medium text-foreground/70 group-hover:text-background transition-colors">{social.label}</span>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </Card>
+              </motion.div>
+
+              {/* Resume Download */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <Card className="p-6 shadow-lg border-accent/20 bg-gradient-to-br from-accent/10 to-primary/10 backdrop-blur-sm">
+                  <h3 className="text-lg font-heading font-semibold mb-2">Download Resume</h3>
+                  <p className="text-sm text-foreground/70 mb-4">Get my complete CV with all details about my experience and skills.</p>
+                  <Button className="w-full bg-accent hover:bg-accent/90 text-background" asChild>
+                    <a href="/MK_Resume.pdf" download="Mohan_Krishna_Ambati_Resume.pdf">
+                      Download CV
                     </a>
-                  ))}
-                </div>
-              </Card>
+                  </Button>
+                </Card>
+              </motion.div>
             </div>
 
             {/* Contact Form */}
-            <Card className="md:col-span-3 p-8 shadow-lg animate-scale-in" style={{ animationDelay: "0.2s" }}>
-              <h3 className="text-2xl font-heading font-semibold mb-6 text-primary">
-                Send Me a Message
-              </h3>
-              <form className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Card className="p-8 shadow-lg border-border/50 bg-card/50 backdrop-blur-sm h-full">
+                <h3 className="text-2xl font-heading font-semibold mb-6">
+                  <span className="highlight-letter">S</span>end a <span className="highlight-letter">M</span>essage
+                </h3>
+                <form className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground/80">
+                        Your Name
+                      </label>
+                      <Input
+                        id="name"
+                        placeholder="John Doe"
+                        className="bg-background/50 border-border/50 focus:border-accent"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground/80">
+                        Your Email
+                      </label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="john@example.com"
+                        className="bg-background/50 border-border/50 focus:border-accent"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Your Name
+                    <label htmlFor="subject" className="block text-sm font-medium mb-2 text-foreground/80">
+                      Subject
                     </label>
                     <Input
-                      id="name"
-                      placeholder="John Doe"
-                      className="focus:ring-accent focus:border-accent"
+                      id="subject"
+                      placeholder="Project Collaboration"
+                      className="bg-background/50 border-border/50 focus:border-accent"
                     />
                   </div>
+
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Your Email
+                    <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground/80">
+                      Message
                     </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="john@example.com"
-                      className="focus:ring-accent focus:border-accent"
+                    <Textarea
+                      id="message"
+                      rows={6}
+                      placeholder="Tell me about your project or inquiry..."
+                      className="bg-background/50 border-border/50 focus:border-accent resize-none"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                    Subject
-                  </label>
-                  <Input
-                    id="subject"
-                    placeholder="Project Collaboration"
-                    className="focus:ring-accent focus:border-accent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    rows={6}
-                    placeholder="Tell me about your project or inquiry..."
-                    className="focus:ring-accent focus:border-accent resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full gradient-accent text-white shadow-accent group"
-                >
-                  <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  Send Message
-                </Button>
-              </form>
-            </Card>
+                  <Button
+                    type="submit"
+                    className="w-full bg-accent hover:bg-accent/90 text-background shadow-accent group"
+                  >
+                    <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    Send Message
+                  </Button>
+                </form>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </div>
