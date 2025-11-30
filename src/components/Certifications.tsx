@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Award, ExternalLink } from "lucide-react";
+import { Award, ExternalLink, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Certifications = () => {
@@ -65,8 +65,14 @@ const Certifications = () => {
   };
 
   return (
-    <section id="certifications" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="certifications" className="py-20 bg-background relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-primary rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-accent rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <motion.div 
             className="text-center mb-16"
@@ -76,11 +82,11 @@ const Certifications = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              Certifications & Achievements
+              <span className="highlight-letter">C</span>ertifications & <span className="highlight-letter">A</span>chievements
             </h2>
             <div className="w-20 h-1 bg-gradient-accent mx-auto rounded-full mb-6" />
             <p className="text-foreground/70 max-w-2xl mx-auto">
-              Continuous learning and professional development in data science and analytics
+              Continuous learning and professional development in data science, analytics, and emerging technologies
             </p>
           </motion.div>
 
@@ -94,36 +100,39 @@ const Certifications = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card 
-                  className="p-6 shadow-lg hover:shadow-accent transition-all group h-full relative overflow-hidden cursor-pointer"
+                  className="p-6 shadow-lg hover:shadow-accent transition-all group h-full relative overflow-hidden cursor-pointer border-border/50 hover:border-accent/50 bg-card/50 backdrop-blur-sm"
                   onClick={() => window.open(cert.link, '_blank')}
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform" />
+                  {/* Background glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   
                   <div className="relative z-10">
                     <div className="flex items-start justify-between mb-4">
-                      <div className="p-3 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
-                        <Award className="h-6 w-6 text-accent" />
+                      <div className="p-3 rounded-xl bg-accent/10 group-hover:bg-accent transition-colors">
+                        <Award className="h-6 w-6 text-accent group-hover:text-background transition-colors" />
                       </div>
-                      <Badge 
-                        variant="outline" 
-                        className={`${categoryColors[cert.category]} border`}
-                      >
-                        {cert.category}
-                      </Badge>
+                      <ExternalLink className="h-5 w-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
 
-                    <h3 className="text-lg font-heading font-semibold text-primary mb-2 group-hover:text-accent transition-colors flex items-center gap-2">
+                    <Badge 
+                      variant="outline" 
+                      className={`${categoryColors[cert.category]} border mb-3`}
+                    >
+                      {cert.category}
+                    </Badge>
+
+                    <h3 className="text-lg font-heading font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
                       {cert.title}
-                      <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </h3>
                     
-                    <p className="text-sm font-medium text-accent mb-1">
+                    <p className="text-sm font-semibold text-accent mb-3">
                       {cert.issuer}
                     </p>
                     
-                    <p className="text-xs text-muted-foreground">
-                      {cert.date}
-                    </p>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Calendar className="h-3 w-3" />
+                      <span>{cert.date}</span>
+                    </div>
                   </div>
                 </Card>
               </motion.div>
@@ -138,20 +147,20 @@ const Certifications = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all">
-              <div className="text-3xl font-bold gradient-text mb-2">7+</div>
+            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
+              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">7+</div>
               <div className="text-sm text-muted-foreground">Certifications</div>
             </Card>
-            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all">
-              <div className="text-3xl font-bold gradient-text mb-2">5+</div>
+            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
+              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">5+</div>
               <div className="text-sm text-muted-foreground">Platforms</div>
             </Card>
-            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all">
-              <div className="text-3xl font-bold gradient-text mb-2">4</div>
+            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
+              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">4</div>
               <div className="text-sm text-muted-foreground">Categories</div>
             </Card>
-            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all">
-              <div className="text-3xl font-bold gradient-text mb-2">2025</div>
+            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
+              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">2025</div>
               <div className="text-sm text-muted-foreground">Latest Year</div>
             </Card>
           </motion.div>
