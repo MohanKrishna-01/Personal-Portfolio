@@ -53,7 +53,7 @@ const Skills = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-4">
-            <span className="gradient-text">Skills & Expertise</span>
+            <span className="gradient-text"><span className="highlight-letter">S</span>kills & <span className="highlight-letter">E</span>xpertise</span>
           </h2>
           <p className="text-center text-muted-foreground mb-12">Technical proficiency across multiple domains</p>
         </motion.div>

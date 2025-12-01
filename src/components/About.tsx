@@ -48,7 +48,7 @@ const About = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-4">
-            <span className="gradient-text">About Me</span>
+            <span className="gradient-text"><span className="highlight-letter">A</span>bout <span className="highlight-letter">M</span>e</span>
           </h2>
           <p className="text-center text-muted-foreground mb-12">My journey & background</p>
         </motion.div>
@@ -115,7 +115,9 @@ const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6 text-center">Educational Background</h3>
+            <h3 className="text-2xl font-bold mb-6 text-center">
+              <span className="highlight-letter">E</span>ducational <span className="highlight-letter">B</span>ackground
+            </h3>
             <div className="space-y-4">
               {education.map((edu, index) => (
                 <motion.div

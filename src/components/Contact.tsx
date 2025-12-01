@@ -4,8 +4,63 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+
+// Form validation schema
+const contactFormSchema = z.object({
+  name: z.string().trim().min(2, { message: "Name must be at least 2 characters" }).max(100, { message: "Name must be less than 100 characters" }),
+  email: z.string().trim().email({ message: "Invalid email address" }).max(255, { message: "Email must be less than 255 characters" }),
+  subject: z.string().trim().min(3, { message: "Subject must be at least 3 characters" }).max(200, { message: "Subject must be less than 200 characters" }),
+  message: z.string().trim().min(10, { message: "Message must be at least 10 characters" }).max(1000, { message: "Message must be less than 1000 characters" })
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: ""
+    }
+  });
+
+  const onSubmit = async (data: ContactFormValues) => {
+    try {
+      // Initialize EmailJS with public key
+      emailjs.init("8LKmmKyfwOPw38LjA");
+      
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        subject: data.subject,
+        message: data.message,
+        to_name: "Mohan Krishna Ambati"
+      };
+
+      const result = await emailjs.send(
+        "service_yvs5l2j", // Service ID
+        "template_16fy1wd", // Template ID
+        templateParams
+      );
+
+      if (result.status === 200) {
+        toast.success("Message sent successfully! I'll get back to you soon.");
+        form.reset();
+      }
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      toast.error("Failed to send message. Please try again or contact me directly via email.");
+    }
+  };
+
   const contactInfo = [
     {
       icon: Mail,
@@ -173,62 +228,94 @@ const Contact = () => {
                 <h3 className="text-2xl font-heading font-semibold mb-6">
                   <span className="highlight-letter">S</span>end a <span className="highlight-letter">M</span>essage
                 </h3>
-                <form className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground/80">
-                        Your Name
-                      </label>
-                      <Input
-                        id="name"
-                        placeholder="John Doe"
-                        className="bg-background/50 border-border/50 focus:border-accent"
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-foreground/80">Your Name</FormLabel>
+                            <FormControl>
+                              <Input
+                                placeholder="John Doe"
+                                className="bg-background/50 border-border/50 focus:border-accent"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-foreground/80">Your Email</FormLabel>
+                            <FormControl>
+                              <Input
+                                type="email"
+                                placeholder="john@example.com"
+                                className="bg-background/50 border-border/50 focus:border-accent"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground/80">
-                        Your Email
-                      </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        className="bg-background/50 border-border/50 focus:border-accent"
-                      />
-                    </div>
-                  </div>
 
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-2 text-foreground/80">
-                      Subject
-                    </label>
-                    <Input
-                      id="subject"
-                      placeholder="Project Collaboration"
-                      className="bg-background/50 border-border/50 focus:border-accent"
+                    <FormField
+                      control={form.control}
+                      name="subject"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground/80">Subject</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Project Collaboration"
+                              className="bg-background/50 border-border/50 focus:border-accent"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
 
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground/80">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      rows={6}
-                      placeholder="Tell me about your project or inquiry..."
-                      className="bg-background/50 border-border/50 focus:border-accent resize-none"
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground/80">Message</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              rows={6}
+                              placeholder="Tell me about your project or inquiry..."
+                              className="bg-background/50 border-border/50 focus:border-accent resize-none"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
 
-                  <Button
-                    type="submit"
-                    className="w-full bg-accent hover:bg-accent/90 text-background shadow-accent group"
-                  >
-                    <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    Send Message
-                  </Button>
-                </form>
+                    <Button
+                      type="submit"
+                      className="w-full bg-accent hover:bg-accent/90 text-background shadow-accent group"
+                      disabled={form.formState.isSubmitting}
+                    >
+                      <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </form>
+                </Form>
               </Card>
             </motion.div>
           </div>
