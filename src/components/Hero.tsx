@@ -188,39 +188,20 @@ const Hero = () => {
                 variants={itemVariants}
               >
                 <div className="relative">
-                  {/* Shield Shape Background */}
+                  {/* Circular Photo Container */}
                   <div className="relative w-80 h-80 md:w-96 md:h-96">
-                    <svg viewBox="0 0 200 220" className="w-full h-full absolute inset-0">
-                      <defs>
-                        <linearGradient id="photoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="hsl(var(--accent))" />
-                          <stop offset="100%" stopColor="hsl(var(--primary))" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        d="M100 10 L160 40 L180 100 L160 180 L100 210 L40 180 L20 100 L40 40 Z"
-                        fill="url(#photoGradient)"
-                        opacity="0.9"
-                      />
-                    </svg>
-                    
-                    {/* Photo Container */}
-                    <div className="absolute inset-0 flex items-center justify-center p-8">
-                      <div className="w-full h-full rounded-full border-4 border-background/50 overflow-hidden backdrop-blur-sm bg-card/20 flex items-center justify-center">
-                        <p className="text-accent/50 text-xl font-semibold text-center px-4">Your Photo Here</p>
+                    {/* Outer Ring - Gradient */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent via-primary to-accent p-1 animate-pulse">
+                      <div className="w-full h-full rounded-full bg-background p-4">
+                        {/* Inner Photo Container */}
+                        <div className="w-full h-full rounded-full border-4 border-accent/30 overflow-hidden backdrop-blur-sm bg-card/20 flex items-center justify-center">
+                          <p className="text-accent/50 text-xl font-semibold text-center px-4">Your Photo Here</p>
+                        </div>
                       </div>
                     </div>
                     
-                    {/* Animated Ring */}
-                    <svg viewBox="0 0 200 220" className="w-full h-full absolute inset-0 animate-pulse">
-                      <path
-                        d="M100 10 L160 40 L180 100 L160 180 L100 210 L40 180 L20 100 L40 40 Z"
-                        fill="none"
-                        stroke="hsl(var(--accent))"
-                        strokeWidth="2"
-                        opacity="0.5"
-                      />
-                    </svg>
+                    {/* Animated Rotating Ring */}
+                    <div className="absolute inset-0 rounded-full border-2 border-dashed border-accent/30 animate-spin" style={{ animationDuration: '10s' }} />
                   </div>
                 </div>
               </motion.div>
