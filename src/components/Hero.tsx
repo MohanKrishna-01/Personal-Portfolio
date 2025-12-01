@@ -83,7 +83,7 @@ const Hero = () => {
               <MapPin className="h-5 w-5 text-accent" />
               <div>
                 <p className="text-xs text-muted-foreground">Location</p>
-                <p className="text-sm font-semibold">Vishakapatnam, India</p>
+                <p className="text-sm font-semibold">Vizag, India</p>
               </div>
             </div>
           </Card>
@@ -190,23 +190,26 @@ const Hero = () => {
               >
                 <div className="relative">
                   {/* Circular Photo Container */}
-                  <div className="relative w-80 h-80 md:w-96 md:h-96">
-                    {/* Outer Ring - Gradient */}
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent via-primary to-accent p-1 animate-pulse">
-                      <div className="w-full h-full rounded-full bg-background p-4">
+                  <div className="relative w-80 h-80 md:w-96 md:h-96 group">
+                    {/* Outer Ring - Gradient with glow */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent via-primary to-accent p-1 shadow-2xl shadow-accent/50 group-hover:shadow-accent/70 transition-shadow duration-500">
+                      <div className="w-full h-full rounded-full bg-background p-3">
                         {/* Inner Photo Container */}
-                        <div className="w-full h-full rounded-full border-4 border-accent/30 overflow-hidden backdrop-blur-sm bg-card/20">
+                        <div className="relative w-full h-full rounded-full border-4 border-accent/40 overflow-hidden backdrop-blur-sm">
                           <img 
                             src={profilePhoto} 
                             alt="Mohan Krishna Ambati" 
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700"
                           />
+                          {/* Overlay gradient on hover */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </div>
                       </div>
                     </div>
                     
-                    {/* Animated Rotating Ring */}
-                    <div className="absolute inset-0 rounded-full border-2 border-dashed border-accent/30 animate-spin" style={{ animationDuration: '10s' }} />
+                    {/* Animated Rotating Rings */}
+                    <div className="absolute inset-0 rounded-full border-2 border-dashed border-accent/20 animate-spin" style={{ animationDuration: '15s' }} />
+                    <div className="absolute inset-4 rounded-full border border-dotted border-primary/20 animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }} />
                   </div>
                 </div>
               </motion.div>

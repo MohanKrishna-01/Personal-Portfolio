@@ -61,7 +61,8 @@ const Experience = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 flex items-center justify-center gap-3">
+              <Code className="h-10 w-10 text-accent" />
               <span className="gradient-text">Experience & Projects</span>
             </h2>
             <p className="text-muted-foreground">Building practical solutions through real-world experience</p>
