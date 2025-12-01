@@ -3,6 +3,18 @@ import { Button } from "@/components/ui/button";
 import { Briefcase, Code, ExternalLink, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 
+// Helper function to highlight important words
+const highlightText = (text: string, wordsToHighlight: string[]) => {
+  const parts = text.split(new RegExp(`(${wordsToHighlight.join('|')})`, 'gi'));
+  return parts.map((part, index) => 
+    wordsToHighlight.some(word => word.toLowerCase() === part.toLowerCase()) ? (
+      <span key={index} className="text-accent font-semibold">{part}</span>
+    ) : (
+      part
+    )
+  );
+};
+
 const Experience = () => {
   const experiences = [
     {
@@ -11,6 +23,7 @@ const Experience = () => {
       date: "May-June 2024",
       description:
         "Gained hands-on experience in data science, covered Python, data wrangling, EDA, statistics, machine learning, deep learning, NLP, big data, and model deployment. Includes hands-on projects, real-world applications, and cloud computing concepts.",
+      highlightWords: ["Python", "data science", "machine learning", "deep learning", "NLP", "big data", "model deployment", "cloud computing"],
       skills: ["Python", "Machine Learning", "Deep Learning", "NLP", "Big Data", "Cloud Computing"],
       link: "https://drive.google.com/file/d/YOUR_CERTIFICATE_ID/view" // Replace with your certificate link
     },
@@ -20,6 +33,7 @@ const Experience = () => {
       date: "April-July 2024",
       description:
         "The internship aimed to equip me with practical skills in data analysis using Python, focusing on data cleaning, transformation, and visualization techniques.",
+      highlightWords: ["data analysis", "Python", "data cleaning", "transformation", "visualization"],
       skills: ["Python", "Data Cleaning", "Data Visualization", "Data Transformation"],
       link: "https://drive.google.com/file/d/YOUR_CERTIFICATE_ID/view" // Replace with your certificate link
     }
@@ -30,16 +44,18 @@ const Experience = () => {
       title: "Food Calorie Prediction",
       description:
         "Developed and evaluated a machine-learning based food calorie prediction system, utilizing user inputs deep learning for recognition and segmentation, volume estimation, and nutritional databases, aiming to improve prediction reliability and user accessibility in dietary tracking.",
+      highlightWords: ["machine-learning", "deep learning", "recognition", "segmentation", "volume estimation", "nutritional databases", "prediction reliability"],
       technologies: ["Deep Learning", "Machine Learning", "Python", "Computer Vision", "Image Segmentation"],
-      link: "https://github.com/MohanKrishna-01/food-calorie-prediction", // Replace with your GitHub project link
+      link: "https://github.com/MohanKrishna-01/food-calorie-prediction",
       highlights: ["Deep Learning Recognition", "Volume Estimation", "Nutritional Databases", "User Accessibility"]
     },
     {
       title: "Portfolio Dashboard [EXCEL]",
       description:
         "Designed and developed an interactive Excel dashboard to analyze call center data and visualize performance metrics like call trends, number of callers, reviews, average ratings, call duration and customer satisfaction by using pivot tables.",
+      highlightWords: ["interactive", "Excel dashboard", "performance metrics", "call trends", "customer satisfaction", "pivot tables"],
       technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization", "Data Analysis"],
-      link: "https://github.com/MohanKrishna-01/excel-portfolio-dashboard", // Replace with your Google Drive or GitHub link
+      link: "https://github.com/MohanKrishna-01/excel-portfolio-dashboard",
       highlights: ["Call Trends Analysis", "Customer Satisfaction", "Performance Metrics", "Interactive Dashboard"]
     }
   ];
@@ -105,7 +121,7 @@ const Experience = () => {
                     </div>
                   
                   <p className="text-foreground/70 mb-4 leading-relaxed">
-                    {exp.description}
+                    {highlightText(exp.description, exp.highlightWords)}
                   </p>
                   
                   <div className="flex flex-wrap gap-2 mb-3">
@@ -167,7 +183,7 @@ const Experience = () => {
                             {project.title}
                           </h4>
                           <p className="text-foreground/70 leading-relaxed mb-4">
-                            {project.description}
+                            {highlightText(project.description, project.highlightWords)}
                           </p>
                         </div>
                         <Button
