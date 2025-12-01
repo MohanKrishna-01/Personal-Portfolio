@@ -3,6 +3,7 @@ import { Download, Linkedin, Github, Mail, Phone, MapPin, Code, Database, Brain,
 import { motion } from "framer-motion";
 import Scene3D from "./3D/Scene3D";
 import { Card } from "@/components/ui/card";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const Hero = () => {
   const containerVariants = {
@@ -82,7 +83,7 @@ const Hero = () => {
               <MapPin className="h-5 w-5 text-accent" />
               <div>
                 <p className="text-xs text-muted-foreground">Location</p>
-                <p className="text-sm font-semibold">Hyderabad, India</p>
+                <p className="text-sm font-semibold">Vishakapatnam, India</p>
               </div>
             </div>
           </Card>
@@ -194,8 +195,12 @@ const Hero = () => {
                     <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent via-primary to-accent p-1 animate-pulse">
                       <div className="w-full h-full rounded-full bg-background p-4">
                         {/* Inner Photo Container */}
-                        <div className="w-full h-full rounded-full border-4 border-accent/30 overflow-hidden backdrop-blur-sm bg-card/20 flex items-center justify-center">
-                          <p className="text-accent/50 text-xl font-semibold text-center px-4">Your Photo Here</p>
+                        <div className="w-full h-full rounded-full border-4 border-accent/30 overflow-hidden backdrop-blur-sm bg-card/20">
+                          <img 
+                            src={profilePhoto} 
+                            alt="Mohan Krishna Ambati" 
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                       </div>
                     </div>
