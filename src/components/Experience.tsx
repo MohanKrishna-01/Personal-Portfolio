@@ -144,7 +144,7 @@ const Experience = () => {
               transition={{ duration: 0.5 }}
             >
               <Code className="h-7 w-7 text-accent" />
-              Notable Projects
+              <span className="gradient-text">Notable Projects</span>
             </motion.h3>
             <div className="space-y-6">
               {projects.map((project, index) => (

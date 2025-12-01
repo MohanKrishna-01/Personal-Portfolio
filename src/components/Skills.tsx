@@ -109,7 +109,9 @@ const Skills = () => {
             viewport={{ once: true }}
           >
             <Card className="p-8 bg-gradient-to-br from-card/50 to-accent/5 backdrop-blur-sm border-accent/20">
-              <h3 className="text-2xl font-bold mb-6 text-center">Proficiency Overview</h3>
+              <h3 className="text-2xl font-bold mb-6 text-center">
+                <span className="gradient-text">Proficiency Overview</span>
+              </h3>
               <div className="space-y-4 max-w-3xl mx-auto">
                 {proficiencyLevels.map((skill, index) => (
                   <motion.div

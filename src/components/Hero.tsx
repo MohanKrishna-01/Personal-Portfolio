@@ -58,7 +58,7 @@ const Hero = () => {
               <Phone className="h-5 w-5 text-accent" />
               <div>
                 <p className="text-xs text-muted-foreground">Call</p>
-                <p className="text-sm font-semibold">+91 8019484860</p>
+                <p className="text-sm font-semibold">+91 7032390696</p>
               </div>
             </div>
           </Card>
@@ -70,7 +70,7 @@ const Hero = () => {
               <Mail className="h-5 w-5 text-accent" />
               <div>
                 <p className="text-xs text-muted-foreground">Email</p>
-                <p className="text-sm font-semibold">mohan@email.com</p>
+                <p className="text-sm font-semibold">mohankrishnaambati7@gmail.com</p>
               </div>
             </div>
           </Card>
