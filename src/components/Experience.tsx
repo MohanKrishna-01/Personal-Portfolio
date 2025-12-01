@@ -77,7 +77,7 @@ const Experience = () => {
               transition={{ duration: 0.5 }}
             >
               <Briefcase className="h-7 w-7 text-accent" />
-              Work Experience
+              <span className="gradient-text">Work Experience</span>
             </motion.h3>
             <div className="grid md:grid-cols-2 gap-6">
               {experiences.map((exp, index) => (
