@@ -1,41 +1,31 @@
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Briefcase, Code, ExternalLink, Calendar } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Briefcase, Code, ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
-
-// Helper function to highlight important words
-const highlightText = (text: string, wordsToHighlight: string[]) => {
-  const parts = text.split(new RegExp(`(${wordsToHighlight.join('|')})`, 'gi'));
-  return parts.map((part, index) => 
-    wordsToHighlight.some(word => word.toLowerCase() === part.toLowerCase()) ? (
-      <span key={index} className="text-accent font-semibold">{part}</span>
-    ) : (
-      part
-    )
-  );
-};
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Experience = () => {
   const experiences = [
     {
-      title: "Intern – Data Valley",
-      type: "Virtual Internship",
-      date: "May-June 2024",
+      title: "Data Science Intern",
+      company: "Data Valley",
+      duration: "May–June 2024",
       description:
-        "Gained hands-on experience in data science, covered Python, data wrangling, EDA, statistics, machine learning, deep learning, NLP, big data, and model deployment. Includes hands-on projects, real-world applications, and cloud computing concepts.",
-      highlightWords: ["Python", "data science", "machine learning", "deep learning", "NLP", "big data", "model deployment", "cloud computing"],
-      skills: ["Python", "Machine Learning", "Deep Learning", "NLP", "Big Data", "Cloud Computing"],
-      link: "https://drive.google.com/file/d/YOUR_CERTIFICATE_ID/view" // Replace with your certificate link
+        "Worked on Python, Data Wrangling, Exploratory Data Analysis, Machine Learning, Deep Learning, NLP, Big Data, and model deployment. Completed hands-on real-world applications and cloud computing tasks.",
+      link: "https://drive.google.com/file/d/1fQr5IdYQ2zfoyHRvYNB1SL44_nFvjtvh/view?usp=drive_link"
     },
     {
       title: "Data Analysis Using Python",
-      type: "APSSDC Program",
-      date: "April-July 2024",
+      company: "APSSDC",
+      duration: "April–July 2025",
       description:
-        "The internship aimed to equip me with practical skills in data analysis using Python, focusing on data cleaning, transformation, and visualization techniques.",
-      highlightWords: ["data analysis", "Python", "data cleaning", "transformation", "visualization"],
-      skills: ["Python", "Data Cleaning", "Data Visualization", "Data Transformation"],
-      link: "https://drive.google.com/file/d/YOUR_CERTIFICATE_ID/view" // Replace with your certificate link
+        "Gained practical experience in data cleaning, data transformation, visualization techniques, and Python-based analytics.",
+      link: "https://drive.google.com/file/d/12adEeoz5EP8YPaszR-KAyYqHCQqCLRL6/view?usp=drive_link"
     }
   ];
 
@@ -43,20 +33,18 @@ const Experience = () => {
     {
       title: "Food Calorie Prediction",
       description:
-        "Developed and evaluated a machine-learning based food calorie prediction system, utilizing user inputs deep learning for recognition and segmentation, volume estimation, and nutritional databases, aiming to improve prediction reliability and user accessibility in dietary tracking.",
-      highlightWords: ["machine-learning", "deep learning", "recognition", "segmentation", "volume estimation", "nutritional databases", "prediction reliability"],
-      technologies: ["Deep Learning", "Machine Learning", "Python", "Computer Vision", "Image Segmentation"],
-      link: "https://github.com/MohanKrishna-01/food-calorie-prediction",
-      highlights: ["Deep Learning Recognition", "Volume Estimation", "Nutritional Databases", "User Accessibility"]
+        "ML/DL-based food calorie prediction system using recognition, segmentation, and nutritional datasets.",
+      technologies: ["Deep Learning", "Machine Learning", "Python", "Computer Vision"],
+      projectLink: "FOOD_PROJECT_LINK_PLACEHOLDER",
+      githubLink: "https://github.com/MohanKrishna-01/food-calorie-prediction"
     },
     {
-      title: "Portfolio Dashboard [EXCEL]",
+      title: "Call Center Portfolio Dashboard (Excel)",
       description:
-        "Designed and developed an interactive Excel dashboard to analyze call center data and visualize performance metrics like call trends, number of callers, reviews, average ratings, call duration and customer satisfaction by using pivot tables.",
-      highlightWords: ["interactive", "Excel dashboard", "performance metrics", "call trends", "customer satisfaction", "pivot tables"],
-      technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization", "Data Analysis"],
-      link: "https://github.com/MohanKrishna-01/excel-portfolio-dashboard",
-      highlights: ["Call Trends Analysis", "Customer Satisfaction", "Performance Metrics", "Interactive Dashboard"]
+        "Interactive Excel dashboard showing call trends, ratings, reviews, and satisfaction metrics.",
+      technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization"],
+      projectLink: "https://github.com/MohanKrishna-01/excel-portfolio-dashboard",
+      githubLink: null
     }
   ];
 
@@ -85,153 +73,157 @@ const Experience = () => {
           </motion.div>
 
           {/* Work Experience */}
-          <div className="mb-16">
-            <motion.h3 
-              className="text-3xl font-heading font-semibold mb-8 flex items-center gap-3"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <Briefcase className="h-7 w-7 text-accent" />
-              <span className="gradient-text">Work Experience</span>
-            </motion.h3>
-            <div className="grid md:grid-cols-2 gap-6">
+          <motion.div 
+            className="mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <Briefcase className="h-8 w-8 text-accent" />
+              <h3 className="text-3xl md:text-4xl font-heading font-bold">
+                <span className="gradient-text">Work Experience</span>
+              </h3>
+            </div>
+            <div className="w-20 h-1 bg-gradient-accent rounded-full mb-8" />
+            
+            <Accordion type="single" collapsible className="space-y-4">
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
                 >
-                  <Card className="p-6 h-full bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border-accent/20 hover:border-accent/50 transition-all group">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h4 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
-                          {exp.title}
-                        </h4>
-                        <p className="text-sm text-accent font-medium">{exp.type}</p>
+                  <AccordionItem 
+                    value={`exp-${index}`}
+                    className="border border-border/50 rounded-lg overflow-hidden bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-colors group"
+                  >
+                    <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-accent/5 transition-colors">
+                      <div className="flex items-center gap-4 text-left w-full">
+                        <div className="p-2 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
+                          <Briefcase className="h-5 w-5 text-accent" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-lg font-heading font-bold text-foreground group-hover:text-accent transition-colors">
+                            {exp.title}
+                          </h4>
+                          <div className="flex items-center gap-3 mt-1">
+                            <p className="text-sm text-accent font-semibold">
+                              {exp.company}
+                            </p>
+                            <span className="text-xs text-muted-foreground">
+                              {exp.duration}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                      <span className="flex items-center gap-1 text-xs text-muted-foreground bg-accent/10 px-3 py-1 rounded-full">
-                        <Calendar className="h-3 w-3" />
-                        {exp.date}
-                      </span>
-                    </div>
-                  
-                  <p className="text-foreground/70 mb-4 leading-relaxed">
-                    {highlightText(exp.description, exp.highlightWords)}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {exp.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-3 py-1 bg-accent/10 text-accent rounded-md text-xs font-medium"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  {exp.link && (
-                    <a 
-                      href={exp.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-xs text-accent hover:underline flex items-center gap-1"
-                    >
-                      Try It Here <ExternalLink className="h-3 w-3" />
-                    </a>
-                  )}
-                  </Card>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-4">
+                      <div className="pt-2 space-y-4">
+                        <p className="text-foreground/70 leading-relaxed">
+                          {exp.description}
+                        </p>
+                        <Button
+                          onClick={() => window.open(exp.link, '_blank')}
+                          className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-accent/20 hover:shadow-accent/40 transition-all"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          View Internship Work
+                        </Button>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
                 </motion.div>
               ))}
-            </div>
-          </div>
+            </Accordion>
+          </motion.div>
 
           {/* Notable Projects */}
-          <div>
-            <motion.h3 
-              className="text-3xl font-heading font-semibold mb-8 flex items-center gap-3"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <Code className="h-7 w-7 text-accent" />
-              <span className="gradient-text">Notable Projects</span>
-            </motion.h3>
-            <div className="space-y-6">
+          <motion.div 
+            className="mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <Code className="h-8 w-8 text-accent" />
+              <h3 className="text-3xl md:text-4xl font-heading font-bold">
+                <span className="gradient-text">Projects</span>
+              </h3>
+            </div>
+            <div className="w-20 h-1 bg-gradient-accent rounded-full mb-8" />
+            
+            <Accordion type="single" collapsible className="space-y-4">
               {projects.map((project, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
-                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
                 >
-                  <Card className="p-8 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border-accent/20 hover:border-accent/50 transition-all group overflow-hidden relative">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform" />
-                    
-                    <div className="relative z-10">
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                  <AccordionItem 
+                    value={`project-${index}`}
+                    className="border border-border/50 rounded-lg overflow-hidden bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-colors group"
+                  >
+                    <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-accent/5 transition-colors">
+                      <div className="flex items-center gap-4 text-left w-full">
+                        <div className="p-2 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
+                          <Code className="h-5 w-5 text-accent" />
+                        </div>
                         <div className="flex-1">
-                          <h4 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors mb-2">
+                          <h4 className="text-lg font-heading font-bold text-foreground group-hover:text-accent transition-colors">
                             {project.title}
                           </h4>
-                          <p className="text-foreground/70 leading-relaxed mb-4">
-                            {highlightText(project.description, project.highlightWords)}
-                          </p>
-                        </div>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="border-accent/50 text-accent hover:bg-accent hover:text-accent-foreground shrink-0"
-                          asChild
-                        >
-                          <a href={project.link} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="h-4 w-4 mr-2" />
-                            View Project
-                          </a>
-                        </Button>
-                      </div>
-
-                      <div className="mb-4">
-                        <p className="text-sm font-semibold mb-2">Key Highlights:</p>
-                        <div className="flex flex-wrap gap-2">
-                          {project.highlights.map((highlight) => (
-                            <span
-                              key={highlight}
-                              className="px-3 py-1 bg-primary/10 text-primary rounded-md text-xs font-medium"
-                            >
-                              {highlight}
-                            </span>
-                          ))}
                         </div>
                       </div>
-
-                      <div>
-                        <p className="text-sm font-semibold mb-2">Technologies:</p>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-4">
+                      <div className="pt-2 space-y-4">
+                        <p className="text-foreground/70 leading-relaxed">
+                          {project.description}
+                        </p>
                         <div className="flex flex-wrap gap-2">
-                          {project.technologies.map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-3 py-1 bg-accent/10 text-accent rounded-md text-xs font-medium"
+                          {project.technologies.map((tech, techIndex) => (
+                            <Badge 
+                              key={techIndex}
+                              variant="outline"
+                              className="bg-primary/10 text-primary border-primary/20"
                             >
                               {tech}
-                            </span>
+                            </Badge>
                           ))}
                         </div>
+                        <div className="flex gap-3">
+                          <Button
+                            onClick={() => window.open(project.projectLink, '_blank')}
+                            className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-accent/20 hover:shadow-accent/40 transition-all"
+                          >
+                            <ExternalLink className="h-4 w-4 mr-2" />
+                            View Project
+                          </Button>
+                          {project.githubLink && (
+                            <Button
+                              onClick={() => window.open(project.githubLink, '_blank')}
+                              variant="outline"
+                              className="border-accent/30 hover:bg-accent/10 hover:border-accent transition-all"
+                            >
+                              <Github className="h-4 w-4 mr-2" />
+                              View Code
+                            </Button>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </Card>
+                    </AccordionContent>
+                  </AccordionItem>
                 </motion.div>
               ))}
-            </div>
-          </div>
+            </Accordion>
+          </motion.div>
         </div>
       </div>
     </section>
