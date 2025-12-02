@@ -1,58 +1,82 @@
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Award, ExternalLink, Calendar } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Award, ExternalLink, Code, Github } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Certifications = () => {
   const certifications = [
     {
       title: "Python for Data Science",
       issuer: "NPTEL",
-      date: "Jan - Feb 2025",
       category: "Programming",
-      link: "https://archive.nptel.ac.in/noc/Ecertificate/?q=YOUR_CERTIFICATE_ID" // Replace with your certificate link
+      description: "Completed NPTEL course on Python for Data Science, covering Python fundamentals, data handling, and basic analytics.",
+      link: "https://drive.google.com/file/d/1DxUCm0fWYtOSFfnylY-1JiEJE0KVYFQn/view?usp=drive_link"
     },
     {
       title: "Power BI Essential Training",
       issuer: "LinkedIn Learning",
-      date: "March 2025",
       category: "Visualization",
-      link: "https://www.linkedin.com/learning/certificates/YOUR_CERT_ID" // Replace with your certificate link
+      description: "Learned how to build interactive reports and dashboards using Microsoft Power BI.",
+      link: "https://drive.google.com/file/d/1us2Jhvbvk4W-ueVG62KFkgc1YOA3PViR/view?usp=drive_link"
     },
     {
       title: "Responsive Web Design",
-      issuer: "freeCodeCamp",
-      date: "June 2025",
+      issuer: "FreeCodeCamp",
       category: "Web Development",
-      link: "https://www.freecodecamp.org/certification/YOUR_USERNAME/responsive-web-design" // Replace with your certificate link
+      description: "Gained skills in HTML, CSS, and responsive layouts for modern web pages.",
+      link: "https://drive.google.com/file/d/1uSt2oRzofPCpwqo6ljhZmPytyYny36b0/view?usp=drive_link"
     },
     {
       title: "Data Analytics Job Simulation",
-      issuer: "Deloitte",
-      date: "July 2025",
+      issuer: "Deloitte (Forage)",
       category: "Analytics",
-      link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/YOUR_CERT_ID.pdf" // Replace with your certificate link
+      description: "Completed a virtual job simulation focusing on real-world data analytics tasks and business insights.",
+      link: "https://drive.google.com/file/d/1stszhAzzUZ9mbdN-0V9cmdaaWG2pvMVf/view?usp=drive_link"
     },
     {
-      title: "Power BI Master Class",
+      title: "Power BI Masterclass",
       issuer: "Udemy",
-      date: "August 2025",
       category: "Visualization",
-      link: "https://www.udemy.com/certificate/YOUR_CERT_ID/" // Replace with your certificate link
+      description: "Built advanced dashboards and explored DAX, data modeling, and visualization best practices.",
+      link: "https://drive.google.com/file/d/1xPpKbRpvV0zWy3GYdNLyYBnpWbnbw-Ls/view?usp=drive_link"
     },
     {
-      title: "Data Visualisation in Tata",
-      issuer: "Forage",
-      date: "July 2025",
+      title: "Data Visualization",
+      issuer: "Tata (Forage)",
       category: "Visualization",
-      link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/YOUR_CERT_ID.pdf" // Replace with your certificate link
+      description: "Practiced transforming raw data into meaningful visual insights using modern visualization tools.",
+      link: "https://drive.google.com/file/d/1D0FmozBXw8Tt_FIZq8kiODqSUThkrFiQ/view?usp=drive_link"
     },
     {
-      title: "Gen AI Powered Data Analytics",
+      title: "GenAI Powered Data Analytics",
       issuer: "Tata",
-      date: "July 2025",
       category: "AI/ML",
-      link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/YOUR_CERT_ID.pdf" // Replace with your certificate link
+      description: "Learned how to apply Generative AI techniques to enhance data analytics workflows.",
+      link: "https://drive.google.com/file/d/1Bh7myfD67KyOp_EzvLyKWUwCSabWYrMF/view?usp=drive_link"
+    }
+  ];
+
+  const projects = [
+    {
+      title: "Food Calorie Prediction",
+      description: "ML/DL-based food calorie prediction system using recognition, segmentation, and nutritional datasets.",
+      technologies: ["Deep Learning", "Machine Learning", "Python", "Computer Vision"],
+      projectLink: "FOOD_PROJECT_LINK_PLACEHOLDER",
+      githubLink: "https://github.com/MohanKrishna-01/food-calorie-prediction"
+    },
+    {
+      title: "Call Center Portfolio Dashboard (Excel)",
+      description: "Interactive Excel dashboard showing call trends, ratings, reviews, and satisfaction metrics.",
+      technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization"],
+      projectLink: "https://github.com/MohanKrishna-01/excel-portfolio-dashboard",
+      githubLink: null
     }
   ];
 
@@ -73,95 +97,186 @@ const Certifications = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
+          {/* Certifications Section */}
           <motion.div 
-            className="text-center mb-16"
+            className="mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              <span className="highlight-letter">C</span>ertifications & <span className="highlight-letter">A</span>chievements
-            </h2>
-            <div className="w-20 h-1 bg-gradient-accent mx-auto rounded-full mb-6" />
-            <p className="text-foreground/70 max-w-2xl mx-auto">
-              Continuous learning and professional development in data science, analytics, and emerging technologies
-            </p>
+            <div className="flex items-center gap-3 mb-6">
+              <Award className="h-8 w-8 text-accent" />
+              <h2 className="text-4xl md:text-5xl font-heading font-bold">
+                <span className="gradient-text">Certifications</span>
+              </h2>
+            </div>
+            <div className="w-20 h-1 bg-gradient-accent rounded-full mb-8" />
+            
+            <Accordion type="single" collapsible className="space-y-4">
+              {certifications.map((cert, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                >
+                  <AccordionItem 
+                    value={`cert-${index}`}
+                    className="border border-border/50 rounded-lg overflow-hidden bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-colors group"
+                  >
+                    <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-accent/5 transition-colors">
+                      <div className="flex items-center gap-4 text-left w-full">
+                        <div className="p-2 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
+                          <Award className="h-5 w-5 text-accent" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-heading font-bold text-foreground group-hover:text-accent transition-colors">
+                            {cert.title}
+                          </h3>
+                          <div className="flex items-center gap-3 mt-1">
+                            <p className="text-sm text-accent font-semibold">
+                              {cert.issuer}
+                            </p>
+                            <Badge 
+                              variant="outline" 
+                              className={`${categoryColors[cert.category]} border text-xs`}
+                            >
+                              {cert.category}
+                            </Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-4">
+                      <div className="pt-2 space-y-4">
+                        <p className="text-foreground/70 leading-relaxed">
+                          {cert.description}
+                        </p>
+                        <Button
+                          onClick={() => window.open(cert.link, '_blank')}
+                          className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-accent/20 hover:shadow-accent/40 transition-all"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          View Certificate
+                        </Button>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card 
-                  className="p-6 shadow-lg hover:shadow-accent transition-all group h-full relative overflow-hidden cursor-pointer border-border/50 hover:border-accent/50 bg-card/50 backdrop-blur-sm"
-                  onClick={() => window.open(cert.link, '_blank')}
-                >
-                  {/* Background glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  
-                  <div className="relative z-10">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="p-3 rounded-xl bg-accent/10 group-hover:bg-accent transition-colors">
-                        <Award className="h-6 w-6 text-accent group-hover:text-background transition-colors" />
-                      </div>
-                      <ExternalLink className="h-5 w-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-
-                    <Badge 
-                      variant="outline" 
-                      className={`${categoryColors[cert.category]} border mb-3`}
-                    >
-                      {cert.category}
-                    </Badge>
-
-                    <h3 className="text-lg font-heading font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
-                      {cert.title}
-                    </h3>
-                    
-                    <p className="text-sm font-semibold text-accent mb-3">
-                      {cert.issuer}
-                    </p>
-                    
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <Calendar className="h-3 w-3" />
-                      <span>{cert.date}</span>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Stats Summary */}
+          {/* Projects Section */}
           <motion.div 
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
+            <div className="flex items-center gap-3 mb-6">
+              <Code className="h-8 w-8 text-accent" />
+              <h2 className="text-4xl md:text-5xl font-heading font-bold">
+                <span className="gradient-text">Projects</span>
+              </h2>
+            </div>
+            <div className="w-20 h-1 bg-gradient-accent rounded-full mb-8" />
+            
+            <Accordion type="single" collapsible className="space-y-4">
+              {projects.map((project, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                >
+                  <AccordionItem 
+                    value={`project-${index}`}
+                    className="border border-border/50 rounded-lg overflow-hidden bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-colors group"
+                  >
+                    <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-accent/5 transition-colors">
+                      <div className="flex items-center gap-4 text-left w-full">
+                        <div className="p-2 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
+                          <Code className="h-5 w-5 text-accent" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-heading font-bold text-foreground group-hover:text-accent transition-colors">
+                            {project.title}
+                          </h3>
+                        </div>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-4">
+                      <div className="pt-2 space-y-4">
+                        <p className="text-foreground/70 leading-relaxed">
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech, techIndex) => (
+                            <Badge 
+                              key={techIndex}
+                              variant="outline"
+                              className="bg-primary/10 text-primary border-primary/20"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                        <div className="flex gap-3">
+                          <Button
+                            onClick={() => window.open(project.projectLink, '_blank')}
+                            className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-accent/20 hover:shadow-accent/40 transition-all"
+                          >
+                            <ExternalLink className="h-4 w-4 mr-2" />
+                            View Project
+                          </Button>
+                          {project.githubLink && (
+                            <Button
+                              onClick={() => window.open(project.githubLink, '_blank')}
+                              variant="outline"
+                              className="border-accent/30 hover:bg-accent/10 hover:border-accent transition-all"
+                            >
+                              <Github className="h-4 w-4 mr-2" />
+                              View Code
+                            </Button>
+                          )}
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
+          </motion.div>
+
+          {/* Stats Summary */}
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
-              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">7+</div>
+              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">7</div>
               <div className="text-sm text-muted-foreground">Certifications</div>
             </Card>
             <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
-              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">5+</div>
+              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">5</div>
               <div className="text-sm text-muted-foreground">Platforms</div>
+            </Card>
+            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
+              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">2</div>
+              <div className="text-sm text-muted-foreground">Projects</div>
             </Card>
             <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
               <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">4</div>
               <div className="text-sm text-muted-foreground">Categories</div>
-            </Card>
-            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
-              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">2025</div>
-              <div className="text-sm text-muted-foreground">Latest Year</div>
             </Card>
           </motion.div>
         </div>
