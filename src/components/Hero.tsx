@@ -198,8 +198,9 @@ const Hero = () => {
                         <div className="relative w-full h-full rounded-full border-4 border-accent/40 overflow-hidden backdrop-blur-sm">
                           <img 
                             src={profilePhoto} 
-                            alt="Mohan Krishna Ambati" 
+                            alt="Mohan Krishna Ambati - Data Science Portfolio" 
                             className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700"
+                            loading="lazy"
                           />
                           {/* Overlay gradient on hover */}
                           <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
