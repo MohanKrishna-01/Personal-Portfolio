@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Award, ExternalLink, Code, Github } from "lucide-react";
+import { Award, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import {
   Accordion,
@@ -60,23 +60,6 @@ const Certifications = () => {
       category: "AI/ML",
       description: "Learned how to apply Generative AI techniques to enhance data analytics workflows.",
       link: "https://drive.google.com/file/d/1Bh7myfD67KyOp_EzvLyKWUwCSabWYrMF/view?usp=drive_link"
-    }
-  ];
-
-  const projects = [
-    {
-      title: "Call Center Portfolio Dashboard (Excel)",
-      description: "An interactive Excel dashboard that analyzes call center performance metrics such as call trends, number of callers, average ratings, reviews, call duration, and customer satisfaction. Built using Pivot Tables, charts, and slicers for dynamic filtering.",
-      technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization", "Charts", "Slicers"],
-      projectLink: "https://ai.studio/apps/drive/10rU7bLdyM_2_E7V7VPwiWWnbrPxkJ-V5",
-      githubLink: null
-    },
-    {
-      title: "CampusCollab AI — Find Your Squad. Build The Future.",
-      description: "CampusCollab AI is an all-in-one platform designed for students to find like-minded teammates, generate AI-powered project ideas, and plan and manage their project workflow. The platform helps students collaborate, discover innovative ideas, and streamline execution using intelligent tools.",
-      technologies: ["AI/ML", "Collaboration", "Project Management", "Web Platform"],
-      projectLink: "https://ai.studio/apps/drive/1PqS3rf6gbKowMGQkaO--RcZwihWGR4Q2",
-      githubLink: null
     }
   ];
 
@@ -170,93 +153,9 @@ const Certifications = () => {
             </Accordion>
           </motion.div>
 
-          {/* Projects Section */}
-          <motion.div 
-            className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <Code className="h-8 w-8 text-accent" />
-              <h2 className="text-4xl md:text-5xl font-heading font-bold">
-                <span className="gradient-text">Projects</span>
-              </h2>
-            </div>
-            <div className="w-20 h-1 bg-gradient-accent rounded-full mb-8" />
-            
-            <Accordion type="single" collapsible className="space-y-4">
-              {projects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  <AccordionItem 
-                    value={`project-${index}`}
-                    className="border border-border/50 rounded-lg overflow-hidden bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-colors group"
-                  >
-                    <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-accent/5 transition-colors">
-                      <div className="flex items-center gap-4 text-left w-full">
-                        <div className="p-2 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
-                          <Code className="h-5 w-5 text-accent" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-lg font-heading font-bold text-foreground group-hover:text-accent transition-colors">
-                            {project.title}
-                          </h3>
-                        </div>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-4">
-                      <div className="pt-2 space-y-4">
-                        <p className="text-foreground/70 leading-relaxed">
-                          {project.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies.map((tech, techIndex) => (
-                            <Badge 
-                              key={techIndex}
-                              variant="outline"
-                              className="bg-primary/10 text-primary border-primary/20"
-                            >
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                        <div className="flex gap-3">
-                          <Button
-                            onClick={() => window.open(project.projectLink, '_blank')}
-                            className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-accent/20 hover:shadow-accent/40 transition-all"
-                          >
-                            <ExternalLink className="h-4 w-4 mr-2" />
-                            View Project
-                          </Button>
-                          {project.githubLink && (
-                            <Button
-                              onClick={() => window.open(project.githubLink, '_blank')}
-                              variant="outline"
-                              className="border-accent/30 hover:bg-accent/10 hover:border-accent transition-all"
-                            >
-                              <Github className="h-4 w-4 mr-2" />
-                              View Code
-                            </Button>
-                          )}
-                        </div>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </motion.div>
-              ))}
-            </Accordion>
-          </motion.div>
-
           {/* Stats Summary */}
           <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="grid grid-cols-3 gap-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -269,10 +168,6 @@ const Certifications = () => {
             <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
               <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">5</div>
               <div className="text-sm text-muted-foreground">Platforms</div>
-            </Card>
-            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
-              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">2</div>
-              <div className="text-sm text-muted-foreground">Projects</div>
             </Card>
             <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
               <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">4</div>

@@ -31,19 +31,19 @@ const Experience = () => {
 
   const projects = [
     {
-      title: "Food Calorie Prediction",
-      description:
-        "ML/DL-based food calorie prediction system using recognition, segmentation, and nutritional datasets.",
-      technologies: ["Deep Learning", "Machine Learning", "Python", "Computer Vision"],
-      projectLink: "FOOD_PROJECT_LINK_PLACEHOLDER",
-      githubLink: "https://github.com/MohanKrishna-01/food-calorie-prediction"
-    },
-    {
       title: "Call Center Portfolio Dashboard (Excel)",
       description:
-        "Interactive Excel dashboard showing call trends, ratings, reviews, and satisfaction metrics.",
-      technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization"],
-      projectLink: "https://github.com/MohanKrishna-01/excel-portfolio-dashboard",
+        "An interactive Excel dashboard that analyzes call center performance metrics such as call trends, number of callers, average ratings, reviews, call duration, and customer satisfaction. Built using Pivot Tables, charts, and slicers for dynamic filtering.",
+      technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization", "Charts", "Slicers"],
+      projectLink: "https://ai.studio/apps/drive/10rU7bLdyM_2_E7V7VPwiWWnbrPxkJ-V5",
+      githubLink: null
+    },
+    {
+      title: "CampusCollab AI — Find Your Squad. Build The Future.",
+      description:
+        "CampusCollab AI is an all-in-one platform designed for students to find like-minded teammates, generate AI-powered project ideas, and plan and manage their project workflow. The platform helps students collaborate, discover innovative ideas, and streamline execution using intelligent tools.",
+      technologies: ["AI/ML", "Collaboration", "Project Management", "Web Platform"],
+      projectLink: "https://ai.studio/apps/drive/1PqS3rf6gbKowMGQkaO--RcZwihWGR4Q2",
       githubLink: null
     }
   ];
