@@ -31,6 +31,14 @@ const Experience = () => {
 
   const projects = [
     {
+      title: "Food Calorie Prediction",
+      description:
+        "An ML/DL-based food calorie prediction system that uses image recognition and segmentation techniques combined with nutritional datasets to estimate calories. The system leverages computer vision to identify food items and predict their nutritional content accurately.",
+      technologies: ["Deep Learning", "Machine Learning", "Python", "Computer Vision", "TensorFlow"],
+      projectLink: "https://github.com/MohanKrishna-01/food-calorie-prediction",
+      githubLink: "https://github.com/MohanKrishna-01/food-calorie-prediction"
+    },
+    {
       title: "Call Center Portfolio Dashboard (Excel)",
       description:
         "An interactive Excel dashboard that analyzes call center performance metrics such as call trends, number of callers, average ratings, reviews, call duration, and customer satisfaction. Built using Pivot Tables, charts, and slicers for dynamic filtering.",
