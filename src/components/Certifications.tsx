@@ -65,13 +65,6 @@ const Certifications = () => {
 
   const projects = [
     {
-      title: "Food Calorie Prediction",
-      description: "ML/DL-based food calorie prediction system using recognition, segmentation, and nutritional datasets.",
-      technologies: ["Deep Learning", "Machine Learning", "Python", "Computer Vision"],
-      projectLink: "FOOD_PROJECT_LINK_PLACEHOLDER",
-      githubLink: "https://github.com/MohanKrishna-01/food-calorie-prediction"
-    },
-    {
       title: "Call Center Portfolio Dashboard (Excel)",
       description: "An interactive Excel dashboard that analyzes call center performance metrics such as call trends, number of callers, average ratings, reviews, call duration, and customer satisfaction. Built using Pivot Tables, charts, and slicers for dynamic filtering.",
       technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization", "Charts", "Slicers"],
@@ -278,7 +271,7 @@ const Certifications = () => {
               <div className="text-sm text-muted-foreground">Platforms</div>
             </Card>
             <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
-              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">3</div>
+              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">2</div>
               <div className="text-sm text-muted-foreground">Projects</div>
             </Card>
             <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
