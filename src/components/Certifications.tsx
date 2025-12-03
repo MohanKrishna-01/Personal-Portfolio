@@ -73,9 +73,16 @@ const Certifications = () => {
     },
     {
       title: "Call Center Portfolio Dashboard (Excel)",
-      description: "Interactive Excel dashboard showing call trends, ratings, reviews, and satisfaction metrics.",
-      technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization"],
-      projectLink: "https://github.com/MohanKrishna-01/excel-portfolio-dashboard",
+      description: "An interactive Excel dashboard that analyzes call center performance metrics such as call trends, number of callers, average ratings, reviews, call duration, and customer satisfaction. Built using Pivot Tables, charts, and slicers for dynamic filtering.",
+      technologies: ["Microsoft Excel", "Pivot Tables", "Data Visualization", "Charts", "Slicers"],
+      projectLink: "https://ai.studio/apps/drive/10rU7bLdyM_2_E7V7VPwiWWnbrPxkJ-V5",
+      githubLink: null
+    },
+    {
+      title: "CampusCollab AI — Find Your Squad. Build The Future.",
+      description: "CampusCollab AI is an all-in-one platform designed for students to find like-minded teammates, generate AI-powered project ideas, and plan and manage their project workflow. The platform helps students collaborate, discover innovative ideas, and streamline execution using intelligent tools.",
+      technologies: ["AI/ML", "Collaboration", "Project Management", "Web Platform"],
+      projectLink: "https://ai.studio/apps/drive/1PqS3rf6gbKowMGQkaO--RcZwihWGR4Q2",
       githubLink: null
     }
   ];
@@ -271,7 +278,7 @@ const Certifications = () => {
               <div className="text-sm text-muted-foreground">Platforms</div>
             </Card>
             <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
-              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">2</div>
+              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">3</div>
               <div className="text-sm text-muted-foreground">Projects</div>
             </Card>
             <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
