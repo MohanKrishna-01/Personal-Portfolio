@@ -54,36 +54,36 @@ const Hero = () => {
         animate="visible"
       >
         <motion.div variants={itemVariants}>
-          <Card className="p-4 bg-card/80 backdrop-blur-sm border-accent/20 hover:border-accent/50 transition-colors">
-            <div className="flex items-center gap-3">
-              <Phone className="h-5 w-5 text-accent" />
+          <Card className="p-3 bg-card/60 backdrop-blur-sm border-border/30 hover:border-accent/40 transition-colors">
+            <div className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-accent" />
               <div>
-                <p className="text-xs text-muted-foreground">Call</p>
-                <p className="text-sm font-semibold">+91 7032390696</p>
+                <p className="text-[10px] text-muted-foreground">Call</p>
+                <p className="text-xs font-medium">+91 7032390696</p>
               </div>
             </div>
           </Card>
         </motion.div>
         
         <motion.div variants={itemVariants}>
-          <Card className="p-4 bg-card/80 backdrop-blur-sm border-accent/20 hover:border-accent/50 transition-colors">
-            <div className="flex items-center gap-3">
-              <Mail className="h-5 w-5 text-accent" />
+          <Card className="p-3 bg-card/60 backdrop-blur-sm border-border/30 hover:border-accent/40 transition-colors">
+            <div className="flex items-center gap-2">
+              <Mail className="h-4 w-4 text-accent" />
               <div>
-                <p className="text-xs text-muted-foreground">Email</p>
-                <p className="text-sm font-semibold">mohankrishnaambati7@gmail.com</p>
+                <p className="text-[10px] text-muted-foreground">Email</p>
+                <p className="text-xs font-medium">mohankrishnaambati7@gmail.com</p>
               </div>
             </div>
           </Card>
         </motion.div>
         
         <motion.div variants={itemVariants}>
-          <Card className="p-4 bg-card/80 backdrop-blur-sm border-accent/20 hover:border-accent/50 transition-colors">
-            <div className="flex items-center gap-3">
-              <MapPin className="h-5 w-5 text-accent" />
+          <Card className="p-3 bg-card/60 backdrop-blur-sm border-border/30 hover:border-accent/40 transition-colors">
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-accent" />
               <div>
-                <p className="text-xs text-muted-foreground">Location</p>
-                <p className="text-sm font-semibold">Vizag, India</p>
+                <p className="text-[10px] text-muted-foreground">Location</p>
+                <p className="text-xs font-medium">Vizag, India</p>
               </div>
             </div>
           </Card>
