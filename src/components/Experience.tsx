@@ -76,29 +76,29 @@ const Experience = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <motion.div 
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
             <motion.div
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, type: "spring" }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 mb-6"
+              transition={{ duration: 0.4, type: "spring" }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-4"
             >
-              <Zap className="h-4 w-4 text-accent" />
-              <span className="text-sm font-medium text-accent">Portfolio Showcase</span>
+              <Zap className="h-3.5 w-3.5 text-accent" />
+              <span className="text-xs font-medium text-accent">Portfolio Showcase</span>
             </motion.div>
-            <h2 className="text-5xl md:text-7xl font-heading font-black mb-6">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
               <span className="text-foreground">Experience</span>
-              <span className="mx-3 text-accent">&</span>
+              <span className="mx-2 text-accent">&</span>
               <span className="gradient-text">Projects</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Building <span className="neon-text font-semibold">innovative solutions</span> through hands-on experience and cutting-edge technology
+            <p className="text-base text-muted-foreground max-w-xl mx-auto">
+              Building <span className="text-accent font-medium">innovative solutions</span> through hands-on experience
             </p>
           </motion.div>
 
@@ -110,15 +110,15 @@ const Experience = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-4 mb-10">
-              <div className="p-3 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 border border-accent/30">
-                <Briefcase className="h-8 w-8 text-accent" />
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2.5 rounded-xl bg-gradient-to-br from-accent/15 to-primary/15 border border-accent/20">
+                <Briefcase className="h-5 w-5 text-accent" />
               </div>
               <div>
-                <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+                <h3 className="text-xl md:text-2xl font-heading font-semibold text-foreground">
                   Work <span className="gradient-text">Experience</span>
                 </h3>
-                <p className="text-muted-foreground">Professional internships and training</p>
+                <p className="text-sm text-muted-foreground">Professional internships and training</p>
               </div>
             </div>
             
@@ -131,39 +131,37 @@ const Experience = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                 >
-                  <Card className="glass-card p-6 md:p-8 hover:neon-border transition-all duration-500 group">
-                    <div className="flex flex-col md:flex-row md:items-start gap-6">
-                      {/* Number Badge */}
+                <Card className="glass-card p-5 md:p-6 hover:border-accent/30 transition-all duration-300 group">
+                    <div className="flex flex-col md:flex-row md:items-start gap-4">
                       <div className="flex-shrink-0">
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-primary flex items-center justify-center text-3xl font-black text-background shadow-lg pulse-glow">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center text-lg font-bold text-background">
                           {String(index + 1).padStart(2, '0')}
                         </div>
                       </div>
                       
-                      <div className="flex-1 space-y-4">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-                          <div>
-                            <h4 className="text-2xl font-heading font-bold text-foreground group-hover:text-accent transition-colors">
-                              {exp.title}
-                            </h4>
-                            <div className="flex items-center gap-3 mt-2">
-                              <span className="text-lg font-semibold neon-text">{exp.company}</span>
-                              <span className="px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium">
-                                {exp.duration}
-                              </span>
-                            </div>
+                      <div className="flex-1 space-y-3">
+                        <div>
+                          <h4 className="text-lg font-heading font-semibold text-foreground group-hover:text-accent transition-colors">
+                            {exp.title}
+                          </h4>
+                          <div className="flex items-center gap-2 mt-1">
+                            <span className="text-sm font-medium text-accent">{exp.company}</span>
+                            <span className="px-2 py-0.5 rounded-full bg-accent/10 text-accent text-xs">
+                              {exp.duration}
+                            </span>
                           </div>
                         </div>
                         
-                        <p className="text-foreground/80 leading-relaxed text-lg">
+                        <p className="text-sm text-muted-foreground leading-relaxed">
                           {exp.description}
                         </p>
                         
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-1.5">
                           {exp.highlights.map((highlight, i) => (
                             <Badge 
                               key={i}
-                              className="bg-gradient-to-r from-accent/20 to-primary/20 text-accent border-accent/30 px-3 py-1"
+                              variant="secondary"
+                              className="text-xs px-2 py-0.5"
                             >
                               {highlight}
                             </Badge>
@@ -171,10 +169,11 @@ const Experience = () => {
                         </div>
                         
                         <Button
+                          size="sm"
                           onClick={() => window.open(exp.link, '_blank')}
-                          className="mt-2 bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-background font-semibold shadow-lg hover:shadow-accent/50 transition-all"
+                          className="bg-accent hover:bg-accent/90 text-accent-foreground text-xs"
                         >
-                          <ExternalLink className="h-4 w-4 mr-2" />
+                          <ExternalLink className="h-3 w-3 mr-1.5" />
                           View Certificate
                         </Button>
                       </div>
@@ -192,86 +191,84 @@ const Experience = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-4 mb-10">
-              <div className="p-3 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 border border-accent/30">
-                <Code className="h-8 w-8 text-accent" />
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2.5 rounded-xl bg-gradient-to-br from-accent/15 to-primary/15 border border-accent/20">
+                <Code className="h-5 w-5 text-accent" />
               </div>
               <div>
-                <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+                <h3 className="text-xl md:text-2xl font-heading font-semibold text-foreground">
                   Featured <span className="gradient-text">Projects</span>
                 </h3>
-                <p className="text-muted-foreground">Innovative solutions I have built</p>
+                <p className="text-sm text-muted-foreground">Innovative solutions I have built</p>
               </div>
             </div>
             
-            <div className="grid gap-8">
+            <div className="grid gap-6">
               {projects.map((project, index) => {
                 const IconComponent = project.icon;
                 return (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.15 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    <Card className="rainbow-border overflow-hidden group hover:scale-[1.01] transition-transform duration-500">
-                      <div className="p-6 md:p-8 bg-card/95">
-                        <div className="flex flex-col lg:flex-row gap-6">
-                          {/* Project Number & Icon */}
-                          <div className="flex-shrink-0 flex lg:flex-col items-center lg:items-start gap-4">
-                            <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${project.color} flex items-center justify-center shadow-2xl floating`}>
-                              <IconComponent className="h-10 w-10 text-white" />
+                    <Card className="overflow-hidden group hover:border-accent/30 transition-all duration-300 bg-card/80 backdrop-blur-sm">
+                      <div className="p-5 md:p-6">
+                        <div className="flex flex-col md:flex-row gap-4">
+                          <div className="flex-shrink-0 flex md:flex-col items-center md:items-start gap-3">
+                            <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center shadow-lg`}>
+                              <IconComponent className="h-7 w-7 text-white" />
                             </div>
-                            <span className="text-6xl lg:text-7xl font-black text-foreground/10 group-hover:text-accent/20 transition-colors">
+                            <span className="text-4xl font-bold text-muted-foreground/20 group-hover:text-accent/30 transition-colors">
                               {String(index + 1).padStart(2, '0')}
                             </span>
                           </div>
                           
-                          <div className="flex-1 space-y-5">
+                          <div className="flex-1 space-y-3">
                             <div>
-                              <h4 className="text-2xl md:text-3xl font-heading font-bold text-foreground group-hover:gradient-text transition-all">
+                              <h4 className="text-lg font-heading font-semibold text-foreground group-hover:text-accent transition-colors">
                                 {project.title}
                               </h4>
-                              <p className="text-lg font-medium neon-text mt-1">
+                              <p className="text-sm font-medium text-accent/80">
                                 {project.subtitle}
                               </p>
                             </div>
                             
-                            <p className="text-foreground/80 leading-relaxed text-lg">
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                               {project.description}
                             </p>
                             
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-1.5">
                               {project.technologies.map((tech, techIndex) => (
                                 <Badge 
                                   key={techIndex}
                                   variant="outline"
-                                  className={`bg-gradient-to-r ${project.color} bg-opacity-10 text-foreground border-0 px-4 py-1.5 font-medium`}
-                                  style={{ 
-                                    background: `linear-gradient(135deg, hsl(var(--accent) / 0.15), hsl(var(--primary) / 0.15))`,
-                                  }}
+                                  className="text-xs px-2 py-0.5 border-border/50"
                                 >
                                   {tech}
                                 </Badge>
                               ))}
                             </div>
                             
-                            <div className="flex flex-wrap gap-4 pt-2">
+                            <div className="flex flex-wrap gap-3 pt-1">
                               <Button
+                                size="sm"
                                 onClick={() => window.open(project.projectLink, '_blank')}
-                                className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white font-semibold shadow-lg transition-all px-6`}
+                                className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white text-xs`}
                               >
-                                <ExternalLink className="h-4 w-4 mr-2" />
+                                <ExternalLink className="h-3 w-3 mr-1.5" />
                                 View Project
                               </Button>
                               {project.githubLink && (
                                 <Button
+                                  size="sm"
                                   onClick={() => window.open(project.githubLink, '_blank')}
                                   variant="outline"
-                                  className="border-accent/50 hover:bg-accent/10 hover:border-accent font-semibold transition-all px-6"
+                                  className="text-xs"
                                 >
-                                  <Github className="h-4 w-4 mr-2" />
+                                  <Github className="h-3 w-3 mr-1.5" />
                                   View Code
                                 </Button>
                               )}
