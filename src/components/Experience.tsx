@@ -102,9 +102,9 @@ const Experience = () => {
             </p>
           </motion.div>
 
-          {/* Work Experience */}
+          {/* Work Experience - Modern Timeline */}
           <motion.div 
-            className="mb-24"
+            className="mb-20"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -122,65 +122,78 @@ const Experience = () => {
               </div>
             </div>
             
-            <div className="grid gap-6">
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
-                >
-                <Card className="glass-card p-5 md:p-6 hover:border-accent/30 transition-all duration-300 group">
-                    <div className="flex flex-col md:flex-row md:items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center text-lg font-bold text-background">
-                          {String(index + 1).padStart(2, '0')}
-                        </div>
-                      </div>
-                      
-                      <div className="flex-1 space-y-3">
-                        <div>
-                          <h4 className="text-lg font-heading font-semibold text-foreground group-hover:text-accent transition-colors">
-                            {exp.title}
-                          </h4>
-                          <div className="flex items-center gap-2 mt-1">
-                            <span className="text-sm font-medium text-accent">{exp.company}</span>
-                            <span className="px-2 py-0.5 rounded-full bg-accent/10 text-accent text-xs">
-                              {exp.duration}
-                            </span>
+            {/* Timeline Container */}
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-primary to-accent/30 hidden md:block" />
+              
+              <div className="space-y-6">
+                {experiences.map((exp, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.15 }}
+                    className="relative"
+                  >
+                    {/* Timeline Dot */}
+                    <div className="absolute left-4 top-6 w-4 h-4 rounded-full bg-accent border-4 border-background shadow-lg shadow-accent/30 hidden md:block z-10" />
+                    
+                    <Card className="md:ml-14 overflow-hidden border-border/30 bg-gradient-to-br from-card/90 to-card/50 backdrop-blur-sm hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 group">
+                      <div className="p-5 md:p-6">
+                        {/* Header with Duration Badge */}
+                        <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent to-primary flex items-center justify-center text-sm font-bold text-background shadow-md">
+                              {String(index + 1).padStart(2, '0')}
+                            </div>
+                            <div>
+                              <h4 className="text-base font-heading font-semibold text-foreground group-hover:text-accent transition-colors">
+                                {exp.title}
+                              </h4>
+                              <span className="text-sm font-medium text-accent">{exp.company}</span>
+                            </div>
                           </div>
+                          <span className="px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium border border-accent/20">
+                            {exp.duration}
+                          </span>
                         </div>
                         
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        {/* Description */}
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                           {exp.description}
                         </p>
                         
-                        <div className="flex flex-wrap gap-1.5">
-                          {exp.highlights.map((highlight, i) => (
-                            <Badge 
-                              key={i}
-                              variant="secondary"
-                              className="text-xs px-2 py-0.5"
-                            >
-                              {highlight}
-                            </Badge>
-                          ))}
+                        {/* Skills & Action */}
+                        <div className="flex flex-wrap items-center justify-between gap-4">
+                          <div className="flex flex-wrap gap-1.5">
+                            {exp.highlights.map((highlight, i) => (
+                              <Badge 
+                                key={i}
+                                variant="secondary"
+                                className="text-[10px] px-2 py-0.5 bg-secondary/50"
+                              >
+                                {highlight}
+                              </Badge>
+                            ))}
+                          </div>
+                          
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => window.open(exp.link, '_blank')}
+                            className="h-8 text-xs text-accent hover:text-accent hover:bg-accent/10"
+                          >
+                            <ExternalLink className="h-3 w-3 mr-1.5" />
+                            View Certificate
+                          </Button>
                         </div>
-                        
-                        <Button
-                          size="sm"
-                          onClick={() => window.open(exp.link, '_blank')}
-                          className="bg-accent hover:bg-accent/90 text-accent-foreground text-xs"
-                        >
-                          <ExternalLink className="h-3 w-3 mr-1.5" />
-                          View Certificate
-                        </Button>
                       </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
