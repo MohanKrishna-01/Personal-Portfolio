@@ -1,14 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Award, ExternalLink } from "lucide-react";
+import { Award, ExternalLink, Trophy, Layers, FolderOpen } from "lucide-react";
 import { motion } from "framer-motion";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 const Certifications = () => {
   const certifications = [
@@ -64,12 +58,18 @@ const Certifications = () => {
   ];
 
   const categoryColors: Record<string, string> = {
-    "Programming": "bg-blue-500/10 text-blue-500 border-blue-500/20",
-    "Visualization": "bg-purple-500/10 text-purple-500 border-purple-500/20",
-    "Web Development": "bg-green-500/10 text-green-500 border-green-500/20",
-    "Analytics": "bg-orange-500/10 text-orange-500 border-orange-500/20",
-    "AI/ML": "bg-accent/10 text-accent border-accent/20"
+    "Programming": "bg-blue-500/10 text-blue-500 border-blue-500/30",
+    "Visualization": "bg-purple-500/10 text-purple-500 border-purple-500/30",
+    "Web Development": "bg-green-500/10 text-green-500 border-green-500/30",
+    "Analytics": "bg-orange-500/10 text-orange-500 border-orange-500/30",
+    "AI/ML": "bg-accent/10 text-accent border-accent/30"
   };
+
+  const stats = [
+    { icon: Trophy, value: "7", label: "Certifications" },
+    { icon: Layers, value: "5", label: "Platforms" },
+    { icon: FolderOpen, value: "4", label: "Categories" }
+  ];
 
   return (
     <section id="certifications" className="py-20 bg-background relative overflow-hidden">
@@ -81,99 +81,105 @@ const Certifications = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
-          {/* Certifications Section */}
+          {/* Section Header */}
           <motion.div 
-            className="mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center gap-3 mb-6">
-              <Award className="h-8 w-8 text-accent" />
-              <h2 className="text-4xl md:text-5xl font-heading font-bold">
-                <span className="gradient-text">Certifications</span>
-              </h2>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-4">
+              <Award className="h-3.5 w-3.5 text-accent" />
+              <span className="text-xs font-medium text-accent">Professional Growth</span>
             </div>
-            <div className="w-20 h-1 bg-gradient-accent rounded-full mb-8" />
-            
-            <Accordion type="single" collapsible className="space-y-4">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  <AccordionItem 
-                    value={`cert-${index}`}
-                    className="border border-border/50 rounded-lg overflow-hidden bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-colors group"
-                  >
-                    <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-accent/5 transition-colors">
-                      <div className="flex items-center gap-4 text-left w-full">
-                        <div className="p-2 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
-                          <Award className="h-5 w-5 text-accent" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-lg font-heading font-bold text-foreground group-hover:text-accent transition-colors">
-                            {cert.title}
-                          </h3>
-                          <div className="flex items-center gap-3 mt-1">
-                            <p className="text-sm text-accent font-semibold">
-                              {cert.issuer}
-                            </p>
-                            <Badge 
-                              variant="outline" 
-                              className={`${categoryColors[cert.category]} border text-xs`}
-                            >
-                              {cert.category}
-                            </Badge>
-                          </div>
-                        </div>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-4">
-                      <div className="pt-2 space-y-4">
-                        <p className="text-foreground/70 leading-relaxed">
-                          {cert.description}
-                        </p>
-                        <Button
-                          onClick={() => window.open(cert.link, '_blank')}
-                          className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-accent/20 hover:shadow-accent/40 transition-all"
-                        >
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          View Certificate
-                        </Button>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </motion.div>
-              ))}
-            </Accordion>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-3">
+              <span className="gradient-text">Certifications</span>
+            </h2>
+            <p className="text-sm text-muted-foreground max-w-md mx-auto">
+              Industry-recognized credentials validating expertise
+            </p>
           </motion.div>
 
-          {/* Stats Summary */}
+          {/* Stats Summary - Top */}
           <motion.div 
-            className="grid grid-cols-3 gap-6"
+            className="grid grid-cols-3 gap-4 mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
-              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">7</div>
-              <div className="text-sm text-muted-foreground">Certifications</div>
-            </Card>
-            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
-              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">5</div>
-              <div className="text-sm text-muted-foreground">Platforms</div>
-            </Card>
-            <Card className="p-6 text-center shadow-lg hover:shadow-accent transition-all border-border/50 bg-card/50 backdrop-blur-sm group">
-              <div className="text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">4</div>
-              <div className="text-sm text-muted-foreground">Categories</div>
-            </Card>
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -3, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <Card className="p-4 text-center border-border/30 bg-card/60 backdrop-blur-sm hover:border-accent/40 transition-all group">
+                  <div className="flex items-center justify-center gap-2 mb-1">
+                    <stat.icon className="h-4 w-4 text-accent opacity-70 group-hover:opacity-100 transition-opacity" />
+                    <span className="text-2xl md:text-3xl font-bold gradient-text group-hover:scale-105 transition-transform inline-block">
+                      {stat.value}+
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+                </Card>
+              </motion.div>
+            ))}
           </motion.div>
+          
+          {/* Certifications Grid */}
+          <div className="grid md:grid-cols-2 gap-4">
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+              >
+                <Card className="p-4 h-full border-border/30 bg-card/60 backdrop-blur-sm hover:border-accent/40 transition-all group">
+                  <div className="flex gap-3">
+                    <div className="flex-shrink-0">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center group-hover:from-accent/30 group-hover:to-primary/30 transition-colors">
+                        <Award className="h-5 w-5 text-accent" />
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0 space-y-2">
+                      <div>
+                        <h3 className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors line-clamp-1">
+                          {cert.title}
+                        </h3>
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className="text-xs font-medium text-accent/80">{cert.issuer}</span>
+                          <Badge 
+                            variant="outline" 
+                            className={`${categoryColors[cert.category]} text-[10px] px-1.5 py-0`}
+                          >
+                            {cert.category}
+                          </Badge>
+                        </div>
+                      </div>
+                      
+                      <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                        {cert.description}
+                      </p>
+                      
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        onClick={() => window.open(cert.link, '_blank')}
+                        className="h-7 px-2 text-xs text-accent hover:text-accent hover:bg-accent/10"
+                      >
+                        <ExternalLink className="h-3 w-3 mr-1" />
+                        View Certificate
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
