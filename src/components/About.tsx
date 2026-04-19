@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Target, Lightbulb, MessageSquare, GraduationCap } from "lucide-react";
+import EditableText from "./EditableText";
 
 const About = () => {
   const softSkills = [
@@ -63,19 +64,25 @@ const About = () => {
               viewport={{ once: true }}
             >
               <Card className="p-8 h-full bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border-accent/20">
-                <h3 className="text-2xl font-bold mb-4 text-accent">My Journey</h3>
+                <EditableText
+                  id="about.journeyTitle"
+                  as="h3"
+                  defaultValue="My Journey"
+                  className="text-2xl font-bold mb-4 text-accent block"
+                />
                 <div className="space-y-4 text-foreground/80">
-                  <p>
-                    Aspiring <span className="text-accent font-semibold">Data Analyst</span> and
-                    <span className="text-accent font-semibold"> Power BI Developer</span> focused on
-                    turning raw data into clear, decision-ready insights through dashboards, storytelling,
-                    and clean data modeling.
-                  </p>
-                  <p>
-                    Strong in problem solving, analytical thinking and visualization, with hands-on
-                    experience across Power BI, DAX, SQL, Excel and Python — eager to deliver
-                    measurable impact through data.
-                  </p>
+                  <EditableText
+                    id="about.journeyP1"
+                    as="p"
+                    multiline
+                    defaultValue="Aspiring Data Analyst and Power BI Developer focused on turning raw data into clear, decision-ready insights through dashboards, storytelling, and clean data modeling."
+                  />
+                  <EditableText
+                    id="about.journeyP2"
+                    as="p"
+                    multiline
+                    defaultValue="Strong in problem solving, analytical thinking and visualization, with hands-on experience across Power BI, DAX, SQL, Excel and Python — eager to deliver measurable impact through data."
+                  />
                 </div>
               </Card>
             </motion.div>

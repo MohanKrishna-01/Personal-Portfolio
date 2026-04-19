@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Scene3D from "./3D/Scene3D";
 import { Card } from "@/components/ui/card";
+import EditableText from "./EditableText";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
 const TYPING_PHRASES = [
@@ -122,34 +123,53 @@ const Hero = () => {
               </motion.div>
 
               <motion.div variants={itemVariants} className="space-y-2">
-                <h2 className="text-xl md:text-2xl font-semibold text-muted-foreground">
-                  Hi, I'm
-                </h2>
+                <EditableText
+                  id="hero.greeting"
+                  as="h2"
+                  defaultValue="Hi, I'm"
+                  className="text-xl md:text-2xl font-semibold text-muted-foreground block"
+                />
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black leading-[1.05]">
-                  <span className="gradient-text">Mohan Krishna</span>
+                  <EditableText
+                    id="hero.firstName"
+                    defaultValue="Mohan Krishna"
+                    className="gradient-text"
+                  />
                   <br />
-                  <span className="text-foreground">Ambati</span>
+                  <EditableText
+                    id="hero.lastName"
+                    defaultValue="Ambati"
+                    className="text-foreground"
+                  />
                 </h1>
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <p className="text-xl md:text-3xl font-bold">
-                  <span className="gradient-text">Aspiring Data Analyst</span>
+                  <EditableText
+                    id="hero.roleA"
+                    defaultValue="Aspiring Data Analyst"
+                    className="gradient-text"
+                  />
                   <span className="text-muted-foreground mx-2">|</span>
-                  <span className="text-foreground">Power BI Developer</span>
+                  <EditableText
+                    id="hero.roleB"
+                    defaultValue="Power BI Developer"
+                    className="text-foreground"
+                  />
                 </p>
                 <p className="mt-4 text-base md:text-lg text-accent min-h-[1.75rem] typing-cursor">
                   {typed}
                 </p>
               </motion.div>
 
-              <motion.p
-                className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0"
-                variants={itemVariants}
-              >
-                B.Tech CSE (Data Science) student turning raw data into clear,
-                decision-ready stories with Power BI, SQL, Excel and Python.
-              </motion.p>
+              <EditableText
+                id="hero.bio"
+                as="p"
+                multiline
+                defaultValue="B.Tech CSE (Data Science) student turning raw data into clear, decision-ready stories with Power BI, SQL, Excel and Python."
+                className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0 block"
+              />
 
               <motion.div
                 className="flex flex-wrap gap-4 justify-center lg:justify-start"
