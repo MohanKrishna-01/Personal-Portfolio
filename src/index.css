@@ -121,7 +121,11 @@ All colors MUST be HSL.
   .shadow-accent {
     box-shadow: var(--shadow-accent);
   }
-  
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
   .transition-smooth {
     transition: var(--transition-smooth);
   }
