@@ -295,8 +295,11 @@ const Experience = () => {
                     {/* fake browser bar */}
                     <div className="flex items-center gap-1.5 px-3 py-2 bg-background/80 border-b border-border/40">
                       <span className="w-2.5 h-2.5 rounded-full bg-destructive/70" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-accent/70" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-primary/70" />
+                      <span className="ml-3 text-[10px] text-muted-foreground">
+                        FEMA Disaster Analysis · Power BI
+                      </span>
                       <span className="ml-3 text-[10px] text-muted-foreground">
                         FEMA Disaster Analysis · Power BI
                       </span>
