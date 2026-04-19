@@ -128,50 +128,62 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-glow);
   }
 
+  .shadow-mint {
+    box-shadow: var(--shadow-mint);
+  }
+
   .transition-smooth {
     transition: var(--transition-smooth);
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
-    background-size: 200% auto;
-    animation: shimmer 3s linear infinite;
-    text-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 
   .highlight-letter {
     @apply relative inline-block;
-    color: hsl(var(--accent));
-    text-shadow: 
-      0 0 10px hsl(var(--accent) / 0.8),
-      0 0 20px hsl(var(--accent) / 0.6),
-      0 0 30px hsl(var(--accent) / 0.4),
-      0 0 40px hsl(var(--primary) / 0.3);
+    color: hsl(var(--primary));
+    text-shadow:
+      0 0 10px hsl(var(--primary) / 0.8),
+      0 0 20px hsl(var(--primary) / 0.55),
+      0 0 30px hsl(var(--accent) / 0.35);
     animation: glow 2s ease-in-out infinite alternate;
     font-weight: 800;
   }
 
   .neon-text {
-    color: hsl(var(--accent));
-    text-shadow: 
-      0 0 5px hsl(var(--accent) / 0.8),
-      0 0 10px hsl(var(--accent) / 0.6),
-      0 0 20px hsl(var(--accent) / 0.4);
+    color: hsl(var(--primary));
+    text-shadow:
+      0 0 5px hsl(var(--primary) / 0.8),
+      0 0 12px hsl(var(--primary) / 0.5),
+      0 0 22px hsl(var(--accent) / 0.35);
   }
 
   .neon-border {
-    box-shadow: 
-      0 0 5px hsl(var(--accent) / 0.5),
-      0 0 10px hsl(var(--accent) / 0.3),
-      inset 0 0 5px hsl(var(--accent) / 0.1);
-    border-color: hsl(var(--accent) / 0.6);
+    box-shadow:
+      0 0 0 1px hsl(var(--primary) / 0.5),
+      0 0 14px hsl(var(--primary) / 0.35),
+      inset 0 0 6px hsl(var(--primary) / 0.12);
+    border-color: hsl(var(--primary) / 0.6);
   }
 
   .glass-card {
-    @apply backdrop-blur-xl bg-card/40 border border-border/30;
+    @apply backdrop-blur-xl bg-card/60 border border-border/60;
     box-shadow:
-      0 8px 32px hsl(230 50% 2% / 0.5),
-      inset 0 1px 0 hsl(0 0% 100% / 0.08);
+      0 8px 32px hsl(222 50% 2% / 0.55),
+      inset 0 1px 0 hsl(0 0% 100% / 0.05);
+  }
+
+  .glass-card:hover {
+    border-color: hsl(var(--primary) / 0.45);
+    box-shadow:
+      0 12px 40px hsl(222 50% 2% / 0.6),
+      0 0 24px hsl(var(--primary) / 0.18),
+      inset 0 1px 0 hsl(0 0% 100% / 0.06);
   }
 
   .mesh-bg {
@@ -180,16 +192,25 @@ All colors MUST be HSL.
 
   .grid-bg {
     background-image:
-      linear-gradient(hsl(var(--accent) / 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--accent) / 0.08) 1px, transparent 1px);
+      linear-gradient(hsl(var(--primary) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.06) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .glow-border {
     box-shadow:
-      0 0 0 1px hsl(var(--primary) / 0.4),
+      0 0 0 1px hsl(var(--primary) / 0.45),
       0 0 24px hsl(var(--primary) / 0.35),
-      0 0 60px hsl(var(--accent) / 0.2);
+      0 0 60px hsl(var(--accent) / 0.18);
+  }
+
+  .btn-glow {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.5), 0 0 24px hsl(var(--primary) / 0.45);
+    transition: var(--transition-smooth);
+  }
+  .btn-glow:hover {
+    box-shadow: 0 0 0 1px hsl(var(--accent) / 0.6), 0 0 36px hsl(var(--accent) / 0.55);
+    transform: translateY(-1px);
   }
 
   .typing-cursor::after {
