@@ -5,34 +5,34 @@ import { motion } from "framer-motion";
 const Skills = () => {
   const skillCategories = [
     {
-      icon: Code2,
-      title: "Programming Languages",
-      skills: ["Python", "Java"]
+      icon: BarChart3,
+      title: "Data Analytics & BI",
+      skills: ["Power BI", "DAX", "Data Modeling", "Excel"],
     },
     {
       icon: Database,
-      title: "Technologies & Database",
-      skills: ["Data Analysis Using Python", "SQL"]
+      title: "Databases & Querying",
+      skills: ["SQL", "Star Schema", "Data Cleaning"],
     },
     {
-      icon: BarChart3,
-      title: "Tools & IDEs",
-      skills: ["Power BI Desktop", "Microsoft Excel"]
+      icon: Code2,
+      title: "Programming",
+      skills: ["Python", "Pandas", "Java"],
     },
     {
       icon: Brain,
-      title: "Scripting Languages",
-      skills: ["HTML", "CSS"]
-    }
+      title: "Soft Skills",
+      skills: ["Problem Solving", "Analytical Thinking", "Storytelling"],
+    },
   ];
 
   const proficiencyLevels = [
-    { name: "Python", level: 90 },
-    { name: "Data Analysis", level: 85 },
-    { name: "SQL", level: 80 },
-    { name: "Power BI", level: 85 },
+    { name: "Power BI", level: 90 },
     { name: "Excel", level: 90 },
-    { name: "Java", level: 75 }
+    { name: "DAX", level: 80 },
+    { name: "SQL", level: 85 },
+    { name: "Python", level: 85 },
+    { name: "Data Modeling", level: 80 },
   ];
 
   return (
