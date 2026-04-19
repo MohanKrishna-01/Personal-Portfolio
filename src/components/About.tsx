@@ -66,13 +66,15 @@ const About = () => {
                 <h3 className="text-2xl font-bold mb-4 text-accent">My Journey</h3>
                 <div className="space-y-4 text-foreground/80">
                   <p>
-                    Aspiring Data Science undergraduate seeking an entry-level role to apply my skills in 
-                    data analysis, machine learning, and statistics. Skilled in Python, SQL, and data visualization 
-                    tools, with experience working on real-world academic projects.
+                    Aspiring <span className="text-accent font-semibold">Data Analyst</span> and
+                    <span className="text-accent font-semibold"> Power BI Developer</span> focused on
+                    turning raw data into clear, decision-ready insights through dashboards, storytelling,
+                    and clean data modeling.
                   </p>
                   <p>
-                    Eager to learn and contribute to data-driven decisions through innovative analytical solutions 
-                    and cutting-edge machine learning techniques.
+                    Strong in problem solving, analytical thinking and visualization, with hands-on
+                    experience across Power BI, DAX, SQL, Excel and Python — eager to deliver
+                    measurable impact through data.
                   </p>
                 </div>
               </Card>
