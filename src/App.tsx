@@ -7,13 +7,15 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import StructuredData from "@/components/StructuredData";
+import EditModeToggle from "@/components/EditModeToggle";
+import { EditModeProvider } from "@/contexts/EditModeContext";
 import { usePerformance } from "@/hooks/usePerformance";
 
 const queryClient = new QueryClient();
 
 const AppContent = () => {
   usePerformance();
-  
+
   return (
     <>
       <StructuredData />
@@ -25,6 +27,7 @@ const AppContent = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <EditModeToggle />
     </>
   );
 };
@@ -33,7 +36,9 @@ const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <AppContent />
+        <EditModeProvider>
+          <AppContent />
+        </EditModeProvider>
       </TooltipProvider>
     </QueryClientProvider>
   </ErrorBoundary>
