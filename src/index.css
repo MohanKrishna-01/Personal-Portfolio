@@ -142,31 +142,29 @@ All colors MUST be HSL.
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    text-shadow: none !important;
+    filter: none !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    /* No text-shadow on transparent text — causes blur. Glow handled via separate layer. */
-  }
-
-  .gradient-text-glow {
-    position: relative;
-    display: inline-block;
-  }
-  .gradient-text-glow::before {
-    content: attr(data-text);
-    position: absolute;
-    inset: 0;
-    color: #00FFA3;
-    filter: blur(18px);
-    opacity: 0.35;
-    z-index: -1;
-    pointer-events: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+  }
+
+  /* Force sharp headings — no blur, no opacity, no shadow */
+  h1:not(.gradient-text):not(.highlight-letter):not(.neon-text),
+  h2:not(.gradient-text):not(.highlight-letter):not(.neon-text),
+  h3:not(.gradient-text):not(.highlight-letter):not(.neon-text),
+  h4:not(.gradient-text):not(.highlight-letter):not(.neon-text) {
+    color: hsl(var(--foreground));
+    opacity: 1;
+    text-shadow: none;
+    filter: none;
+    backdrop-filter: none;
   }
 
   .highlight-letter {
