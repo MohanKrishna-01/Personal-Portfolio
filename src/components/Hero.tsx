@@ -122,30 +122,30 @@ const Hero = () => {
                 </span>
               </motion.div>
 
-              <motion.div variants={itemVariants} className="space-y-2">
+              <motion.div variants={itemVariants} className="space-y-1.5">
                 <EditableText
                   id="hero.greeting"
                   as="h2"
                   defaultValue="Hi, I'm"
-                  className="text-xl md:text-2xl font-semibold text-muted-foreground block"
+                  className="text-base md:text-lg font-medium text-muted-foreground block"
                 />
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black leading-[1.05]">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold uppercase tracking-tight leading-[1.1]">
                   <EditableText
                     id="hero.firstName"
-                    defaultValue="Mohan Krishna"
+                    defaultValue="MOHAN KRISHNA"
                     className="gradient-text"
                   />
                   <br />
                   <EditableText
                     id="hero.lastName"
-                    defaultValue="Ambati"
-                    className="text-foreground"
+                    defaultValue="AMBATI"
+                    className="gradient-text"
                   />
                 </h1>
               </motion.div>
 
               <motion.div variants={itemVariants}>
-                <p className="text-xl md:text-3xl font-bold">
+                <p className="text-base md:text-xl font-semibold">
                   <EditableText
                     id="hero.roleA"
                     defaultValue="Aspiring Data Analyst"
@@ -158,7 +158,7 @@ const Hero = () => {
                     className="text-foreground"
                   />
                 </p>
-                <p className="mt-4 text-base md:text-lg text-accent min-h-[1.75rem] typing-cursor">
+                <p className="mt-2 text-sm md:text-base text-accent min-h-[1.5rem] typing-cursor">
                   {typed}
                 </p>
               </motion.div>
@@ -167,8 +167,8 @@ const Hero = () => {
                 id="hero.bio"
                 as="p"
                 multiline
-                defaultValue="B.Tech CSE (Data Science) student turning raw data into clear, decision-ready stories with Power BI, SQL, Excel and Python."
-                className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0 block"
+                defaultValue="Transforming data into actionable insights — Power BI, DAX, SQL, and Python."
+                className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0 block"
               />
 
               <motion.div

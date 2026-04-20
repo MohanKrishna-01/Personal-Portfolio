@@ -26,9 +26,9 @@ const Experience = () => {
       duration: "Dec 2025 – Feb 2026",
       location: "Remote",
       description: [
-        "Built interactive Power BI dashboards to analyze disaster data",
-        "Applied star-schema data modeling and DAX for efficient analysis",
-        "Identified trends and regional risk patterns to support decisions",
+        "Built Power BI dashboards for disaster analysis",
+        "Applied data modeling and DAX",
+        "Identified key trends and regional risks",
       ],
       link: "#projects",
       highlights: ["Power BI", "DAX", "Data Modeling", "Storytelling"],
@@ -64,9 +64,8 @@ const Experience = () => {
     subtitle: "Power BI · DAX · Data Modeling",
     image: femaDashboard,
     description: [
-      "Designed an interactive dashboard to analyze disaster trends",
-      "Identified high-risk regions using data-driven insights",
-      "Created visually engaging reports for better decision-making",
+      "Analyzed disaster trends using interactive dashboards",
+      "Identified high-risk regions through insights",
     ],
     technologies: ["Power BI", "DAX", "Data Modeling", "Star Schema"],
     metrics: [

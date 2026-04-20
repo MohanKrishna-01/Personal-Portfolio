@@ -70,12 +70,12 @@ const About = () => {
                   defaultValue="My Journey"
                   className="text-2xl font-bold mb-4 text-accent block"
                 />
-                <div className="space-y-4 text-foreground/80 leading-relaxed">
+                <div className="space-y-3 text-sm text-foreground/80 leading-relaxed">
                   <EditableText
                     id="about.journey"
                     as="p"
                     multiline
-                    defaultValue="I am an aspiring Data Analyst with a strong foundation in data visualization, Power BI, and analytical problem-solving. I specialize in transforming raw data into meaningful insights using tools like Power BI, DAX, and Excel. Through hands-on experience, including my internship with Infosys Springboard, I have developed the ability to analyze trends, build interactive dashboards, and identify patterns that support data-driven decision-making. I am passionate about leveraging data to solve real-world problems and continuously improving my analytical and technical skills."
+                    defaultValue="Aspiring Data Analyst skilled in Power BI, DAX, and data visualization. Experienced in building dashboards, analyzing trends, and delivering data-driven insights through real-world projects and internship experience."
                   />
                 </div>
               </Card>
