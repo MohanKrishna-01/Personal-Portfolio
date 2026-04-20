@@ -137,11 +137,12 @@ All colors MUST be HSL.
   }
   
   .gradient-text {
-    background: var(--gradient-text);
+    background: linear-gradient(90deg, #E6EDF3, #00FFA3);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    text-shadow: 0 0 20px rgba(0, 255, 163, 0.4);
   }
 
   .highlight-letter {
