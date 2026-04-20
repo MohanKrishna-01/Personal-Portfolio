@@ -122,24 +122,23 @@ const Hero = () => {
                 </span>
               </motion.div>
 
-              <motion.div variants={itemVariants} className="space-y-1.5">
+              <motion.div variants={itemVariants} className="space-y-2">
                 <EditableText
                   id="hero.greeting"
                   as="h2"
                   defaultValue="Hi, I'm"
-                  className="text-base md:text-lg font-medium text-muted-foreground block"
+                  className="text-base md:text-lg font-medium text-muted-foreground block text-center lg:text-left"
                 />
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold uppercase tracking-tight leading-[1.1]">
+                <h1 className="font-heading font-extrabold uppercase tracking-tight leading-[1.05] text-center lg:text-left text-[2.25rem] sm:text-5xl lg:text-[3.5rem]">
                   <EditableText
                     id="hero.firstName"
                     defaultValue="MOHAN KRISHNA"
-                    className="gradient-text"
+                    className="gradient-text block"
                   />
-                  <br />
                   <EditableText
                     id="hero.lastName"
                     defaultValue="AMBATI"
-                    className="gradient-text"
+                    className="gradient-text block"
                   />
                 </h1>
               </motion.div>
