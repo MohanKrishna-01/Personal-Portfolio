@@ -300,9 +300,6 @@ const Experience = () => {
                       <span className="ml-3 text-[10px] text-muted-foreground">
                         FEMA Disaster Analysis · Power BI
                       </span>
-                      <span className="ml-3 text-[10px] text-muted-foreground">
-                        FEMA Disaster Analysis · Power BI
-                      </span>
                     </div>
                     <img
                       src={featured.image}
