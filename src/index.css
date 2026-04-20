@@ -148,20 +148,8 @@ All colors MUST be HSL.
     /* No text-shadow on transparent text — causes blur. Glow handled via separate layer. */
   }
 
-  .gradient-text-glow {
-    position: relative;
-    display: inline-block;
-  }
-  .gradient-text-glow::before {
-    content: attr(data-text);
-    position: absolute;
-    inset: 0;
-    color: #00FFA3;
-    filter: blur(18px);
-    opacity: 0.35;
-    z-index: -1;
-    pointer-events: none;
-  }
+  /* REMOVED: .gradient-text-glow blur effect - causes text blur issues */
+  /* Use solid glow effects only on non-text decorative elements */
 
   h1, h2, h3, h4, h5, h6 {
     -webkit-font-smoothing: antialiased;
@@ -172,20 +160,12 @@ All colors MUST be HSL.
   .highlight-letter {
     @apply relative inline-block;
     color: hsl(var(--primary));
-    text-shadow:
-      0 0 10px hsl(var(--primary) / 0.8),
-      0 0 20px hsl(var(--primary) / 0.55),
-      0 0 30px hsl(var(--accent) / 0.35);
-    animation: glow 2s ease-in-out infinite alternate;
     font-weight: 800;
   }
 
   .neon-text {
     color: hsl(var(--primary));
-    text-shadow:
-      0 0 5px hsl(var(--primary) / 0.8),
-      0 0 12px hsl(var(--primary) / 0.5),
-      0 0 22px hsl(var(--accent) / 0.35);
+    font-weight: 600;
   }
 
   .neon-border {
@@ -287,22 +267,8 @@ All colors MUST be HSL.
     }
   }
 
-  @keyframes glow {
-    from {
-      text-shadow: 
-        0 0 10px hsl(var(--accent) / 0.8),
-        0 0 20px hsl(var(--accent) / 0.6),
-        0 0 30px hsl(var(--accent) / 0.4),
-        0 0 40px hsl(var(--primary) / 0.3);
-    }
-    to {
-      text-shadow: 
-        0 0 20px hsl(var(--accent) / 1),
-        0 0 30px hsl(var(--accent) / 0.8),
-        0 0 40px hsl(var(--accent) / 0.6),
-        0 0 60px hsl(var(--primary) / 0.5);
-    }
-  }
+  /* REMOVED: @keyframes glow with text-shadow blur - causes readability issues */
+  /* Use crisp, clean text without blur effects for professional appearance */
 
   /* Print Styles */
   @media print {
