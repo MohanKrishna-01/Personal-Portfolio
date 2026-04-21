@@ -277,6 +277,38 @@ All colors MUST be HSL.
     transform: translateY(-1px);
   }
 
+  /* Tasteful mint accent underline for section titles */
+  .accent-underline {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.4rem;
+  }
+  .accent-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, hsl(156 100% 50%), transparent);
+    box-shadow: 0 0 12px hsl(156 100% 50% / 0.55);
+  }
+
+  /* Premium card hover glow (mint) */
+  .card-glow-hover {
+    transition: var(--transition-smooth);
+  }
+  .card-glow-hover:hover {
+    border-color: hsl(156 100% 50% / 0.45) !important;
+    box-shadow:
+      0 0 0 1px hsl(156 100% 50% / 0.25),
+      0 12px 36px hsl(222 50% 2% / 0.55),
+      0 0 28px hsl(156 100% 50% / 0.18);
+    transform: translateY(-2px);
+  }
+
   .typing-cursor::after {
     content: "|";
     @apply text-accent ml-1;
