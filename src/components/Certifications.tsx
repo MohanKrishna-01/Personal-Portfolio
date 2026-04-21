@@ -11,49 +11,56 @@ const Certifications = () => {
       issuer: "NPTEL",
       category: "Programming",
       description: "Completed NPTEL course on Python for Data Science, covering Python fundamentals, data handling, and basic analytics.",
-      link: "https://drive.google.com/file/d/1DxUCm0fWYtOSFfnylY-1JiEJE0KVYFQn/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1DxUCm0fWYtOSFfnylY-1JiEJE0KVYFQn/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/nptel.ac.in"
     },
     {
       title: "Power BI Essential Training",
       issuer: "LinkedIn Learning",
       category: "Visualization",
       description: "Learned how to build interactive reports and dashboards using Microsoft Power BI.",
-      link: "https://drive.google.com/file/d/1us2Jhvbvk4W-ueVG62KFkgc1YOA3PViR/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1us2Jhvbvk4W-ueVG62KFkgc1YOA3PViR/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/linkedin.com"
     },
     {
       title: "Responsive Web Design",
       issuer: "FreeCodeCamp",
       category: "Web Development",
       description: "Gained skills in HTML, CSS, and responsive layouts for modern web pages.",
-      link: "https://drive.google.com/file/d/1uSt2oRzofPCpwqo6ljhZmPytyYny36b0/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1uSt2oRzofPCpwqo6ljhZmPytyYny36b0/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/freecodecamp.org"
     },
     {
       title: "Data Analytics Job Simulation",
       issuer: "Deloitte (Forage)",
       category: "Analytics",
       description: "Completed a virtual job simulation focusing on real-world data analytics tasks and business insights.",
-      link: "https://drive.google.com/file/d/1stszhAzzUZ9mbdN-0V9cmdaaWG2pvMVf/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1stszhAzzUZ9mbdN-0V9cmdaaWG2pvMVf/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/deloitte.com"
     },
     {
       title: "Power BI Masterclass",
       issuer: "Udemy",
       category: "Visualization",
       description: "Built advanced dashboards and explored DAX, data modeling, and visualization best practices.",
-      link: "https://drive.google.com/file/d/1xPpKbRpvV0zWy3GYdNLyYBnpWbnbw-Ls/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1xPpKbRpvV0zWy3GYdNLyYBnpWbnbw-Ls/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/udemy.com"
     },
     {
       title: "Data Visualization",
       issuer: "Tata (Forage)",
       category: "Visualization",
       description: "Practiced transforming raw data into meaningful visual insights using modern visualization tools.",
-      link: "https://drive.google.com/file/d/1D0FmozBXw8Tt_FIZq8kiODqSUThkrFiQ/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1D0FmozBXw8Tt_FIZq8kiODqSUThkrFiQ/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/tata.com"
     },
     {
       title: "GenAI Powered Data Analytics",
       issuer: "Tata",
       category: "AI/ML",
       description: "Learned how to apply Generative AI techniques to enhance data analytics workflows.",
-      link: "https://drive.google.com/file/d/1Bh7myfD67KyOp_EzvLyKWUwCSabWYrMF/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1Bh7myfD67KyOp_EzvLyKWUwCSabWYrMF/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/tata.com"
     }
   ];
 
