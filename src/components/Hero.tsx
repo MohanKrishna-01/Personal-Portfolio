@@ -122,7 +122,16 @@ const Hero = () => {
                 </span>
               </motion.div>
 
-              <motion.div variants={itemVariants} className="space-y-2">
+              <motion.div variants={itemVariants} className="space-y-2 relative">
+                {/* Subtle mint spotlight behind name (sharp, not blurry) */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 -z-10"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse 60% 70% at 50% 60%, rgba(0,255,163,0.08), transparent 70%)",
+                  }}
+                />
                 <EditableText
                   id="hero.greeting"
                   as="h2"

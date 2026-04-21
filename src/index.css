@@ -107,11 +107,12 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     background:
-      radial-gradient(ellipse 80% 60% at 50% 20%, rgba(0, 255, 163, 0.05), transparent 70%),
-      linear-gradient(135deg, #0B0F19 0%, #0F172A 40%, #020617 100%);
+      radial-gradient(ellipse 70% 55% at 50% 18%, rgba(0, 255, 163, 0.06), transparent 70%),
+      radial-gradient(ellipse 60% 50% at 85% 90%, rgba(34, 211, 238, 0.04), transparent 70%),
+      linear-gradient(135deg, #0B0F19 0%, #0F172A 45%, #020617 100%);
     background-attachment: fixed;
-    background-size: 100% 100%, 200% 200%;
-    animation: bg-shift 18s ease-in-out infinite alternate;
+    background-size: 100% 100%, 100% 100%, 220% 220%;
+    animation: bg-shift 22s ease-in-out infinite alternate;
     position: relative;
   }
 
@@ -129,14 +130,14 @@ All colors MUST be HSL.
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.04;
+    opacity: 0.035;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 
   @keyframes bg-shift {
-    0%   { background-position: 0% 0%, 0% 0%; }
-    100% { background-position: 0% 0%, 100% 100%; }
+    0%   { background-position: 0% 0%, 0% 0%, 0% 0%; }
+    100% { background-position: 0% 0%, 0% 0%, 100% 100%; }
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -274,6 +275,38 @@ All colors MUST be HSL.
   .btn-glow:hover {
     box-shadow: 0 0 0 1px hsl(var(--accent) / 0.6), 0 0 36px hsl(var(--accent) / 0.55);
     transform: translateY(-1px);
+  }
+
+  /* Tasteful mint accent underline for section titles */
+  .accent-underline {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.4rem;
+  }
+  .accent-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, hsl(156 100% 50%), transparent);
+    box-shadow: 0 0 12px hsl(156 100% 50% / 0.55);
+  }
+
+  /* Premium card hover glow (mint) */
+  .card-glow-hover {
+    transition: var(--transition-smooth);
+  }
+  .card-glow-hover:hover {
+    border-color: hsl(156 100% 50% / 0.45) !important;
+    box-shadow:
+      0 0 0 1px hsl(156 100% 50% / 0.25),
+      0 12px 36px hsl(222 50% 2% / 0.55),
+      0 0 28px hsl(156 100% 50% / 0.18);
+    transform: translateY(-2px);
   }
 
   .typing-cursor::after {

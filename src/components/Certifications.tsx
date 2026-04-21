@@ -11,49 +11,56 @@ const Certifications = () => {
       issuer: "NPTEL",
       category: "Programming",
       description: "Completed NPTEL course on Python for Data Science, covering Python fundamentals, data handling, and basic analytics.",
-      link: "https://drive.google.com/file/d/1DxUCm0fWYtOSFfnylY-1JiEJE0KVYFQn/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1DxUCm0fWYtOSFfnylY-1JiEJE0KVYFQn/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/nptel.ac.in"
     },
     {
       title: "Power BI Essential Training",
       issuer: "LinkedIn Learning",
       category: "Visualization",
       description: "Learned how to build interactive reports and dashboards using Microsoft Power BI.",
-      link: "https://drive.google.com/file/d/1us2Jhvbvk4W-ueVG62KFkgc1YOA3PViR/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1us2Jhvbvk4W-ueVG62KFkgc1YOA3PViR/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/linkedin.com"
     },
     {
       title: "Responsive Web Design",
       issuer: "FreeCodeCamp",
       category: "Web Development",
       description: "Gained skills in HTML, CSS, and responsive layouts for modern web pages.",
-      link: "https://drive.google.com/file/d/1uSt2oRzofPCpwqo6ljhZmPytyYny36b0/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1uSt2oRzofPCpwqo6ljhZmPytyYny36b0/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/freecodecamp.org"
     },
     {
       title: "Data Analytics Job Simulation",
       issuer: "Deloitte (Forage)",
       category: "Analytics",
       description: "Completed a virtual job simulation focusing on real-world data analytics tasks and business insights.",
-      link: "https://drive.google.com/file/d/1stszhAzzUZ9mbdN-0V9cmdaaWG2pvMVf/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1stszhAzzUZ9mbdN-0V9cmdaaWG2pvMVf/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/deloitte.com"
     },
     {
       title: "Power BI Masterclass",
       issuer: "Udemy",
       category: "Visualization",
       description: "Built advanced dashboards and explored DAX, data modeling, and visualization best practices.",
-      link: "https://drive.google.com/file/d/1xPpKbRpvV0zWy3GYdNLyYBnpWbnbw-Ls/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1xPpKbRpvV0zWy3GYdNLyYBnpWbnbw-Ls/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/udemy.com"
     },
     {
       title: "Data Visualization",
       issuer: "Tata (Forage)",
       category: "Visualization",
       description: "Practiced transforming raw data into meaningful visual insights using modern visualization tools.",
-      link: "https://drive.google.com/file/d/1D0FmozBXw8Tt_FIZq8kiODqSUThkrFiQ/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1D0FmozBXw8Tt_FIZq8kiODqSUThkrFiQ/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/tata.com"
     },
     {
       title: "GenAI Powered Data Analytics",
       issuer: "Tata",
       category: "AI/ML",
       description: "Learned how to apply Generative AI techniques to enhance data analytics workflows.",
-      link: "https://drive.google.com/file/d/1Bh7myfD67KyOp_EzvLyKWUwCSabWYrMF/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1Bh7myfD67KyOp_EzvLyKWUwCSabWYrMF/view?usp=drive_link",
+      logo: "https://logo.clearbit.com/tata.com"
     }
   ];
 
@@ -93,10 +100,10 @@ const Certifications = () => {
               <Award className="h-3.5 w-3.5 text-accent" />
               <span className="text-xs font-medium text-accent">Professional Growth</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-3">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 accent-underline">
               <span className="gradient-text">Certifications</span>
             </h2>
-            <p className="text-sm text-muted-foreground max-w-md mx-auto">
+            <p className="text-sm text-muted-foreground max-w-md mx-auto mt-3">
               Industry-recognized credentials validating expertise
             </p>
           </motion.div>
@@ -138,11 +145,27 @@ const Certifications = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
               >
-                <Card className="p-4 h-full border-border/30 bg-card/60 backdrop-blur-sm hover:border-accent/40 transition-all group">
-                  <div className="flex gap-3">
+                <Card className="p-5 h-full border-border/40 bg-card/70 card-glow-hover group">
+                  <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center group-hover:from-accent/30 group-hover:to-primary/30 transition-colors">
-                        <Award className="h-5 w-5 text-accent" />
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/15 to-primary/10 border border-border/50 flex items-center justify-center overflow-hidden group-hover:border-accent/40 transition-colors">
+                        {cert.logo ? (
+                          <img
+                            src={cert.logo}
+                            alt={`${cert.issuer} logo`}
+                            className="w-8 h-8 object-contain"
+                            loading="lazy"
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).style.display = "none";
+                              const fallback = (e.currentTarget.nextSibling as HTMLElement);
+                              if (fallback) fallback.style.display = "block";
+                            }}
+                          />
+                        ) : null}
+                        <Award
+                          className="h-5 w-5 text-accent"
+                          style={{ display: cert.logo ? "none" : "block" }}
+                        />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0 space-y-2">
@@ -169,9 +192,9 @@ const Certifications = () => {
                         size="sm"
                         variant="ghost"
                         onClick={() => window.open(cert.link, '_blank')}
-                        className="h-7 px-2 text-xs text-accent hover:text-accent hover:bg-accent/10"
+                        className="h-7 px-2 text-xs text-accent hover:text-accent hover:bg-accent/10 group/btn"
                       >
-                        <ExternalLink className="h-3 w-3 mr-1" />
+                        <ExternalLink className="h-3 w-3 mr-1 group-hover/btn:translate-x-0.5 transition-transform" />
                         View Certificate
                       </Button>
                     </div>
