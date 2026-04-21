@@ -129,7 +129,13 @@ const Hero = () => {
                   defaultValue="Hi, I'm"
                   className="text-base md:text-lg font-medium text-muted-foreground block text-center lg:text-left"
                 />
-                <h1 className="font-heading font-extrabold uppercase tracking-tight leading-[1.05] text-center lg:text-left text-[2.25rem] sm:text-5xl lg:text-[3.5rem]">
+                <h1
+                  className="relative font-heading font-extrabold uppercase tracking-tight leading-[1.05] text-center lg:text-left text-[2.25rem] sm:text-5xl lg:text-[3.5rem]"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0,255,163,0.08), transparent 70%)",
+                  }}
+                >
                   <EditableText
                     id="hero.firstName"
                     defaultValue="MOHAN KRISHNA"
