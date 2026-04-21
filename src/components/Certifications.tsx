@@ -145,7 +145,10 @@ const Certifications = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
               >
-                <Card className="p-5 h-full border-border/40 bg-card/70 card-glow-hover group">
+                <Card
+                  className="p-5 h-full bg-card/80 card-glow-hover group relative overflow-hidden"
+                  style={{ borderColor: "#1F2937", borderLeft: "3px solid #00FFA3" }}
+                >
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/15 to-primary/10 border border-border/50 flex items-center justify-center overflow-hidden group-hover:border-accent/40 transition-colors">

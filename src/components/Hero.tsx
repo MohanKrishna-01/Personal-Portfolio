@@ -138,7 +138,10 @@ const Hero = () => {
                   defaultValue="Hi, I'm"
                   className="text-base md:text-lg font-medium text-muted-foreground block text-center"
                 />
-                <h1 className="font-heading text-center font-bold uppercase tracking-[0.04em] leading-[1] text-[2.25rem] sm:text-5xl lg:text-[3.5rem]">
+                <h1
+                  className="font-heading text-center font-bold uppercase leading-[1] text-[2.25rem] sm:text-5xl lg:text-[3.5rem]"
+                  style={{ letterSpacing: "0.08em" }}
+                >
                   <EditableText
                     id="hero.firstName"
                     defaultValue="MOHAN KRISHNA"
@@ -197,7 +200,8 @@ const Hero = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="gap-2 border-accent/40 text-accent hover:bg-accent hover:text-accent-foreground"
+                  className="gap-2 rounded-full border-0 bg-[#00FFA3] text-[#0B0F19] font-semibold hover:bg-[#00FFA3] hover:scale-[1.04] transition-all"
+                  style={{ boxShadow: "0 0 0 1px rgba(0,255,163,0.55), 0 0 28px rgba(0,255,163,0.45)" }}
                   asChild
                 >
                   <a href="/MK_Resume.pdf" download="Mohan_Krishna_Ambati_Resume.pdf">

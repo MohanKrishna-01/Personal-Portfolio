@@ -78,24 +78,24 @@ const Experience = () => {
 
   const projects = [
     {
-      title: "Call Center Performance Dashboard",
-      subtitle: "Interactive Excel Analytics",
-      description:
-        "Excel dashboard analyzing call trends, callers, ratings, reviews, duration and CSAT using pivot tables, charts and slicers.",
-      technologies: ["Excel", "Pivot Tables", "Charts", "Slicers"],
-      projectLink: "https://ai.studio/apps/drive/10rU7bLdyM_2_E7V7VPwiWWnbrPxkJ-V5",
-      githubLink: null,
-      icon: BarChart3,
-    },
-    {
       title: "Food Calorie Prediction",
-      subtitle: "ML + Computer Vision",
+      subtitle: "AI-Based Food Recognition",
       description:
-        "Image-recognition model that estimates calories of food items by combining segmentation with nutritional datasets.",
+        "ML model that estimates calories of food items by combining image segmentation with nutritional datasets.",
       technologies: ["Python", "Deep Learning", "Computer Vision", "TensorFlow"],
       projectLink: "https://github.com/MohanKrishna-01/food-calorie-prediction",
       githubLink: "https://github.com/MohanKrishna-01/food-calorie-prediction",
       icon: Brain,
+    },
+    {
+      title: "Call Center Performance Dashboard",
+      subtitle: "Excel · Performance Tracking",
+      description:
+        "Built an Excel dashboard for performance tracking — call trends, ratings, duration and CSAT using pivot tables, charts and slicers.",
+      technologies: ["Excel", "Pivot Tables", "Charts", "Slicers"],
+      projectLink: "https://ai.studio/apps/drive/10rU7bLdyM_2_E7V7VPwiWWnbrPxkJ-V5",
+      githubLink: null,
+      icon: BarChart3,
     },
     {
       title: "CampusCollab AI",
