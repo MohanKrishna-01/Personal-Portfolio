@@ -100,10 +100,10 @@ const Certifications = () => {
               <Award className="h-3.5 w-3.5 text-accent" />
               <span className="text-xs font-medium text-accent">Professional Growth</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-3">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 accent-underline">
               <span className="gradient-text">Certifications</span>
             </h2>
-            <p className="text-sm text-muted-foreground max-w-md mx-auto">
+            <p className="text-sm text-muted-foreground max-w-md mx-auto mt-3">
               Industry-recognized credentials validating expertise
             </p>
           </motion.div>
@@ -145,11 +145,27 @@ const Certifications = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
               >
-                <Card className="p-4 h-full border-border/30 bg-card/60 backdrop-blur-sm hover:border-accent/40 transition-all group">
-                  <div className="flex gap-3">
+                <Card className="p-5 h-full border-border/40 bg-card/70 card-glow-hover group">
+                  <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center group-hover:from-accent/30 group-hover:to-primary/30 transition-colors">
-                        <Award className="h-5 w-5 text-accent" />
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/15 to-primary/10 border border-border/50 flex items-center justify-center overflow-hidden group-hover:border-accent/40 transition-colors">
+                        {cert.logo ? (
+                          <img
+                            src={cert.logo}
+                            alt={`${cert.issuer} logo`}
+                            className="w-8 h-8 object-contain"
+                            loading="lazy"
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).style.display = "none";
+                              const fallback = (e.currentTarget.nextSibling as HTMLElement);
+                              if (fallback) fallback.style.display = "block";
+                            }}
+                          />
+                        ) : null}
+                        <Award
+                          className="h-5 w-5 text-accent"
+                          style={{ display: cert.logo ? "none" : "block" }}
+                        />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0 space-y-2">
@@ -176,9 +192,9 @@ const Certifications = () => {
                         size="sm"
                         variant="ghost"
                         onClick={() => window.open(cert.link, '_blank')}
-                        className="h-7 px-2 text-xs text-accent hover:text-accent hover:bg-accent/10"
+                        className="h-7 px-2 text-xs text-accent hover:text-accent hover:bg-accent/10 group/btn"
                       >
-                        <ExternalLink className="h-3 w-3 mr-1" />
+                        <ExternalLink className="h-3 w-3 mr-1 group-hover/btn:translate-x-0.5 transition-transform" />
                         View Certificate
                       </Button>
                     </div>
