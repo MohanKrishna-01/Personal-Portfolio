@@ -75,7 +75,7 @@ const About = () => {
                     id="about.journey"
                     as="p"
                     multiline
-                    defaultValue="Aspiring Data Analyst skilled in Power BI, DAX, and data visualization. Experienced in building dashboards, analyzing trends, and delivering data-driven insights through real-world projects and internship experience."
+                    defaultValue="Aspiring Data Analyst skilled in Power BI, Excel, and Python, with expertise in data visualization and dashboard development. Experienced in transforming raw data into actionable insights through projects and internships."
                   />
                 </div>
               </Card>
