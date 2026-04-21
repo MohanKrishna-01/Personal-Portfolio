@@ -97,6 +97,12 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -107,6 +113,14 @@ All colors MUST be HSL.
     background-size: 100% 100%, 200% 200%;
     animation: bg-shift 18s ease-in-out infinite alternate;
     position: relative;
+  }
+
+  body :is(h1, h2, h3, h4, h5, h6, p, span, a, li, button, label, small, strong, em) {
+    opacity: 1 !important;
+    text-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   body::before {
@@ -127,6 +141,13 @@ All colors MUST be HSL.
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
+    color: hsl(var(--foreground));
+    font-weight: 600;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 }
 
@@ -160,13 +181,17 @@ All colors MUST be HSL.
   }
   
   .gradient-text {
-    background: linear-gradient(90deg, #E6EDF3, #00FFA3);
+    display: inline-block;
+    background: linear-gradient(90deg, hsl(213 27% 93%) 0%, hsl(156 100% 50%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
     text-shadow: none !important;
     filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    opacity: 1 !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -190,23 +215,13 @@ All colors MUST be HSL.
     backdrop-filter: none;
   }
 
-  .highlight-letter {
-    @apply relative inline-block;
-    color: hsl(var(--primary));
-    text-shadow:
-      0 0 10px hsl(var(--primary) / 0.8),
-      0 0 20px hsl(var(--primary) / 0.55),
-      0 0 30px hsl(var(--accent) / 0.35);
-    animation: glow 2s ease-in-out infinite alternate;
-    font-weight: 800;
-  }
-
+  .highlight-letter,
   .neon-text {
-    color: hsl(var(--primary));
-    text-shadow:
-      0 0 5px hsl(var(--primary) / 0.8),
-      0 0 12px hsl(var(--primary) / 0.5),
-      0 0 22px hsl(var(--accent) / 0.35);
+    color: hsl(var(--foreground));
+    text-shadow: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    animation: none !important;
   }
 
   .neon-border {
@@ -218,10 +233,12 @@ All colors MUST be HSL.
   }
 
   .glass-card {
-    @apply backdrop-blur-xl bg-card/60 border border-border/60;
+    @apply bg-card border border-border;
     box-shadow:
       0 8px 32px hsl(222 50% 2% / 0.55),
       inset 0 1px 0 hsl(0 0% 100% / 0.05);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   .glass-card:hover {

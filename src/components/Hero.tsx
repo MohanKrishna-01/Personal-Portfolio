@@ -127,24 +127,18 @@ const Hero = () => {
                   id="hero.greeting"
                   as="h2"
                   defaultValue="Hi, I'm"
-                  className="text-base md:text-lg font-medium text-muted-foreground block text-center lg:text-left"
+                  className="text-base md:text-lg font-medium text-muted-foreground block text-center"
                 />
-                <h1
-                  className="relative font-heading font-extrabold uppercase tracking-tight leading-[1.05] text-center lg:text-left text-[2.25rem] sm:text-5xl lg:text-[3.5rem]"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0,255,163,0.08), transparent 70%)",
-                  }}
-                >
+                <h1 className="font-heading text-center font-bold uppercase tracking-[0.04em] leading-[1] text-[2.25rem] sm:text-5xl lg:text-[3.5rem]">
                   <EditableText
                     id="hero.firstName"
                     defaultValue="MOHAN KRISHNA"
-                    className="gradient-text block"
+                    className="gradient-text block text-center"
                   />
                   <EditableText
                     id="hero.lastName"
                     defaultValue="AMBATI"
-                    className="gradient-text block"
+                    className="gradient-text block text-center"
                   />
                 </h1>
               </motion.div>
