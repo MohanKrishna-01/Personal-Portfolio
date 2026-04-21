@@ -100,6 +100,29 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 20%, rgba(0, 255, 163, 0.05), transparent 70%),
+      linear-gradient(135deg, #0B0F19 0%, #0F172A 40%, #020617 100%);
+    background-attachment: fixed;
+    background-size: 100% 100%, 200% 200%;
+    animation: bg-shift 18s ease-in-out infinite alternate;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  @keyframes bg-shift {
+    0%   { background-position: 0% 0%, 0% 0%; }
+    100% { background-position: 0% 0%, 100% 100%; }
   }
   
   h1, h2, h3, h4, h5, h6 {
