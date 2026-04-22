@@ -42,14 +42,16 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        isScrolled
+          ? "bg-[#0B0F19]/85 backdrop-blur-xl border-b border-[#1F2937] shadow-[0_8px_32px_rgba(0,0,0,0.45)]"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <button
             onClick={() => scrollToSection("home")}
-            className="text-2xl font-heading font-bold bg-gradient-accent bg-clip-text text-transparent hover:opacity-80 transition-smooth"
+            className="text-2xl font-heading font-extrabold tracking-widest gradient-text hover:opacity-90 transition-smooth"
           >
             MKA
           </button>
@@ -68,8 +70,8 @@ const Navigation = () => {
             ))}
             <Button
               onClick={() => scrollToSection("contact")}
-              variant="default"
-              className="gradient-accent text-white shadow-accent"
+              className="rounded-full font-semibold bg-[#00FFA3] text-[#0B0F19] hover:bg-[#00FFA3] hover:scale-[1.04] transition-all"
+              style={{ boxShadow: "0 0 0 1px rgba(0,255,163,0.45), 0 0 20px rgba(0,255,163,0.35)" }}
             >
               Let's Connect
             </Button>
