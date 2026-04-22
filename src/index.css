@@ -135,6 +135,30 @@ All colors MUST be HSL.
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 
+  /* Soft aurora layer — slow drifting conic light, ultra subtle */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: -10%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.55;
+    background:
+      conic-gradient(from 180deg at 50% 50%,
+        rgba(0, 255, 163, 0.05) 0deg,
+        transparent 70deg,
+        rgba(34, 211, 238, 0.05) 180deg,
+        transparent 270deg,
+        rgba(0, 255, 163, 0.05) 360deg);
+    filter: blur(60px);
+    animation: aurora-drift 40s linear infinite;
+  }
+
+  @keyframes aurora-drift {
+    0%   { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(360deg) scale(1.05); }
+  }
+
   @keyframes bg-shift {
     0%   { background-position: 0% 0%, 0% 0%, 0% 0%; }
     100% { background-position: 0% 0%, 0% 0%, 100% 100%; }
