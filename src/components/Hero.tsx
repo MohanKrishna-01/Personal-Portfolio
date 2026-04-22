@@ -188,7 +188,8 @@ const Hero = () => {
               >
                 <Button
                   size="lg"
-                  className="gap-2 group bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 shadow-glow"
+                  className="gap-2 group rounded-full bg-[#00FFA3] text-[#0B0F19] font-semibold hover:bg-[#00FFA3] hover:scale-[1.04] transition-all"
+                  style={{ boxShadow: "0 0 0 1px rgba(0,255,163,0.55), 0 0 28px rgba(0,255,163,0.45)" }}
                   asChild
                 >
                   <a href="#projects">
@@ -200,8 +201,7 @@ const Hero = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="gap-2 rounded-full border-0 bg-[#00FFA3] text-[#0B0F19] font-semibold hover:bg-[#00FFA3] hover:scale-[1.04] transition-all"
-                  style={{ boxShadow: "0 0 0 1px rgba(0,255,163,0.55), 0 0 28px rgba(0,255,163,0.45)" }}
+                  className="gap-2 rounded-full bg-transparent text-[#E6EDF3] font-semibold border-[#00FFA3]/60 hover:bg-[#00FFA3]/10 hover:border-[#00FFA3] hover:text-[#00FFA3] hover:scale-[1.03] transition-all"
                   asChild
                 >
                   <a href="/MK_Resume.pdf" download="Mohan_Krishna_Ambati_Resume.pdf">

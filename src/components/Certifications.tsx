@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Award, ExternalLink, Trophy, Layers, FolderOpen } from "lucide-react";
+import { Award, ExternalLink, Trophy, Layers, FolderOpen, BadgeCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Certifications = () => {
@@ -176,7 +176,7 @@ const Certifications = () => {
                         <h3 className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors line-clamp-1">
                           {cert.title}
                         </h3>
-                        <div className="flex items-center gap-2 mt-1">
+                        <div className="flex items-center gap-2 mt-1 flex-wrap">
                           <span className="text-xs font-medium text-accent/80">{cert.issuer}</span>
                           <Badge 
                             variant="outline" 
@@ -184,6 +184,17 @@ const Certifications = () => {
                           >
                             {cert.category}
                           </Badge>
+                          <span
+                            className="inline-flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded-full"
+                            style={{
+                              color: "#00FFA3",
+                              background: "rgba(0,255,163,0.08)",
+                              border: "1px solid rgba(0,255,163,0.35)",
+                            }}
+                          >
+                            <BadgeCheck className="h-3 w-3" />
+                            Verified
+                          </span>
                         </div>
                       </div>
                       
