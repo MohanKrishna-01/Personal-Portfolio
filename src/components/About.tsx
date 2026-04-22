@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Target, Lightbulb, MessageSquare, GraduationCap } from "lucide-react";
+import { Target, Lightbulb, MessageSquare, GraduationCap, Sparkles, Calendar, Award } from "lucide-react";
 import EditableText from "./EditableText";
 
 const About = () => {
@@ -15,9 +15,9 @@ const About = () => {
     {
       degree: "B.Tech. in Computer Science Engineering (DS)",
       institution: "Dadi Institute of Engineering & Technology",
-      grade: "CGPA: 7.62/10",
-      year: "Currently in 6th Semester (7th Sem Completed)",
-      detail: "Third-year student"
+      grade: "CGPA: 7.60/10",
+      year: "2022 – 2026",
+      detail: "Final year (4th year) student"
     },
     {
       degree: "12th Grade (APBIE) - MPC",
@@ -118,38 +118,113 @@ const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6 text-center">
-              <span className="highlight-letter">E</span>ducational <span className="highlight-letter">B</span>ackground
-            </h3>
-            <div className="space-y-4">
-              {education.map((edu, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ x: 10 }}
-                >
-                  <Card className="p-6 bg-card/50 backdrop-blur-sm border-accent/20 hover:border-accent/50 transition-all">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                      <div className="flex-1">
-                        <h4 className="font-bold text-lg mb-2">{edu.degree}</h4>
-                        <p className="text-foreground/70 text-sm mb-1">{edu.institution}</p>
-                        <p className="text-accent font-semibold text-sm">{edu.grade}</p>
+            <div className="text-center mb-10">
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
+                style={{
+                  background: "rgba(0,255,163,0.08)",
+                  border: "1px solid rgba(0,255,163,0.25)",
+                }}
+              >
+                <Sparkles className="h-3.5 w-3.5" style={{ color: "#00FFA3" }} />
+                <span className="text-xs font-medium" style={{ color: "#00FFA3" }}>
+                  Academic Journey
+                </span>
+              </div>
+              <h3 className="text-3xl md:text-4xl font-heading font-bold mb-2 accent-underline">
+                <span className="gradient-text">Educational Background</span>
+              </h3>
+              <p className="text-sm text-muted-foreground mt-3">
+                A timeline of milestones shaping my journey
+              </p>
+            </div>
+
+            {/* Premium timeline */}
+            <div className="relative max-w-4xl mx-auto">
+              {/* Vertical line */}
+              <div
+                className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, transparent, rgba(0,255,163,0.45), rgba(34,211,238,0.35), transparent)",
+                }}
+              />
+
+              <div className="space-y-8">
+                {education.map((edu, index) => {
+                  const isLeft = index % 2 === 0;
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className={`relative md:grid md:grid-cols-2 md:gap-8 items-center ${
+                        isLeft ? "" : "md:[&>*:first-child]:order-2"
+                      }`}
+                    >
+                      {/* Dot */}
+                      <div
+                        className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full z-10"
+                        style={{
+                          background: "#00FFA3",
+                          boxShadow:
+                            "0 0 0 4px rgba(0,255,163,0.15), 0 0 20px rgba(0,255,163,0.55)",
+                        }}
+                      />
+
+                      {/* Card side */}
+                      <div className={`pl-12 md:pl-0 ${isLeft ? "md:pr-10 md:text-right" : "md:pl-10"}`}>
+                        <motion.div whileHover={{ y: -4 }}>
+                          <Card
+                            className="p-6 card-glow-hover group relative overflow-hidden"
+                            style={{
+                              background: "#121826",
+                              borderColor: "#1F2937",
+                            }}
+                          >
+                            <div
+                              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                              style={{
+                                background:
+                                  "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,255,163,0.08), transparent 70%)",
+                              }}
+                            />
+                            <div className="relative z-10">
+                              <div className={`flex items-center gap-2 mb-3 ${isLeft ? "md:justify-end" : ""}`}>
+                                <Award className="h-4 w-4" style={{ color: "#00FFA3" }} />
+                                <span
+                                  className="text-[11px] font-semibold uppercase tracking-wider"
+                                  style={{ color: "#00FFA3" }}
+                                >
+                                  {edu.grade}
+                                </span>
+                              </div>
+                              <h4 className="font-bold text-lg mb-2 group-hover:text-accent transition-colors">
+                                {edu.degree}
+                              </h4>
+                              <p className="text-foreground/70 text-sm mb-3">{edu.institution}</p>
+                              <div className={`flex items-center gap-2 flex-wrap ${isLeft ? "md:justify-end" : ""}`}>
+                                <span className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/20">
+                                  <Calendar className="h-3 w-3" />
+                                  {edu.year}
+                                </span>
+                                {edu.detail && (
+                                  <span className="text-xs text-muted-foreground">{edu.detail}</span>
+                                )}
+                              </div>
+                            </div>
+                          </Card>
+                        </motion.div>
                       </div>
-                      <div className="text-left md:text-right">
-                        <span className="inline-block text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full mb-1">
-                          {edu.year}
-                        </span>
-                        {edu.detail && (
-                          <p className="text-xs text-muted-foreground mt-1">{edu.detail}</p>
-                        )}
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
+
+                      {/* Spacer for opposite side on desktop */}
+                      <div className="hidden md:block" />
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
           </motion.div>
         </div>
