@@ -240,7 +240,8 @@ const Contact = () => {
                             <FormControl>
                               <Input
                                 placeholder="John Doe"
-                                className="bg-background/50 border-border/50 focus:border-accent"
+                                className="border focus:border-[#00FFA3] focus-visible:ring-[#00FFA3]/30 transition-colors"
+                                style={{ background: "#121826", borderColor: "#1F2937" }}
                                 {...field}
                               />
                             </FormControl>
@@ -259,7 +260,8 @@ const Contact = () => {
                               <Input
                                 type="email"
                                 placeholder="john@example.com"
-                                className="bg-background/50 border-border/50 focus:border-accent"
+                                className="border focus:border-[#00FFA3] focus-visible:ring-[#00FFA3]/30 transition-colors"
+                                style={{ background: "#121826", borderColor: "#1F2937" }}
                                 {...field}
                               />
                             </FormControl>
@@ -278,7 +280,8 @@ const Contact = () => {
                           <FormControl>
                             <Input
                               placeholder="Project Collaboration"
-                              className="bg-background/50 border-border/50 focus:border-accent"
+                              className="border focus:border-[#00FFA3] focus-visible:ring-[#00FFA3]/30 transition-colors"
+                              style={{ background: "#121826", borderColor: "#1F2937" }}
                               {...field}
                             />
                           </FormControl>
@@ -297,7 +300,8 @@ const Contact = () => {
                             <Textarea
                               rows={6}
                               placeholder="Tell me about your project or inquiry..."
-                              className="bg-background/50 border-border/50 focus:border-accent resize-none"
+                              className="border focus:border-[#00FFA3] focus-visible:ring-[#00FFA3]/30 transition-colors resize-none"
+                              style={{ background: "#121826", borderColor: "#1F2937" }}
                               {...field}
                             />
                           </FormControl>
@@ -308,7 +312,8 @@ const Contact = () => {
 
                     <Button
                       type="submit"
-                      className="w-full bg-accent hover:bg-accent/90 text-background shadow-accent group"
+                      className="w-full bg-[#00FFA3] hover:bg-[#00FFA3] text-[#0B0F19] font-semibold rounded-md hover:scale-[1.02] transition-all group"
+                      style={{ boxShadow: "0 0 0 1px rgba(0,255,163,0.55), 0 0 28px rgba(0,255,163,0.45)" }}
                       disabled={form.formState.isSubmitting}
                     >
                       <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
