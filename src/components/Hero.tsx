@@ -116,10 +116,32 @@ const Hero = () => {
             {/* Left column */}
             <div className="text-center lg:text-left space-y-7">
               <motion.div variants={itemVariants}>
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card text-xs font-medium text-accent">
-                  <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                  Available for opportunities
-                </span>
+                <div className="flex flex-wrap items-center gap-2 justify-center lg:justify-start">
+                  <span
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"
+                    style={{
+                      background: "rgba(0,255,163,0.08)",
+                      border: "1px solid rgba(0,255,163,0.35)",
+                      color: "#00FFA3",
+                    }}
+                  >
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ background: "#00FFA3" }} />
+                      <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: "#00FFA3" }} />
+                    </span>
+                    Available for opportunities
+                  </span>
+                  <span
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium"
+                    style={{
+                      background: "rgba(34,211,238,0.06)",
+                      border: "1px solid rgba(34,211,238,0.25)",
+                      color: "#22D3EE",
+                    }}
+                  >
+                    📍 Vizag, India
+                  </span>
+                </div>
               </motion.div>
 
               <motion.div variants={itemVariants} className="space-y-2 relative">
@@ -139,20 +161,30 @@ const Hero = () => {
                   className="text-base md:text-lg font-medium text-muted-foreground block text-center"
                 />
                 <h1
-                  className="font-heading text-center font-bold uppercase leading-[1] text-[2.25rem] sm:text-5xl lg:text-[3.5rem]"
-                  style={{ letterSpacing: "0.08em" }}
+                  className="font-heading text-center lg:text-left font-extrabold uppercase leading-[0.95] text-[2.5rem] sm:text-6xl lg:text-[4.25rem]"
+                  style={{ letterSpacing: "0.06em" }}
                 >
                   <EditableText
                     id="hero.firstName"
                     defaultValue="MOHAN KRISHNA"
-                    className="gradient-text block text-center"
+                    className="gradient-text block text-center lg:text-left"
                   />
                   <EditableText
                     id="hero.lastName"
                     defaultValue="AMBATI"
-                    className="gradient-text block text-center"
+                    className="gradient-text block text-center lg:text-left"
                   />
                 </h1>
+                {/* Mint underline accent */}
+                <div className="flex justify-center lg:justify-start mt-3">
+                  <span
+                    className="block h-[3px] w-24 rounded-full"
+                    style={{
+                      background: "linear-gradient(90deg, transparent, #00FFA3, transparent)",
+                      boxShadow: "0 0 16px rgba(0,255,163,0.6)",
+                    }}
+                  />
+                </div>
               </motion.div>
 
               <motion.div variants={itemVariants}>
