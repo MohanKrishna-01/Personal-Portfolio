@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Code2, Database, BarChart3, Brain } from "lucide-react";
+import { Code2, Database, BarChart3, Brain, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Skills = () => {
@@ -51,11 +51,26 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-4">
-            <span className="gradient-text"><span className="highlight-letter">S</span>kills & <span className="highlight-letter">E</span>xpertise</span>
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
+            style={{
+              background: "rgba(0,255,163,0.08)",
+              border: "1px solid rgba(0,255,163,0.25)",
+            }}
+          >
+            <Sparkles className="h-3.5 w-3.5" style={{ color: "#00FFA3" }} />
+            <span className="text-xs font-medium" style={{ color: "#00FFA3" }}>
+              Toolkit & Capabilities
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-3 accent-underline">
+            <span className="gradient-text">Skills & Expertise</span>
           </h2>
-          <p className="text-center text-muted-foreground mb-12">Technical proficiency across multiple domains</p>
+          <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
+            Technical proficiency across analytics, visualization, and engineering
+          </p>
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
@@ -70,18 +85,32 @@ const Skills = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
               >
-                <Card className="p-8 h-full bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border-accent/20 hover:border-accent/50 transition-all">
-                  <div className="flex items-center gap-4 mb-6">
+                <Card
+                  className="p-8 h-full card-glow-hover group relative overflow-hidden"
+                  style={{ background: "#121826", borderColor: "#1F2937" }}
+                >
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,255,163,0.10), transparent 70%)",
+                    }}
+                  />
+                  <div className="relative z-10 flex items-center gap-4 mb-6">
                     <motion.div 
-                      className="p-3 bg-accent/10 rounded-lg"
+                      className="p-3 rounded-xl"
+                      style={{
+                        background: "rgba(0,255,163,0.1)",
+                        border: "1px solid rgba(0,255,163,0.25)",
+                      }}
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
                     >
-                      <category.icon className="h-6 w-6 text-accent" />
+                      <category.icon className="h-6 w-6" style={{ color: "#00FFA3" }} />
                     </motion.div>
-                    <h3 className="text-xl font-bold">{category.title}</h3>
+                    <h3 className="text-xl font-bold group-hover:text-accent transition-colors">{category.title}</h3>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="relative z-10 flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
                       <motion.span
                         key={skill}

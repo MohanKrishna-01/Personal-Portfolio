@@ -61,6 +61,14 @@ const Certifications = () => {
       description: "Learned how to apply Generative AI techniques to enhance data analytics workflows.",
       link: "https://drive.google.com/file/d/1Bh7myfD67KyOp_EzvLyKWUwCSabWYrMF/view?usp=drive_link",
       logo: "https://logo.clearbit.com/tata.com"
+    },
+    {
+      title: "Data Analytics Intern – Internship 6.0",
+      issuer: "Infosys Springboard",
+      category: "Analytics",
+      description: "Built interactive Power BI dashboards to analyse disaster data and performed data modelling using star schema and DAX (Dec – Feb 2026).",
+      link: "#",
+      logo: "https://logo.clearbit.com/infosys.com"
     }
   ];
 
@@ -73,8 +81,8 @@ const Certifications = () => {
   };
 
   const stats = [
-    { icon: Trophy, value: "7", label: "Certifications" },
-    { icon: Layers, value: "5", label: "Platforms" },
+    { icon: Trophy, value: "8", label: "Certifications" },
+    { icon: Layers, value: "6", label: "Platforms" },
     { icon: FolderOpen, value: "4", label: "Categories" }
   ];
 

@@ -59,11 +59,22 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              <span className="highlight-letter">M</span>y <span className="highlight-letter">S</span>ervices
+            <div
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
+              style={{
+                background: "rgba(0,255,163,0.08)",
+                border: "1px solid rgba(0,255,163,0.25)",
+              }}
+            >
+              <ArrowUpRight className="h-3.5 w-3.5" style={{ color: "#00FFA3" }} />
+              <span className="text-xs font-medium" style={{ color: "#00FFA3" }}>
+                What I Offer
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-3 accent-underline">
+              <span className="gradient-text">My Services</span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-accent mx-auto rounded-full mb-6" />
-            <p className="text-foreground/70 max-w-2xl mx-auto">
+            <p className="text-foreground/70 max-w-2xl mx-auto mt-4">
               Specialized data science services to transform your data into actionable business insights
             </p>
           </motion.div>
@@ -128,20 +139,46 @@ const Services = () => {
 
           {/* CTA Section */}
           <motion.div 
-            className="mt-16 p-8 md:p-12 bg-gradient-to-br from-accent/10 via-primary/10 to-accent/10 rounded-2xl relative overflow-hidden border border-accent/20"
+            className="mt-20 p-10 md:p-14 rounded-3xl relative overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(0,255,163,0.08), rgba(34,211,238,0.05) 50%, rgba(0,255,163,0.08))",
+              border: "1px solid rgba(0,255,163,0.25)",
+              boxShadow:
+                "0 30px 80px rgba(2,6,23,0.55), 0 0 60px rgba(0,255,163,0.12)",
+            }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-primary/5 opacity-50" />
-            
+            {/* Decorative orbs */}
+            <div
+              className="absolute -top-24 -left-24 w-72 h-72 rounded-full pointer-events-none"
+              style={{ background: "radial-gradient(circle, rgba(0,255,163,0.18), transparent 70%)" }}
+            />
+            <div
+              className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full pointer-events-none"
+              style={{ background: "radial-gradient(circle, rgba(34,211,238,0.14), transparent 70%)" }}
+            />
+
             <div className="relative z-10 text-center">
-              <h3 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-                <span className="highlight-letter">R</span>eady to <span className="highlight-letter">T</span>ransform <span className="highlight-letter">Y</span>our <span className="highlight-letter">D</span>ata?
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-5"
+                style={{
+                  background: "rgba(0,255,163,0.12)",
+                  border: "1px solid rgba(0,255,163,0.35)",
+                }}
+              >
+                <span className="text-xs font-semibold" style={{ color: "#00FFA3" }}>
+                  Let's Build Something Great
+                </span>
+              </div>
+              <h3 className="text-3xl md:text-5xl font-heading font-bold mb-4 leading-tight">
+                Ready to <span className="gradient-text">Transform Your Data?</span>
               </h3>
-              <p className="text-foreground/70 mb-6 max-w-2xl mx-auto">
-                Let's collaborate on your next data science project and unlock valuable insights that drive business growth
+              <p className="text-foreground/70 mb-8 max-w-2xl mx-auto text-base md:text-lg">
+                Let's collaborate on your next data project and unlock insights that drive real business growth.
               </p>
               <button
                 onClick={() => {
@@ -153,7 +190,13 @@ const Services = () => {
                     window.scrollTo({ top: offsetPosition, behavior: "smooth" });
                   }
                 }}
-                className="px-8 py-4 bg-accent text-background rounded-lg font-semibold hover:bg-accent/90 shadow-accent transition-all hover:scale-105 inline-flex items-center gap-2"
+                className="px-8 py-4 rounded-full font-semibold transition-all hover:scale-105 inline-flex items-center gap-2"
+                style={{
+                  background: "#00FFA3",
+                  color: "#0B0F19",
+                  boxShadow:
+                    "0 0 0 1px rgba(0,255,163,0.5), 0 0 28px rgba(0,255,163,0.55)",
+                }}
               >
                 Get In Touch
                 <ArrowUpRight className="h-5 w-5" />
