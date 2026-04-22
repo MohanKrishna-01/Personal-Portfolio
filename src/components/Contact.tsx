@@ -114,12 +114,23 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              <span className="highlight-letter">G</span>et <span className="highlight-letter">I</span>n <span className="highlight-letter">T</span>ouch
+            <div
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
+              style={{
+                background: "rgba(0,255,163,0.08)",
+                border: "1px solid rgba(0,255,163,0.25)",
+              }}
+            >
+              <Send className="h-3.5 w-3.5" style={{ color: "#00FFA3" }} />
+              <span className="text-xs font-medium" style={{ color: "#00FFA3" }}>
+                Let's Collaborate
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-3 accent-underline">
+              <span className="gradient-text">Get In Touch</span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-accent mx-auto rounded-full mb-6" />
-            <p className="text-foreground/70 max-w-2xl mx-auto">
-              I'm always open to discussing new opportunities, collaborations, or just connecting. Let's create something amazing together!
+            <p className="text-foreground/70 max-w-2xl mx-auto mt-4">
+              I'm always open to new opportunities, collaborations, or simply connecting. Let's build something impactful together.
             </p>
           </motion.div>
 

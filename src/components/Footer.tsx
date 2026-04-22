@@ -4,17 +4,35 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card/80 backdrop-blur-sm border-t border-border/50 text-foreground py-12">
+    <footer
+      className="relative text-foreground py-14 overflow-hidden"
+      style={{
+        background: "linear-gradient(180deg, transparent 0%, rgba(11,15,25,0.85) 30%, #0B0F19 100%)",
+        borderTop: "1px solid #1F2937",
+      }}
+    >
+      {/* Top accent line */}
+      <div
+        className="absolute inset-x-0 top-0 h-px"
+        style={{
+          background: "linear-gradient(90deg, transparent, rgba(0,255,163,0.6), transparent)",
+        }}
+      />
+      {/* Soft mint glow */}
+      <div
+        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, rgba(0,255,163,0.08), transparent 70%)" }}
+      />
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Brand */}
             <div>
-              <h3 className="text-2xl font-heading font-bold mb-4 bg-gradient-accent bg-clip-text text-transparent">
+              <h3 className="text-2xl font-heading font-bold mb-4 gradient-text">
                 Mohan Krishna Ambati
               </h3>
               <p className="text-muted-foreground text-sm">
-                Aspiring Data Scientist passionate about transforming data into actionable insights
+                Aspiring Data Analyst — turning raw data into clear, actionable insights with Power BI, SQL & Python.
               </p>
             </div>
 
