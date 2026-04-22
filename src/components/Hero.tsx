@@ -283,13 +283,24 @@ const Hero = () => {
               {/* Stats */}
               <motion.div className="grid grid-cols-3 gap-4 pt-6" variants={itemVariants}>
                 {stats.map((stat) => (
-                  <Card
-                    key={stat.label}
-                    className="glass-card p-4 text-center hover:border-accent/50 hover:scale-105 transition-all"
-                  >
-                    <p className="text-2xl md:text-3xl font-bold gradient-text">{stat.value}</p>
-                    <p className="text-xs md:text-sm text-muted-foreground mt-1">{stat.label}</p>
-                  </Card>
+                  <motion.div key={stat.label} whileHover={{ y: -4 }}>
+                    <Card
+                      className="p-4 text-center card-glow-hover relative overflow-hidden"
+                      style={{ background: "#121826", borderColor: "#1F2937" }}
+                    >
+                      <div
+                        className="absolute inset-x-0 top-0 h-px"
+                        style={{
+                          background:
+                            "linear-gradient(90deg, transparent, rgba(0,255,163,0.6), transparent)",
+                        }}
+                      />
+                      <p className="text-2xl md:text-3xl font-bold gradient-text">{stat.value}</p>
+                      <p className="text-[11px] md:text-xs text-muted-foreground mt-1 uppercase tracking-wider">
+                        {stat.label}
+                      </p>
+                    </Card>
+                  </motion.div>
                 ))}
               </motion.div>
             </div>
