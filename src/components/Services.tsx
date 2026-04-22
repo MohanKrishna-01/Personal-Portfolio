@@ -77,14 +77,29 @@ const Services = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="p-6 h-full shadow-lg hover:shadow-accent transition-all group relative overflow-hidden border-border/50 hover:border-accent/50 bg-card/50 backdrop-blur-sm cursor-pointer">
-                  {/* Background glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  
+                <Card
+                  className="p-6 h-full transition-all group relative overflow-hidden cursor-pointer card-glow-hover"
+                  style={{ background: "#121826", borderColor: "#1F2937" }}
+                >
+                  {/* Subtle mint glow on hover */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,255,163,0.08), transparent 70%)",
+                    }}
+                  />
+
                   <div className="relative z-10">
                     <div className="flex items-start justify-between mb-4">
-                      <div className="p-3 rounded-xl bg-accent/10 group-hover:bg-accent transition-colors">
-                        <service.icon className="h-7 w-7 text-accent group-hover:text-background transition-colors" />
+                      <div
+                        className="p-3 rounded-xl transition-all group-hover:scale-110"
+                        style={{
+                          background: "rgba(0,255,163,0.1)",
+                          border: "1px solid rgba(0,255,163,0.25)",
+                        }}
+                      >
+                        <service.icon className="h-7 w-7" style={{ color: "#00FFA3" }} />
                       </div>
                       <ArrowUpRight className="h-5 w-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
