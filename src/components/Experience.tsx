@@ -3,20 +3,13 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import {
   Briefcase,
-  Code,
   ExternalLink,
-  Github,
-  Sparkles,
   Zap,
-  Brain,
-  BarChart3,
   TrendingUp,
   MapPin,
   Calendar,
-  Star,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import femaDashboard from "@/assets/fema-dashboard.jpg";
 
 const Experience = () => {
   const experiences = [
@@ -143,9 +136,8 @@ const Experience = () => {
               <span className="text-xs font-medium text-accent">Portfolio Showcase</span>
             </motion.div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-              <span className="text-foreground">Experience</span>
-              <span className="mx-2 text-accent">&</span>
-              <span className="gradient-text">Projects</span>
+              <span className="text-foreground">Work</span>{" "}
+              <span className="gradient-text">Experience</span>
             </h2>
             <p className="text-base text-muted-foreground max-w-xl mx-auto">
               Building <span className="text-accent font-medium">data-driven solutions</span> through
