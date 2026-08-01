@@ -172,6 +172,21 @@ const Contact = () => {
                             <p className="text-foreground text-sm font-medium">{item.value}</p>
                           )}
                         </div>
+                        <button
+                          type="button"
+                          onClick={async () => {
+                            try {
+                              await navigator.clipboard.writeText(item.value);
+                              toast.success(`${item.label} copied to clipboard`);
+                            } catch {
+                              toast.error("Copy failed — please copy manually");
+                            }
+                          }}
+                          aria-label={`Copy ${item.label.toLowerCase()}`}
+                          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border text-muted-foreground transition-smooth hover:border-primary/50 hover:text-primary"
+                        >
+                          <Copy className="h-4 w-4" aria-hidden="true" />
+                        </button>
                       </div>
                     </Card>
                   </motion.div>
