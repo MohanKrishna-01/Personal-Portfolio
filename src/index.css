@@ -61,34 +61,37 @@ All colors MUST be HSL.
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .dark {
-    --background: 220 25% 8%;
-    --foreground: 0 0% 98%;
+  /* Light theme — same structure, recruiter-friendly contrast (WCAG AA) */
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
 
-    --card: 220 20% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 220 20% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 185 85% 45%;
+    --primary: 165 90% 26%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 20% 16%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 220 20% 16%;
-    --muted-foreground: 220 10% 65%;
+    --muted: 210 30% 94%;
+    --muted-foreground: 215 20% 35%;
 
-    --accent: 185 85% 45%;
+    --accent: 190 85% 30%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 98%;
+    --border: 214 25% 88%;
+    --input: 214 25% 88%;
+    --ring: 165 90% 26%;
 
-    --border: 220 20% 20%;
-    --input: 220 20% 20%;
-    --ring: 185 85% 45%;
+    --gradient-text: linear-gradient(135deg, hsl(222 47% 11%) 0%, hsl(165 90% 26%) 100%);
+    --shadow-sm: 0 2px 12px hsl(215 30% 50% / 0.12);
+    --shadow-md: 0 8px 24px hsl(215 30% 50% / 0.14);
+    --shadow-lg: 0 16px 48px hsl(215 30% 50% / 0.16);
   }
 }
 
@@ -439,4 +442,54 @@ All colors MUST be HSL.
   img {
     content-visibility: auto;
   }
+}
+
+/* Light-theme surface overrides for the animated background system */
+.light body {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 12%, hsl(165 90% 40% / 0.10), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 85% 90%, hsl(190 85% 45% / 0.08), transparent 70%),
+    linear-gradient(135deg, hsl(210 40% 99%) 0%, hsl(210 35% 96%) 45%, hsl(210 30% 94%) 100%);
+  background-attachment: fixed;
+}
+
+.light body::before,
+.light body::after {
+  opacity: 0.02;
+}
+
+.light .gradient-text {
+  background: linear-gradient(90deg, hsl(222 47% 11%) 0%, hsl(165 90% 26%) 100%);
+}
+
+.light .glass-card {
+  box-shadow:
+    0 8px 28px hsl(215 30% 50% / 0.10),
+    inset 0 1px 0 hsl(0 0% 100% / 0.9);
+}
+
+/* Consistent, visible keyboard focus everywhere */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Reduce motion for users who ask for it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Zero layout shift for media */
+img,
+video,
+object {
+  max-width: 100%;
 }
