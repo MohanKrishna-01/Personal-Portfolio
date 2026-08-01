@@ -1,116 +1,129 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Command as CommandIcon, FileText } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
+import ResumeDialog from "@/components/ResumeDialog";
+import { SECTIONS, scrollToSection } from "@/components/CommandPalette";
+import { useActiveSection } from "@/hooks/useActiveSection";
+
+const NAV_ITEMS = SECTIONS.filter((s) =>
+  ["about", "skills", "experience", "projects", "timeline", "contact"].includes(s.id),
+);
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const active = useActiveSection(SECTIONS.map((s) => s.id));
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-      setIsMobileMenuOpen(false);
-    }
+  const go = (id: string) => {
+    setIsMobileMenuOpen(false);
+    scrollToSection(id);
   };
 
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "experience", label: "Experience" },
-    { id: "certifications", label: "Certifications" },
-    { id: "services", label: "Services" },
-    { id: "contact", label: "Contact" },
-  ];
-
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
-        isScrolled
-          ? "bg-[#0B0F19]/85 backdrop-blur-xl border-b border-[#1F2937] shadow-[0_8px_32px_rgba(0,0,0,0.45)]"
-          : "bg-transparent"
+    <header
+      className={`fixed inset-x-0 top-0 z-50 no-print transition-smooth ${
+        isScrolled ? "border-b border-border/70 bg-background/80 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <nav className="container mx-auto px-4" aria-label="Primary">
+        <div className="flex h-20 items-center justify-between">
           <button
-            onClick={() => scrollToSection("home")}
-            className="text-2xl font-heading font-extrabold tracking-widest gradient-text hover:opacity-90 transition-smooth"
+            onClick={() => go("home")}
+            className="gradient-text text-2xl font-heading font-extrabold tracking-widest"
           >
             MKA
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-sm font-medium text-foreground/80 hover:text-accent transition-smooth relative group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
-              </button>
-            ))}
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="rounded-full font-semibold bg-[#00FFA3] text-[#0B0F19] hover:bg-[#00FFA3] hover:scale-[1.04] transition-all"
-              style={{ boxShadow: "0 0 0 1px rgba(0,255,163,0.45), 0 0 20px rgba(0,255,163,0.35)" }}
-            >
-              Let's Connect
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-foreground"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden pb-4 animate-fade-in">
-            <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
+          <div className="hidden items-center gap-1 lg:flex">
+            {NAV_ITEMS.map((item) => {
+              const isActive = active === item.id;
+              return (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-left text-sm font-medium text-foreground/80 hover:text-accent transition-smooth py-2"
+                  onClick={() => go(item.id)}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-smooth ${
+                    isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {isActive && (
+                    <span className="absolute inset-0 rounded-full border border-primary/30 bg-primary/10" />
+                  )}
+                  <span className="relative">{item.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="hidden items-center gap-2 md:flex">
+            <button
+              onClick={() => window.dispatchEvent(new Event("open-command-palette"))}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border px-4 text-xs font-medium text-muted-foreground transition-smooth hover:border-primary/50 hover:text-foreground"
+              aria-label="Open command palette"
+            >
+              <CommandIcon className="h-3.5 w-3.5" aria-hidden="true" />
+              <span className="hidden xl:inline">Search</span>
+              <kbd className="rounded border border-border bg-muted px-1.5 py-0.5 text-[10px]">Ctrl K</kbd>
+            </button>
+            <ThemeToggle />
+            <ResumeDialog
+              trigger={(open) => (
+                <Button onClick={open} className="btn-glow rounded-full font-semibold">
+                  <FileText className="mr-2 h-4 w-4" aria-hidden="true" />
+                  Resume
+                </Button>
+              )}
+            />
+          </div>
+
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMobileMenuOpen((v) => !v)}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground"
+              aria-expanded={isMobileMenuOpen}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </div>
+
+        {isMobileMenuOpen && (
+          <div className="animate-fade-in pb-6 lg:hidden">
+            <div className="flex flex-col gap-1">
+              {SECTIONS.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => go(item.id)}
+                  className={`rounded-xl px-4 py-3 text-left text-sm font-medium transition-smooth ${
+                    active === item.id ? "bg-primary/10 text-primary" : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {item.label}
                 </button>
               ))}
-              <Button
-                onClick={() => scrollToSection("contact")}
-                variant="default"
-                className="gradient-accent text-white w-full"
-              >
-                Let's Connect
-              </Button>
+              <ResumeDialog
+                trigger={(open) => (
+                  <Button onClick={open} className="mt-3 w-full rounded-full font-semibold">
+                    <FileText className="mr-2 h-4 w-4" aria-hidden="true" />
+                    Resume
+                  </Button>
+                )}
+              />
             </div>
           </div>
         )}
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
