@@ -8,9 +8,10 @@ const StructuredData = () => {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Mohan Krishna Ambati",
-      "jobTitle": "Data Science Student",
-      "description": "B.Tech Computer Science Engineering [Data Science] student skilled in Python, SQL, and ML, eager to learn and contribute to data-driven decisions.",
-      "url": "https://mohankrishnaambati.com",
+      "jobTitle": "Data Analyst & Power BI Developer",
+      "email": "mailto:mohankrishnaambati7@gmail.com",
+      "description": "Data analyst and Power BI developer building dashboards, dimensional models and Python analytics that turn raw data into decisions.",
+      "url": typeof window !== "undefined" ? window.location.origin : "/",
       "sameAs": [
         "https://www.linkedin.com/in/mohan-krishna-ambati-a41a582b6",
         "https://github.com/MohanKrishna-01"
