@@ -460,6 +460,9 @@ All colors MUST be HSL.
 
 .light .gradient-text {
   background: linear-gradient(90deg, hsl(222 47% 11%) 0%, hsl(165 90% 26%) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .light .glass-card {
