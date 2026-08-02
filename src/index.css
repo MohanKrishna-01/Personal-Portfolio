@@ -8,19 +8,19 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Premium SaaS palette: deep navy + electric mint */
-    --background: 222 35% 7%;          /* #0B0F19 */
+    /* Dark luxury palette: midnight navy + electric blue / purple / cyan */
+    --background: 230 62% 5%;          /* #050816 */
     --foreground: 213 27% 93%;         /* #E6EDF3 */
 
-    --card: 222 30% 11%;               /* #121826 */
+    --card: 222 48% 8%;                /* #0B1120 */
     --card-foreground: 213 27% 93%;
 
-    --popover: 222 30% 11%;
+    --popover: 222 48% 8%;
     --popover-foreground: 213 27% 93%;
 
-    /* Electric mint primary — used for buttons & key highlights */
-    --primary: 156 100% 50%;           /* #00FFA3 */
-    --primary-foreground: 222 35% 7%;
+    /* Electric blue primary */
+    --primary: 223 100% 68%;           /* #5B8CFF */
+    --primary-foreground: 230 62% 5%;
 
     --secondary: 217 33% 14%;
     --secondary-foreground: 213 27% 93%;
@@ -35,28 +35,28 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 17%;             /* #1F2937 */
-    --input: 217 33% 17%;
-    --ring: 156 100% 50%;
+    --border: 220 30% 16%;             /* #1B2537 */
+    --input: 220 30% 16%;
+    --ring: 223 100% 68%;
 
-    --radius: 1rem;
+    --radius: 1.5rem;
 
-    /* Premium gradients: mint → cyan, layered navy depth */
-    --gradient-primary: linear-gradient(135deg, hsl(156 100% 50%), hsl(187 85% 53%));
-    --gradient-accent: linear-gradient(135deg, hsl(187 85% 53%), hsl(156 100% 50%));
-    --gradient-hero: linear-gradient(135deg, hsl(222 40% 6%) 0%, hsl(217 35% 12%) 60%, hsl(187 60% 12%) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(213 27% 98%) 0%, hsl(156 100% 60%) 100%);
-    --gradient-mesh: radial-gradient(at 18% 22%, hsl(156 100% 35% / 0.28) 0px, transparent 55%),
-                     radial-gradient(at 82% 8%, hsl(187 85% 40% / 0.28) 0px, transparent 55%),
+    /* Premium gradients: blue → purple → cyan */
+    --gradient-primary: linear-gradient(135deg, hsl(223 100% 68%), hsl(275 90% 66%));
+    --gradient-accent: linear-gradient(135deg, hsl(187 85% 53%), hsl(223 100% 68%));
+    --gradient-hero: linear-gradient(135deg, hsl(230 62% 5%) 0%, hsl(222 48% 9%) 60%, hsl(258 45% 12%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(213 27% 98%) 0%, hsl(223 100% 74%) 55%, hsl(275 90% 72%) 100%);
+    --gradient-mesh: radial-gradient(at 18% 22%, hsl(223 100% 55% / 0.26) 0px, transparent 55%),
+                     radial-gradient(at 82% 8%, hsl(275 90% 55% / 0.24) 0px, transparent 55%),
                      radial-gradient(at 8% 82%, hsl(220 60% 25% / 0.45) 0px, transparent 55%),
-                     radial-gradient(at 82% 82%, hsl(156 80% 30% / 0.22) 0px, transparent 55%);
+                     radial-gradient(at 82% 82%, hsl(187 85% 45% / 0.20) 0px, transparent 55%);
 
     --shadow-sm: 0 2px 12px hsl(222 50% 2% / 0.5);
     --shadow-md: 0 8px 24px hsl(222 50% 2% / 0.55);
     --shadow-lg: 0 16px 48px hsl(222 50% 2% / 0.6);
     --shadow-accent: 0 0 40px hsl(187 85% 53% / 0.45);
-    --shadow-glow: 0 0 50px hsl(156 100% 50% / 0.45);
-    --shadow-mint: 0 0 24px hsl(156 100% 50% / 0.35), 0 0 60px hsl(156 100% 50% / 0.18);
+    --shadow-glow: 0 0 50px hsl(223 100% 68% / 0.45);
+    --shadow-mint: 0 0 24px hsl(223 100% 68% / 0.35), 0 0 60px hsl(275 90% 66% / 0.18);
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -72,7 +72,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 165 90% 26%;
+    --primary: 224 76% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 30% 94%;
@@ -86,9 +86,9 @@ All colors MUST be HSL.
 
     --border: 214 25% 88%;
     --input: 214 25% 88%;
-    --ring: 165 90% 26%;
+    --ring: 224 76% 45%;
 
-    --gradient-text: linear-gradient(135deg, hsl(222 47% 11%) 0%, hsl(165 90% 26%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(222 47% 11%) 0%, hsl(224 76% 45%) 100%);
     --shadow-sm: 0 2px 12px hsl(215 30% 50% / 0.12);
     --shadow-md: 0 8px 24px hsl(215 30% 50% / 0.14);
     --shadow-lg: 0 16px 48px hsl(215 30% 50% / 0.16);
