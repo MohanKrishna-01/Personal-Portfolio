@@ -15,7 +15,7 @@ const About = () => {
     {
       degree: "B.Tech. in Computer Science Engineering (DS)",
       institution: "Dadi Institute of Engineering & Technology",
-      grade: "CGPA: 7.60/10",
+      grade: "CGPA: 7.78/10",
       year: "2022 – 2026",
       detail: "Final year (4th year) student"
     },
