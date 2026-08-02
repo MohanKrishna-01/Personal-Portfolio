@@ -1,201 +1,95 @@
-import { Card } from "@/components/ui/card";
-import { Code2, Database, BarChart3, Brain, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import { BarChart3, Brain, Code2, Layout, Sparkles } from "lucide-react";
 
-const Skills = () => {
-  const skillCategories = [
-    {
-      icon: BarChart3,
-      title: "Data Analytics & BI",
-      skills: ["Power BI", "DAX", "Data Modeling", "Excel"],
-    },
-    {
-      icon: Database,
-      title: "Databases & Querying",
-      skills: ["SQL", "Star Schema", "Data Cleaning"],
-    },
-    {
-      icon: Code2,
-      title: "Programming",
-      skills: ["Python", "Pandas", "Java"],
-    },
-    {
-      icon: Brain,
-      title: "Soft Skills",
-      skills: ["Problem Solving", "Analytical Thinking", "Storytelling"],
-    },
-  ];
+const CATEGORIES = [
+  { icon: Code2, title: "Programming", skills: ["Python", "Java", "SQL"] },
+  { icon: Layout, title: "Frontend", skills: ["HTML", "CSS", "JavaScript"] },
+  { icon: BarChart3, title: "Data", skills: ["Power BI", "Excel", "Pandas", "NumPy"] },
+  { icon: Brain, title: "Machine Learning", skills: ["TensorFlow", "Scikit-Learn", "OpenCV"] },
+];
 
-  const proficiencyLevels = [
-    { name: "Power BI", level: 90 },
-    { name: "Excel", level: 90 },
-    { name: "DAX", level: 80 },
-    { name: "SQL", level: 85 },
-    { name: "Python", level: 85 },
-    { name: "Data Modeling", level: 80 },
-  ];
+const CLOUD = [
+  "Python", "Power BI", "SQL", "TensorFlow", "Pandas", "DAX", "NumPy", "Scikit-Learn",
+  "Excel", "OpenCV", "Java", "JavaScript", "HTML", "CSS", "Data Modeling", "EDA",
+];
 
-  return (
-    <section id="skills" className="py-20 bg-background relative overflow-hidden">
-      {/* Decorative Grid */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(hsl(var(--accent)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--accent)) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }}></div>
-      </div>
+const Skills = () => (
+  <section id="skills" className="relative overflow-hidden py-24">
+    <div className="container relative z-10 mx-auto px-6">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="mb-12 text-center"
+      >
+        <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary">
+          <Sparkles className="h-3.5 w-3.5" aria-hidden />
+          Toolkit &amp; Capabilities
+        </span>
+        <h2 className="accent-underline font-heading text-3xl font-bold sm:text-4xl">
+          <span className="gradient-text">Skills &amp; Expertise</span>
+        </h2>
+        <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
+          The stack behind my analytics, AI and business intelligence work.
+        </p>
+      </motion.div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
-            style={{
-              background: "rgba(91,140,255,0.08)",
-              border: "1px solid rgba(91,140,255,0.25)",
-            }}
-          >
-            <Sparkles className="h-3.5 w-3.5" style={{ color: "#5B8CFF" }} />
-            <span className="text-xs font-medium" style={{ color: "#5B8CFF" }}>
-              Toolkit & Capabilities
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-3 accent-underline">
-            <span className="gradient-text">Skills & Expertise</span>
-          </h2>
-          <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-            Technical proficiency across analytics, visualization, and engineering
-          </p>
-        </motion.div>
-
-        <div className="max-w-6xl mx-auto">
-          {/* Skill Categories */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {skillCategories.map((category, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-              >
-                <Card
-                  className="p-8 h-full card-glow-hover group relative overflow-hidden"
-                  style={{ background: "#0B1120", borderColor: "#1B2537" }}
-                >
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
-                    style={{
-                      background:
-                        "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(91,140,255,0.10), transparent 70%)",
-                    }}
-                  />
-                  <div className="relative z-10 flex items-center gap-4 mb-6">
-                    <motion.div 
-                      className="p-3 rounded-xl"
-                      style={{
-                        background: "rgba(91,140,255,0.1)",
-                        border: "1px solid rgba(91,140,255,0.25)",
-                      }}
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <category.icon className="h-6 w-6" style={{ color: "#5B8CFF" }} />
-                    </motion.div>
-                    <h3 className="text-xl font-bold group-hover:text-accent transition-colors">{category.title}</h3>
-                  </div>
-                  <div className="relative z-10 flex flex-wrap gap-2">
-                    {category.skills.map((skill, skillIndex) => (
-                      <motion.span
-                        key={skill}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
-                        viewport={{ once: true }}
-                        whileHover={{ scale: 1.1 }}
-                        className="px-4 py-2 bg-accent/10 text-foreground rounded-lg text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors cursor-default"
-                      >
-                        {skill}
-                      </motion.span>
-                    ))}
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Proficiency Overview - Modern Grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+      {/* Interactive skill cloud */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="mx-auto mb-14 flex max-w-4xl flex-wrap items-center justify-center gap-3"
+      >
+        {CLOUD.map((skill, index) => (
+          <motion.span
+            key={skill}
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.35, delay: index * 0.03 }}
             viewport={{ once: true }}
+            whileHover={{ y: -4, scale: 1.06 }}
+            className={`cursor-default rounded-full border border-border bg-card/60 px-4 py-2 font-medium text-muted-foreground transition-smooth hover:border-primary/60 hover:text-primary ${
+              index % 3 === 0 ? "text-base" : index % 3 === 1 ? "text-sm" : "text-xs"
+            }`}
+            style={{ boxShadow: index % 4 === 0 ? "0 0 24px hsl(var(--primary) / 0.12)" : undefined }}
           >
-            <h3 className="text-xl font-semibold mb-6 text-center">
-              <span className="gradient-text">Proficiency Overview</span>
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {proficiencyLevels.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5, scale: 1.05 }}
+            {skill}
+          </motion.span>
+        ))}
+      </motion.div>
+
+      <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {CATEGORIES.map((category, index) => (
+          <motion.div
+            key={category.title}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.08 }}
+            viewport={{ once: true }}
+            className="glass-card card-glow-hover group p-6"
+          >
+            <span className="mb-5 inline-flex rounded-2xl border border-primary/25 bg-primary/10 p-3">
+              <category.icon className="h-5 w-5 text-primary" aria-hidden />
+            </span>
+            <h3 className="mb-4 text-lg font-semibold">{category.title}</h3>
+            <div className="flex flex-wrap gap-2">
+              {category.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-smooth group-hover:border-primary/30"
                 >
-                  <Card className="p-4 text-center bg-gradient-to-br from-card/80 to-accent/5 border-border/30 hover:border-accent/50 transition-all group">
-                    {/* Circular Progress */}
-                    <div className="relative w-16 h-16 mx-auto mb-3">
-                      <svg className="w-full h-full -rotate-90">
-                        <circle
-                          cx="32"
-                          cy="32"
-                          r="28"
-                          stroke="hsl(var(--muted))"
-                          strokeWidth="4"
-                          fill="none"
-                        />
-                        <motion.circle
-                          cx="32"
-                          cy="32"
-                          r="28"
-                          stroke="url(#gradient)"
-                          strokeWidth="4"
-                          fill="none"
-                          strokeLinecap="round"
-                          initial={{ strokeDasharray: "0 176" }}
-                          whileInView={{ strokeDasharray: `${skill.level * 1.76} 176` }}
-                          transition={{ duration: 1.2, delay: index * 0.1 }}
-                          viewport={{ once: true }}
-                        />
-                        <defs>
-                          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="hsl(var(--accent))" />
-                            <stop offset="100%" stopColor="hsl(var(--primary))" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                      <span className="absolute inset-0 flex items-center justify-center text-sm font-bold text-accent">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <p className="text-xs font-medium text-foreground group-hover:text-accent transition-colors">{skill.name}</p>
-                  </Card>
-                </motion.div>
+                  {skill}
+                </span>
               ))}
             </div>
           </motion.div>
-        </div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Skills;
