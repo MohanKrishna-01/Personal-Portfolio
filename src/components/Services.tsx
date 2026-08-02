@@ -62,12 +62,12 @@ const Services = () => {
             <div
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
               style={{
-                background: "rgba(0,255,163,0.08)",
-                border: "1px solid rgba(0,255,163,0.25)",
+                background: "rgba(91,140,255,0.08)",
+                border: "1px solid rgba(91,140,255,0.25)",
               }}
             >
-              <ArrowUpRight className="h-3.5 w-3.5" style={{ color: "#00FFA3" }} />
-              <span className="text-xs font-medium" style={{ color: "#00FFA3" }}>
+              <ArrowUpRight className="h-3.5 w-3.5" style={{ color: "#5B8CFF" }} />
+              <span className="text-xs font-medium" style={{ color: "#5B8CFF" }}>
                 What I Offer
               </span>
             </div>
@@ -90,14 +90,14 @@ const Services = () => {
               >
                 <Card
                   className="p-6 h-full transition-all group relative overflow-hidden cursor-pointer card-glow-hover"
-                  style={{ background: "#121826", borderColor: "#1F2937" }}
+                  style={{ background: "#0B1120", borderColor: "#1B2537" }}
                 >
                   {/* Subtle mint glow on hover */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
                     style={{
                       background:
-                        "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,255,163,0.08), transparent 70%)",
+                        "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(91,140,255,0.08), transparent 70%)",
                     }}
                   />
 
@@ -106,11 +106,11 @@ const Services = () => {
                       <div
                         className="p-3 rounded-xl transition-all group-hover:scale-110"
                         style={{
-                          background: "rgba(0,255,163,0.1)",
-                          border: "1px solid rgba(0,255,163,0.25)",
+                          background: "rgba(91,140,255,0.1)",
+                          border: "1px solid rgba(91,140,255,0.25)",
                         }}
                       >
-                        <service.icon className="h-7 w-7" style={{ color: "#00FFA3" }} />
+                        <service.icon className="h-7 w-7" style={{ color: "#5B8CFF" }} />
                       </div>
                       <ArrowUpRight className="h-5 w-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
@@ -142,10 +142,10 @@ const Services = () => {
             className="mt-20 p-10 md:p-14 rounded-3xl relative overflow-hidden"
             style={{
               background:
-                "linear-gradient(135deg, rgba(0,255,163,0.08), rgba(34,211,238,0.05) 50%, rgba(0,255,163,0.08))",
-              border: "1px solid rgba(0,255,163,0.25)",
+                "linear-gradient(135deg, rgba(91,140,255,0.08), rgba(34,211,238,0.05) 50%, rgba(91,140,255,0.08))",
+              border: "1px solid rgba(91,140,255,0.25)",
               boxShadow:
-                "0 30px 80px rgba(2,6,23,0.55), 0 0 60px rgba(0,255,163,0.12)",
+                "0 30px 80px rgba(2,6,23,0.55), 0 0 60px rgba(91,140,255,0.12)",
             }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -155,7 +155,7 @@ const Services = () => {
             {/* Decorative orbs */}
             <div
               className="absolute -top-24 -left-24 w-72 h-72 rounded-full pointer-events-none"
-              style={{ background: "radial-gradient(circle, rgba(0,255,163,0.18), transparent 70%)" }}
+              style={{ background: "radial-gradient(circle, rgba(91,140,255,0.18), transparent 70%)" }}
             />
             <div
               className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full pointer-events-none"
@@ -166,11 +166,11 @@ const Services = () => {
               <div
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-5"
                 style={{
-                  background: "rgba(0,255,163,0.12)",
-                  border: "1px solid rgba(0,255,163,0.35)",
+                  background: "rgba(91,140,255,0.12)",
+                  border: "1px solid rgba(91,140,255,0.35)",
                 }}
               >
-                <span className="text-xs font-semibold" style={{ color: "#00FFA3" }}>
+                <span className="text-xs font-semibold" style={{ color: "#5B8CFF" }}>
                   Let's Build Something Great
                 </span>
               </div>
@@ -192,10 +192,10 @@ const Services = () => {
                 }}
                 className="px-8 py-4 rounded-full font-semibold transition-all hover:scale-105 inline-flex items-center gap-2"
                 style={{
-                  background: "#00FFA3",
-                  color: "#0B0F19",
+                  background: "#5B8CFF",
+                  color: "#050816",
                   boxShadow:
-                    "0 0 0 1px rgba(0,255,163,0.5), 0 0 28px rgba(0,255,163,0.55)",
+                    "0 0 0 1px rgba(91,140,255,0.5), 0 0 28px rgba(91,140,255,0.55)",
                 }}
               >
                 Get In Touch

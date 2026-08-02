@@ -56,12 +56,12 @@ const Skills = () => {
           <div
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
             style={{
-              background: "rgba(0,255,163,0.08)",
-              border: "1px solid rgba(0,255,163,0.25)",
+              background: "rgba(91,140,255,0.08)",
+              border: "1px solid rgba(91,140,255,0.25)",
             }}
           >
-            <Sparkles className="h-3.5 w-3.5" style={{ color: "#00FFA3" }} />
-            <span className="text-xs font-medium" style={{ color: "#00FFA3" }}>
+            <Sparkles className="h-3.5 w-3.5" style={{ color: "#5B8CFF" }} />
+            <span className="text-xs font-medium" style={{ color: "#5B8CFF" }}>
               Toolkit & Capabilities
             </span>
           </div>
@@ -87,26 +87,26 @@ const Skills = () => {
               >
                 <Card
                   className="p-8 h-full card-glow-hover group relative overflow-hidden"
-                  style={{ background: "#121826", borderColor: "#1F2937" }}
+                  style={{ background: "#0B1120", borderColor: "#1B2537" }}
                 >
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
                     style={{
                       background:
-                        "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,255,163,0.10), transparent 70%)",
+                        "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(91,140,255,0.10), transparent 70%)",
                     }}
                   />
                   <div className="relative z-10 flex items-center gap-4 mb-6">
                     <motion.div 
                       className="p-3 rounded-xl"
                       style={{
-                        background: "rgba(0,255,163,0.1)",
-                        border: "1px solid rgba(0,255,163,0.25)",
+                        background: "rgba(91,140,255,0.1)",
+                        border: "1px solid rgba(91,140,255,0.25)",
                       }}
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
                     >
-                      <category.icon className="h-6 w-6" style={{ color: "#00FFA3" }} />
+                      <category.icon className="h-6 w-6" style={{ color: "#5B8CFF" }} />
                     </motion.div>
                     <h3 className="text-xl font-bold group-hover:text-accent transition-colors">{category.title}</h3>
                   </div>

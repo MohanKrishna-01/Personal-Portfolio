@@ -122,12 +122,12 @@ const About = () => {
               <div
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
                 style={{
-                  background: "rgba(0,255,163,0.08)",
-                  border: "1px solid rgba(0,255,163,0.25)",
+                  background: "rgba(91,140,255,0.08)",
+                  border: "1px solid rgba(91,140,255,0.25)",
                 }}
               >
-                <Sparkles className="h-3.5 w-3.5" style={{ color: "#00FFA3" }} />
-                <span className="text-xs font-medium" style={{ color: "#00FFA3" }}>
+                <Sparkles className="h-3.5 w-3.5" style={{ color: "#5B8CFF" }} />
+                <span className="text-xs font-medium" style={{ color: "#5B8CFF" }}>
                   Academic Journey
                 </span>
               </div>
@@ -146,7 +146,7 @@ const About = () => {
                 className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2"
                 style={{
                   background:
-                    "linear-gradient(to bottom, transparent, rgba(0,255,163,0.45), rgba(34,211,238,0.35), transparent)",
+                    "linear-gradient(to bottom, transparent, rgba(91,140,255,0.45), rgba(34,211,238,0.35), transparent)",
                 }}
               />
 
@@ -168,9 +168,9 @@ const About = () => {
                       <div
                         className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full z-10"
                         style={{
-                          background: "#00FFA3",
+                          background: "#5B8CFF",
                           boxShadow:
-                            "0 0 0 4px rgba(0,255,163,0.15), 0 0 20px rgba(0,255,163,0.55)",
+                            "0 0 0 4px rgba(91,140,255,0.15), 0 0 20px rgba(91,140,255,0.55)",
                         }}
                       />
 
@@ -180,23 +180,23 @@ const About = () => {
                           <Card
                             className="p-6 card-glow-hover group relative overflow-hidden"
                             style={{
-                              background: "#121826",
-                              borderColor: "#1F2937",
+                              background: "#0B1120",
+                              borderColor: "#1B2537",
                             }}
                           >
                             <div
                               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
                               style={{
                                 background:
-                                  "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,255,163,0.08), transparent 70%)",
+                                  "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(91,140,255,0.08), transparent 70%)",
                               }}
                             />
                             <div className="relative z-10">
                               <div className={`flex items-center gap-2 mb-3 ${isLeft ? "md:justify-end" : ""}`}>
-                                <Award className="h-4 w-4" style={{ color: "#00FFA3" }} />
+                                <Award className="h-4 w-4" style={{ color: "#5B8CFF" }} />
                                 <span
                                   className="text-[11px] font-semibold uppercase tracking-wider"
-                                  style={{ color: "#00FFA3" }}
+                                  style={{ color: "#5B8CFF" }}
                                 >
                                   {edu.grade}
                                 </span>

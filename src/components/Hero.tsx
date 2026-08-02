@@ -120,14 +120,14 @@ const Hero = () => {
                   <span
                     className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"
                     style={{
-                      background: "rgba(0,255,163,0.08)",
-                      border: "1px solid rgba(0,255,163,0.35)",
-                      color: "#00FFA3",
+                      background: "rgba(91,140,255,0.08)",
+                      border: "1px solid rgba(91,140,255,0.35)",
+                      color: "#5B8CFF",
                     }}
                   >
                     <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ background: "#00FFA3" }} />
-                      <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: "#00FFA3" }} />
+                      <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ background: "#5B8CFF" }} />
+                      <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: "#5B8CFF" }} />
                     </span>
                     Available for opportunities
                   </span>
@@ -151,7 +151,7 @@ const Hero = () => {
                   className="pointer-events-none absolute inset-0 -z-10"
                   style={{
                     background:
-                      "radial-gradient(ellipse 60% 70% at 50% 60%, rgba(0,255,163,0.08), transparent 70%)",
+                      "radial-gradient(ellipse 60% 70% at 50% 60%, rgba(91,140,255,0.08), transparent 70%)",
                   }}
                 />
                 <EditableText
@@ -180,8 +180,8 @@ const Hero = () => {
                   <span
                     className="block h-[3px] w-24 rounded-full"
                     style={{
-                      background: "linear-gradient(90deg, transparent, #00FFA3, transparent)",
-                      boxShadow: "0 0 16px rgba(0,255,163,0.6)",
+                      background: "linear-gradient(90deg, transparent, #5B8CFF, transparent)",
+                      boxShadow: "0 0 16px rgba(91,140,255,0.6)",
                     }}
                   />
                 </div>
@@ -220,8 +220,8 @@ const Hero = () => {
               >
                 <Button
                   size="lg"
-                  className="gap-2 group rounded-full bg-[#00FFA3] text-[#0B0F19] font-semibold hover:bg-[#00FFA3] hover:scale-[1.04] transition-all"
-                  style={{ boxShadow: "0 0 0 1px rgba(0,255,163,0.55), 0 0 28px rgba(0,255,163,0.45)" }}
+                  className="gap-2 group rounded-full bg-[#5B8CFF] text-[#050816] font-semibold hover:bg-[#5B8CFF] hover:scale-[1.04] transition-all"
+                  style={{ boxShadow: "0 0 0 1px rgba(91,140,255,0.55), 0 0 28px rgba(91,140,255,0.45)" }}
                   asChild
                 >
                   <a href="#projects">
@@ -233,7 +233,7 @@ const Hero = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="gap-2 rounded-full bg-transparent text-[#E6EDF3] font-semibold border-[#00FFA3]/60 hover:bg-[#00FFA3]/10 hover:border-[#00FFA3] hover:text-[#00FFA3] hover:scale-[1.03] transition-all"
+                  className="gap-2 rounded-full bg-transparent text-[#E6EDF3] font-semibold border-[#5B8CFF]/60 hover:bg-[#5B8CFF]/10 hover:border-[#5B8CFF] hover:text-[#5B8CFF] hover:scale-[1.03] transition-all"
                   asChild
                 >
                   <a href="/MK_Resume.pdf" download="Mohan_Krishna_Ambati_Resume.pdf">
@@ -286,13 +286,13 @@ const Hero = () => {
                   <motion.div key={stat.label} whileHover={{ y: -4 }}>
                     <Card
                       className="p-4 text-center card-glow-hover relative overflow-hidden"
-                      style={{ background: "#121826", borderColor: "#1F2937" }}
+                      style={{ background: "#0B1120", borderColor: "#1B2537" }}
                     >
                       <div
                         className="absolute inset-x-0 top-0 h-px"
                         style={{
                           background:
-                            "linear-gradient(90deg, transparent, rgba(0,255,163,0.6), transparent)",
+                            "linear-gradient(90deg, transparent, rgba(91,140,255,0.6), transparent)",
                         }}
                       />
                       <p className="text-2xl md:text-3xl font-bold gradient-text">{stat.value}</p>
