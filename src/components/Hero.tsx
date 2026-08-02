@@ -178,7 +178,18 @@ const Hero = () => {
               <Button size="lg" variant="ghost" className="gap-2 rounded-full font-semibold hover:bg-accent/10 hover:text-accent" asChild>
                 <a href="#contact">Contact Me</a>
               </Button>
-              <ResumeDialog />
+              <ResumeDialog
+                trigger={(open) => (
+                  <Button
+                    size="lg"
+                    variant="ghost"
+                    className="gap-2 rounded-full font-semibold hover:bg-primary/10 hover:text-primary"
+                    onClick={open}
+                  >
+                    Resume Preview
+                  </Button>
+                )}
+              />
             </motion.div>
 
             <motion.div variants={item} className="flex justify-center gap-3 lg:justify-start">
