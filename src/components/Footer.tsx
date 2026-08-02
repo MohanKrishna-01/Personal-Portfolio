@@ -7,21 +7,21 @@ const Footer = () => {
     <footer
       className="relative text-foreground py-14 overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, transparent 0%, rgba(11,15,25,0.85) 30%, #0B0F19 100%)",
-        borderTop: "1px solid #1F2937",
+        background: "linear-gradient(180deg, transparent 0%, rgba(11,15,25,0.85) 30%, #050816 100%)",
+        borderTop: "1px solid #1B2537",
       }}
     >
       {/* Top accent line */}
       <div
         className="absolute inset-x-0 top-0 h-px"
         style={{
-          background: "linear-gradient(90deg, transparent, rgba(0,255,163,0.6), transparent)",
+          background: "linear-gradient(90deg, transparent, rgba(91,140,255,0.6), transparent)",
         }}
       />
       {/* Soft mint glow */}
       <div
         className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(0,255,163,0.08), transparent 70%)" }}
+        style={{ background: "radial-gradient(ellipse, rgba(91,140,255,0.08), transparent 70%)" }}
       />
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">

@@ -155,7 +155,7 @@ const Certifications = () => {
               >
                 <Card
                   className="p-5 h-full bg-card/80 card-glow-hover group relative overflow-hidden"
-                  style={{ borderColor: "#1F2937", borderLeft: "3px solid #00FFA3" }}
+                  style={{ borderColor: "#1B2537", borderLeft: "3px solid #5B8CFF" }}
                 >
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
@@ -195,9 +195,9 @@ const Certifications = () => {
                           <span
                             className="inline-flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded-full"
                             style={{
-                              color: "#00FFA3",
-                              background: "rgba(0,255,163,0.08)",
-                              border: "1px solid rgba(0,255,163,0.35)",
+                              color: "#5B8CFF",
+                              background: "rgba(91,140,255,0.08)",
+                              border: "1px solid rgba(91,140,255,0.35)",
                             }}
                           >
                             <BadgeCheck className="h-3 w-3" />

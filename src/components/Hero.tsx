@@ -1,19 +1,19 @@
+import { useCallback, useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Download, Github, Linkedin, Mail, Code2, MousePointer2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Download, Linkedin, Github, Mail, Phone, MapPin, BarChart3, Database, Sparkles, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import Scene3D from "./3D/Scene3D";
-import { Card } from "@/components/ui/card";
 import EditableText from "./EditableText";
+import ResumeDialog from "./ResumeDialog";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
-const TYPING_PHRASES = [
-  "Transforming data into actionable insights",
-  "Power BI Dashboards • DAX • Data Modeling",
-  "SQL • Excel • Analytics Storytelling",
+const ROLES = [
+  "Data Analyst",
+  "AI Developer",
+  "Machine Learning Enthusiast",
+  "Power BI Developer",
 ];
 
-const useTypewriter = (phrases: string[], speed = 60, pause = 1500) => {
+const useTypewriter = (phrases: string[], speed = 65, pause = 1600) => {
   const [text, setText] = useState("");
   const [i, setI] = useState(0);
   const [deleting, setDeleting] = useState(false);
@@ -40,326 +40,219 @@ const useTypewriter = (phrases: string[], speed = 60, pause = 1500) => {
   return text;
 };
 
+const SOCIALS = [
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/mohan-krishna-ambati-a41a582b6" },
+  { icon: Github, label: "GitHub", href: "https://github.com/MohanKrishna-01" },
+  { icon: Code2, label: "LeetCode", href: "https://leetcode.com/u/MohanKrishna-01/" },
+  { icon: Mail, label: "Email", href: "mailto:mohankrishnaambati7@gmail.com" },
+];
+
 const Hero = () => {
-  const typed = useTypewriter(TYPING_PHRASES);
+  const typed = useTypewriter(ROLES);
+  const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const containerVariants = {
+  const handlePointer = useCallback((event: React.PointerEvent<HTMLElement>) => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${((event.clientX - rect.left) / rect.width) * 100}%`);
+    el.style.setProperty("--my", `${((event.clientY - rect.top) / rect.height) * 100}%`);
+  }, []);
+
+  const container = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { delayChildren: 0.2, staggerChildren: 0.12 } },
+    visible: { opacity: 1, transition: { delayChildren: 0.15, staggerChildren: 0.09 } },
   };
-
-  const itemVariants = {
-    hidden: { y: 24, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
+  const item = {
+    hidden: { y: 22, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
   };
-
-  const stats = [
-    { label: "Projects", value: "10+" },
-    { label: "Certifications", value: "15+" },
-    { label: "Skills", value: "20+" },
-  ];
-
-  const quickServices = [
-    { icon: BarChart3, label: "Power BI & Dashboards" },
-    { icon: Database, label: "SQL & Data Modeling" },
-    { icon: Sparkles, label: "Analytics & Insights" },
-  ];
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden py-20"
+      ref={sectionRef}
+      onPointerMove={handlePointer}
+      className="relative flex min-h-dvh items-center overflow-hidden py-24"
+      style={{ ["--mx" as string]: "50%", ["--my" as string]: "35%" }}
     >
-      {/* 3D background */}
-      <Scene3D />
+      {/* Animated grid */}
+      <div className="pointer-events-none absolute inset-0 grid-bg opacity-[0.35]" aria-hidden />
 
-      {/* Mesh gradient + grid layers */}
-      <div className="absolute inset-0 mesh-bg opacity-70 z-0" />
-      <div className="absolute inset-0 grid-bg opacity-40 z-0" />
-      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-background/70 z-0" />
+      {/* Floating blurred gradient blobs */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <motion.div
+          className="absolute -left-24 top-10 h-[26rem] w-[26rem] rounded-full blur-[110px]"
+          style={{ background: "radial-gradient(circle, rgba(91,140,255,0.35), transparent 70%)" }}
+          animate={reduceMotion ? undefined : { y: [0, 30, 0], x: [0, 20, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -right-20 bottom-0 h-[30rem] w-[30rem] rounded-full blur-[130px]"
+          style={{ background: "radial-gradient(circle, rgba(168,85,247,0.30), transparent 70%)" }}
+          animate={reduceMotion ? undefined : { y: [0, -36, 0], x: [0, -18, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute left-1/2 top-1/3 h-[22rem] w-[22rem] rounded-full blur-[120px]"
+          style={{ background: "radial-gradient(circle, rgba(34,211,238,0.20), transparent 70%)" }}
+          animate={reduceMotion ? undefined : { scale: [1, 1.12, 1] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
 
-      {/* Floating contact cards */}
+      {/* Mouse-responsive spotlight */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(520px circle at var(--mx) var(--my), rgba(91,140,255,0.14), transparent 65%)",
+        }}
+      />
+
       <motion.div
-        className="absolute top-8 right-8 hidden lg:flex flex-col gap-3 z-20"
-        variants={containerVariants}
+        className="container relative z-10 mx-auto px-6"
+        variants={container}
         initial="hidden"
         animate="visible"
       >
-        {[
-          { icon: Phone, label: "Call", value: "+91 7032390696" },
-          { icon: Mail, label: "Email", value: "mohankrishnaambati7@gmail.com" },
-          { icon: MapPin, label: "Location", value: "Vizag, India" },
-        ].map((c) => (
-          <motion.div key={c.label} variants={itemVariants}>
-            <Card className="glass-card p-3 hover:border-accent/50 hover:shadow-accent transition-all">
-              <div className="flex items-center gap-2">
-                <c.icon className="h-4 w-4 text-accent" />
-                <div>
-                  <p className="text-[10px] text-muted-foreground">{c.label}</p>
-                  <p className="text-xs font-medium">{c.value}</p>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        ))}
-      </motion.div>
+        <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1.25fr_1fr]">
+          <div className="space-y-8 text-center lg:text-left">
+            <motion.div variants={item} className="flex flex-wrap justify-center gap-2 lg:justify-start">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-primary/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-70" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                </span>
+                Open to opportunities
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent/10 px-3 py-1.5 text-[11px] font-medium text-accent">
+                Vizag, India
+              </span>
+            </motion.div>
 
-      {/* Main content */}
-      <motion.div
-        className="container mx-auto px-4 z-10 relative"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[1.2fr,1fr] gap-12 items-center">
-            {/* Left column */}
-            <div className="text-center lg:text-left space-y-7">
-              <motion.div variants={itemVariants}>
-                <div className="flex flex-wrap items-center gap-2 justify-center lg:justify-start">
-                  <span
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"
-                    style={{
-                      background: "rgba(0,255,163,0.08)",
-                      border: "1px solid rgba(0,255,163,0.35)",
-                      color: "#00FFA3",
-                    }}
-                  >
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ background: "#00FFA3" }} />
-                      <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: "#00FFA3" }} />
-                    </span>
-                    Available for opportunities
-                  </span>
-                  <span
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium"
-                    style={{
-                      background: "rgba(34,211,238,0.06)",
-                      border: "1px solid rgba(34,211,238,0.25)",
-                      color: "#22D3EE",
-                    }}
-                  >
-                    📍 Vizag, India
-                  </span>
-                </div>
-              </motion.div>
-
-              <motion.div variants={itemVariants} className="space-y-2 relative">
-                {/* Subtle mint spotlight behind name (sharp, not blurry) */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 -z-10"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse 60% 70% at 50% 60%, rgba(0,255,163,0.08), transparent 70%)",
-                  }}
-                />
-                <EditableText
-                  id="hero.greeting"
-                  as="h2"
-                  defaultValue="Hi, I'm"
-                  className="text-base md:text-lg font-medium text-muted-foreground block text-center"
-                />
-                <h1
-                  className="font-heading text-center lg:text-left font-extrabold uppercase leading-[0.95] text-[2.5rem] sm:text-6xl lg:text-[4.25rem]"
-                  style={{ letterSpacing: "0.06em" }}
-                >
-                  <EditableText
-                    id="hero.firstName"
-                    defaultValue="MOHAN KRISHNA"
-                    className="gradient-text block text-center lg:text-left"
-                  />
-                  <EditableText
-                    id="hero.lastName"
-                    defaultValue="AMBATI"
-                    className="gradient-text block text-center lg:text-left"
-                  />
-                </h1>
-                {/* Mint underline accent */}
-                <div className="flex justify-center lg:justify-start mt-3">
-                  <span
-                    className="block h-[3px] w-24 rounded-full"
-                    style={{
-                      background: "linear-gradient(90deg, transparent, #00FFA3, transparent)",
-                      boxShadow: "0 0 16px rgba(0,255,163,0.6)",
-                    }}
-                  />
-                </div>
-              </motion.div>
-
-              <motion.div variants={itemVariants}>
-                <p className="text-base md:text-xl font-semibold">
-                  <EditableText
-                    id="hero.roleA"
-                    defaultValue="Aspiring Data Analyst"
-                    className="gradient-text"
-                  />
-                  <span className="text-muted-foreground mx-2">|</span>
-                  <EditableText
-                    id="hero.roleB"
-                    defaultValue="Power BI Developer"
-                    className="text-foreground"
-                  />
-                </p>
-                <p className="mt-2 text-sm md:text-base text-accent min-h-[1.5rem] typing-cursor">
-                  {typed}
-                </p>
-              </motion.div>
-
+            <motion.div variants={item} className="space-y-4">
               <EditableText
-                id="hero.bio"
+                id="hero.greeting"
                 as="p"
-                multiline
-                defaultValue="Transforming data into actionable insights — Power BI, DAX, SQL, and Python."
-                className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0 block"
+                defaultValue="Hi, I'm"
+                className="block text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground"
               />
+              <h1 className="font-heading text-[2.4rem] font-extrabold uppercase leading-[0.95] tracking-[0.04em] sm:text-6xl lg:text-[4.5rem]">
+                <EditableText id="hero.firstName" defaultValue="AMBATI" className="gradient-text block" />
+                <EditableText id="hero.lastName" defaultValue="MOHAN KRISHNA" className="gradient-text block" />
+              </h1>
+              <p className="min-h-[2rem] text-lg font-semibold text-foreground sm:text-2xl">
+                <span className="typing-cursor">{typed}</span>
+              </p>
+            </motion.div>
 
-              <motion.div
-                className="flex flex-wrap gap-4 justify-center lg:justify-start"
-                variants={itemVariants}
+            <EditableText
+              id="hero.bio"
+              as="p"
+              multiline
+              defaultValue="I build intelligent AI solutions and modern data-driven experiences that solve real-world problems."
+              className="mx-auto block max-w-xl text-base leading-relaxed text-muted-foreground lg:mx-0"
+            />
+
+            <motion.div variants={item} className="flex flex-wrap justify-center gap-3 lg:justify-start">
+              <Button size="lg" className="btn-glow group gap-2 rounded-full font-semibold" asChild>
+                <a href="#projects">
+                  View Projects
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="gap-2 rounded-full border-primary/50 font-semibold hover:border-primary hover:bg-primary/10 hover:text-primary"
+                asChild
               >
-                <Button
-                  size="lg"
-                  className="gap-2 group rounded-full bg-[#00FFA3] text-[#0B0F19] font-semibold hover:bg-[#00FFA3] hover:scale-[1.04] transition-all"
-                  style={{ boxShadow: "0 0 0 1px rgba(0,255,163,0.55), 0 0 28px rgba(0,255,163,0.45)" }}
-                  asChild
-                >
-                  <a href="#projects">
-                    View Projects
-                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </Button>
+                <a href="/MK_Resume.pdf" download="Mohan_Krishna_Ambati_Resume.pdf">
+                  <Download className="h-4 w-4" />
+                  Download Resume
+                </a>
+              </Button>
+              <Button size="lg" variant="ghost" className="gap-2 rounded-full font-semibold hover:bg-accent/10 hover:text-accent" asChild>
+                <a href="#contact">Contact Me</a>
+              </Button>
+              <ResumeDialog
+                trigger={(open) => (
+                  <Button
+                    size="lg"
+                    variant="ghost"
+                    className="gap-2 rounded-full font-semibold hover:bg-primary/10 hover:text-primary"
+                    onClick={open}
+                  >
+                    Resume Preview
+                  </Button>
+                )}
+              />
+            </motion.div>
 
+            <motion.div variants={item} className="flex justify-center gap-3 lg:justify-start">
+              {SOCIALS.map((social) => (
                 <Button
-                  size="lg"
-                  variant="outline"
-                  className="gap-2 rounded-full bg-transparent text-[#E6EDF3] font-semibold border-[#00FFA3]/60 hover:bg-[#00FFA3]/10 hover:border-[#00FFA3] hover:text-[#00FFA3] hover:scale-[1.03] transition-all"
-                  asChild
-                >
-                  <a href="/MK_Resume.pdf" download="Mohan_Krishna_Ambati_Resume.pdf">
-                    <Download className="h-5 w-5" />
-                    Download Resume
-                  </a>
-                </Button>
-              </motion.div>
-
-              {/* Socials */}
-              <motion.div
-                className="flex gap-3 justify-center lg:justify-start pt-2"
-                variants={itemVariants}
-              >
-                <Button
+                  key={social.label}
                   size="icon"
                   variant="outline"
-                  className="rounded-full border-accent/30 hover:bg-accent hover:text-accent-foreground hover:scale-110 transition-all"
+                  aria-label={social.label}
+                  className="min-h-11 min-w-11 rounded-full border-border transition-smooth hover:-translate-y-0.5 hover:border-primary/60 hover:text-primary"
                   asChild
                 >
-                  <a
-                    href="https://www.linkedin.com/in/mohan-krishna-ambati-a41a582b6"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="h-5 w-5" />
+                  <a href={social.href} target={social.href.startsWith("mailto:") ? undefined : "_blank"} rel="noreferrer noopener">
+                    <social.icon className="h-5 w-5" />
                   </a>
                 </Button>
-                <Button
-                  size="icon"
-                  variant="outline"
-                  className="rounded-full border-accent/30 hover:bg-accent hover:text-accent-foreground hover:scale-110 transition-all"
-                  asChild
-                >
-                  <a
-                    href="https://github.com/MohanKrishna-01"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                  >
-                    <Github className="h-5 w-5" />
-                  </a>
-                </Button>
-              </motion.div>
-
-              {/* Stats */}
-              <motion.div className="grid grid-cols-3 gap-4 pt-6" variants={itemVariants}>
-                {stats.map((stat) => (
-                  <motion.div key={stat.label} whileHover={{ y: -4 }}>
-                    <Card
-                      className="p-4 text-center card-glow-hover relative overflow-hidden"
-                      style={{ background: "#121826", borderColor: "#1F2937" }}
-                    >
-                      <div
-                        className="absolute inset-x-0 top-0 h-px"
-                        style={{
-                          background:
-                            "linear-gradient(90deg, transparent, rgba(0,255,163,0.6), transparent)",
-                        }}
-                      />
-                      <p className="text-2xl md:text-3xl font-bold gradient-text">{stat.value}</p>
-                      <p className="text-[11px] md:text-xs text-muted-foreground mt-1 uppercase tracking-wider">
-                        {stat.label}
-                      </p>
-                    </Card>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-
-            {/* Right column */}
-            <div className="space-y-6">
-              <motion.div className="flex justify-center items-center" variants={itemVariants}>
-                <div className="relative">
-                  <div className="relative w-80 h-80 md:w-96 md:h-96 group">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-accent to-primary p-1 shadow-glow group-hover:shadow-accent transition-shadow duration-500">
-                      <div className="w-full h-full rounded-full bg-background p-3">
-                        <div className="relative w-full h-full rounded-full border-4 border-accent/40 overflow-hidden backdrop-blur-sm">
-                          <img
-                            src={profilePhoto}
-                            alt="Mohan Krishna Ambati - Aspiring Data Analyst & Power BI Developer"
-                            className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="absolute inset-0 rounded-full border-2 border-dashed border-accent/30 animate-spin"
-                      style={{ animationDuration: "15s" }}
-                    />
-                    <div
-                      className="absolute inset-4 rounded-full border border-dotted border-primary/30 animate-spin"
-                      style={{ animationDuration: "20s", animationDirection: "reverse" }}
-                    />
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div className="space-y-3" variants={itemVariants}>
-                <h3 className="text-sm font-semibold text-center uppercase tracking-widest text-muted-foreground">
-                  Core Expertise
-                </h3>
-                <div className="grid gap-3">
-                  {quickServices.map((service) => (
-                    <motion.div
-                      key={service.label}
-                      whileHover={{ scale: 1.03, x: 6 }}
-                      transition={{ type: "spring", stiffness: 400 }}
-                    >
-                      <Card className="glass-card p-4 hover:border-accent/50 transition-colors cursor-pointer group">
-                        <div className="flex items-center gap-3">
-                          <div className="p-2 rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 group-hover:from-primary/40 group-hover:to-accent/30 transition-colors">
-                            <service.icon className="h-5 w-5 text-accent" />
-                          </div>
-                          <p className="font-semibold text-sm text-foreground">{service.label}</p>
-                        </div>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
+              ))}
+            </motion.div>
           </div>
+
+          {/* Portrait */}
+          <motion.div variants={item} className="flex justify-center">
+            <motion.div
+              className="relative"
+              animate={reduceMotion ? undefined : { y: [0, -14, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div
+                aria-hidden
+                className="absolute -inset-6 rounded-[2.5rem] blur-2xl"
+                style={{ background: "linear-gradient(135deg, rgba(91,140,255,0.35), rgba(168,85,247,0.28))" }}
+              />
+              <div className="glass-card relative overflow-hidden rounded-[2rem] p-3">
+                <img
+                  src={profilePhoto}
+                  alt="Portrait of Ambati Mohan Krishna, Data Analyst and AI Developer"
+                  width={420}
+                  height={520}
+                  loading="eager"
+                  decoding="async"
+                  className="h-[22rem] w-[18rem] rounded-[1.5rem] object-cover sm:h-[26rem] sm:w-[21rem]"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.a
+          href="#about"
+          variants={item}
+          aria-label="Scroll to about section"
+          className="mx-auto mt-16 flex w-fit flex-col items-center gap-2 text-xs uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-primary"
+        >
+          <MousePointer2 className="h-4 w-4" aria-hidden />
+          <span>Scroll</span>
+          <motion.span
+            aria-hidden
+            className="h-8 w-px bg-gradient-to-b from-primary to-transparent"
+            animate={reduceMotion ? undefined : { opacity: [0.3, 1, 0.3], scaleY: [0.7, 1, 0.7] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </motion.a>
       </motion.div>
     </section>
   );

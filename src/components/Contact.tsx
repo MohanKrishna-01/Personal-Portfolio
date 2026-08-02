@@ -117,12 +117,12 @@ const Contact = () => {
             <div
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
               style={{
-                background: "rgba(0,255,163,0.08)",
-                border: "1px solid rgba(0,255,163,0.25)",
+                background: "rgba(91,140,255,0.08)",
+                border: "1px solid rgba(91,140,255,0.25)",
               }}
             >
-              <Send className="h-3.5 w-3.5" style={{ color: "#00FFA3" }} />
-              <span className="text-xs font-medium" style={{ color: "#00FFA3" }}>
+              <Send className="h-3.5 w-3.5" style={{ color: "#5B8CFF" }} />
+              <span className="text-xs font-medium" style={{ color: "#5B8CFF" }}>
                 Let's Collaborate
               </span>
             </div>
@@ -266,8 +266,8 @@ const Contact = () => {
                             <FormControl>
                               <Input
                                 placeholder="John Doe"
-                                className="border focus:border-[#00FFA3] focus-visible:ring-[#00FFA3]/30 transition-colors"
-                                style={{ background: "#121826", borderColor: "#1F2937" }}
+                                className="border focus:border-[#5B8CFF] focus-visible:ring-[#5B8CFF]/30 transition-colors"
+                                style={{ background: "#0B1120", borderColor: "#1B2537" }}
                                 {...field}
                               />
                             </FormControl>
@@ -286,8 +286,8 @@ const Contact = () => {
                               <Input
                                 type="email"
                                 placeholder="john@example.com"
-                                className="border focus:border-[#00FFA3] focus-visible:ring-[#00FFA3]/30 transition-colors"
-                                style={{ background: "#121826", borderColor: "#1F2937" }}
+                                className="border focus:border-[#5B8CFF] focus-visible:ring-[#5B8CFF]/30 transition-colors"
+                                style={{ background: "#0B1120", borderColor: "#1B2537" }}
                                 {...field}
                               />
                             </FormControl>
@@ -306,8 +306,8 @@ const Contact = () => {
                           <FormControl>
                             <Input
                               placeholder="Project Collaboration"
-                              className="border focus:border-[#00FFA3] focus-visible:ring-[#00FFA3]/30 transition-colors"
-                              style={{ background: "#121826", borderColor: "#1F2937" }}
+                              className="border focus:border-[#5B8CFF] focus-visible:ring-[#5B8CFF]/30 transition-colors"
+                              style={{ background: "#0B1120", borderColor: "#1B2537" }}
                               {...field}
                             />
                           </FormControl>
@@ -326,8 +326,8 @@ const Contact = () => {
                             <Textarea
                               rows={6}
                               placeholder="Tell me about your project or inquiry..."
-                              className="border focus:border-[#00FFA3] focus-visible:ring-[#00FFA3]/30 transition-colors resize-none"
-                              style={{ background: "#121826", borderColor: "#1F2937" }}
+                              className="border focus:border-[#5B8CFF] focus-visible:ring-[#5B8CFF]/30 transition-colors resize-none"
+                              style={{ background: "#0B1120", borderColor: "#1B2537" }}
                               {...field}
                             />
                           </FormControl>
@@ -338,8 +338,8 @@ const Contact = () => {
 
                     <Button
                       type="submit"
-                      className="w-full bg-[#00FFA3] hover:bg-[#00FFA3] text-[#0B0F19] font-semibold rounded-md hover:scale-[1.02] transition-all group"
-                      style={{ boxShadow: "0 0 0 1px rgba(0,255,163,0.55), 0 0 28px rgba(0,255,163,0.45)" }}
+                      className="w-full bg-[#5B8CFF] hover:bg-[#5B8CFF] text-[#050816] font-semibold rounded-md hover:scale-[1.02] transition-all group"
+                      style={{ boxShadow: "0 0 0 1px rgba(91,140,255,0.55), 0 0 28px rgba(91,140,255,0.45)" }}
                       disabled={form.formState.isSubmitting}
                     >
                       <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
