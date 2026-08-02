@@ -55,6 +55,49 @@ const About = () => {
         </motion.div>
         
         <div className="max-w-6xl mx-auto">
+          {/* Information cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            {[
+              { label: "CGPA", value: "7.78" },
+              { label: "Degree", value: "B.Tech CSE (Data Science)" },
+              { label: "College", value: "Dadi Institute of Engineering & Technology" },
+              { label: "Location", value: "India" },
+            ].map((info, index) => (
+              <motion.div
+                key={info.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: index * 0.07 }}
+                viewport={{ once: true }}
+              >
+                <div className="glass-card card-glow-hover h-full p-5">
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{info.label}</p>
+                  <p className="mt-2 text-sm font-semibold leading-snug text-foreground">{info.value}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Journey path */}
+          <div className="mb-12 flex flex-wrap items-center justify-center gap-2">
+            {[
+              "2022 · Started B.Tech",
+              "Python & SQL",
+              "Power BI",
+              "Machine Learning",
+              "AI Food Calorie Prediction",
+              "Data Analytics Projects",
+              "Open to Opportunities",
+            ].map((step, index, arr) => (
+              <div key={step} className="flex items-center gap-2">
+                <span className="rounded-full border border-border bg-card/60 px-4 py-2 text-xs font-medium text-foreground">
+                  {step}
+                </span>
+                {index < arr.length - 1 && <span aria-hidden className="h-px w-4 bg-primary/50" />}
+              </div>
+            ))}
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
             {/* Bio Card */}
             <motion.div
