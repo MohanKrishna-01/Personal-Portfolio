@@ -211,7 +211,7 @@ All colors MUST be HSL.
   
   .gradient-text {
     display: inline-block;
-    background: linear-gradient(90deg, hsl(213 27% 93%) 0%, hsl(156 100% 50%) 100%);
+    background: linear-gradient(100deg, hsl(213 30% 97%) 0%, hsl(223 100% 74%) 55%, hsl(275 90% 74%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -262,19 +262,21 @@ All colors MUST be HSL.
   }
 
   .glass-card {
-    @apply bg-card border border-border;
+    background: linear-gradient(160deg, hsl(222 48% 10% / 0.85), hsl(230 62% 6% / 0.75));
+    @apply border border-border;
+    border-radius: 1.5rem;
     box-shadow:
-      0 8px 32px hsl(222 50% 2% / 0.55),
-      inset 0 1px 0 hsl(0 0% 100% / 0.05);
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+      0 8px 32px hsl(230 62% 2% / 0.6),
+      inset 0 1px 0 hsl(0 0% 100% / 0.06);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
   }
 
   .glass-card:hover {
     border-color: hsl(var(--primary) / 0.45);
     box-shadow:
-      0 12px 40px hsl(222 50% 2% / 0.6),
-      0 0 24px hsl(var(--primary) / 0.18),
+      0 16px 48px hsl(230 62% 2% / 0.65),
+      0 0 28px hsl(var(--primary) / 0.22),
       inset 0 1px 0 hsl(0 0% 100% / 0.06);
   }
 
@@ -320,8 +322,8 @@ All colors MUST be HSL.
     width: 56px;
     height: 2px;
     border-radius: 2px;
-    background: linear-gradient(90deg, transparent, hsl(156 100% 50%), transparent);
-    box-shadow: 0 0 12px hsl(156 100% 50% / 0.55);
+    background: linear-gradient(90deg, transparent, hsl(223 100% 68%), hsl(275 90% 66%), transparent);
+    box-shadow: 0 0 12px hsl(223 100% 68% / 0.55);
   }
 
   /* Premium card hover glow (mint) */
@@ -329,12 +331,12 @@ All colors MUST be HSL.
     transition: var(--transition-smooth);
   }
   .card-glow-hover:hover {
-    border-color: hsl(156 100% 50% / 0.45) !important;
+    border-color: hsl(223 100% 68% / 0.45) !important;
     box-shadow:
-      0 0 0 1px hsl(156 100% 50% / 0.25),
-      0 12px 36px hsl(222 50% 2% / 0.55),
-      0 0 28px hsl(156 100% 50% / 0.18);
-    transform: translateY(-2px);
+      0 0 0 1px hsl(223 100% 68% / 0.25),
+      0 14px 40px hsl(230 62% 2% / 0.6),
+      0 0 30px hsl(275 90% 66% / 0.18);
+    transform: translateY(-3px);
   }
 
   .typing-cursor::after {
